@@ -15,6 +15,7 @@
 		61BA083D2AC7D98C0086E3C8 /* RetroSnapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BA083C2AC7D98C0086E3C8 /* RetroSnapUITests.swift */; };
 		61BA083F2AC7D98C0086E3C8 /* RetroSnapUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BA083E2AC7D98C0086E3C8 /* RetroSnapUITestsLaunchTests.swift */; };
 		61BA084C2AC7E1130086E3C8 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BA084B2AC7E1130086E3C8 /* CameraView.swift */; };
+		61BA084E2AC7EA5D0086E3C8 /* Image+extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BA084D2AC7EA5D0086E3C8 /* Image+extention.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		61BA083C2AC7D98C0086E3C8 /* RetroSnapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetroSnapUITests.swift; sourceTree = "<group>"; };
 		61BA083E2AC7D98C0086E3C8 /* RetroSnapUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetroSnapUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		61BA084B2AC7E1130086E3C8 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		61BA084D2AC7EA5D0086E3C8 /* Image+extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+extention.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 				61BA084B2AC7E1130086E3C8 /* CameraView.swift */,
 				61BA08252AC7D98C0086E3C8 /* Assets.xcassets */,
 				61BA08272AC7D98C0086E3C8 /* Preview Content */,
+				61BA084D2AC7EA5D0086E3C8 /* Image+extention.swift */,
 			);
 			path = RetroSnap;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61BA084E2AC7EA5D0086E3C8 /* Image+extention.swift in Sources */,
 				61BA08242AC7D98B0086E3C8 /* ContentView.swift in Sources */,
 				61BA08222AC7D98B0086E3C8 /* RetroSnapApp.swift in Sources */,
 				61BA084C2AC7E1130086E3C8 /* CameraView.swift in Sources */,
@@ -430,6 +434,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "カメラを使用して写真を撮影します。";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "このアプリでは撮影した写真を保存するために写真ライブラリへのアクセスが必要です。";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -460,6 +465,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "カメラを使用して写真を撮影します。";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "このアプリでは撮影した写真を保存するために写真ライブラリへのアクセスが必要です。";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
