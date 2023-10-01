@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import CoreImage
+import AVFoundation
 
 extension UIImage {
     func sepiaTone(intensity: Float = 0.8) -> UIImage? {
@@ -23,4 +24,25 @@ extension UIImage {
         }
         return nil
     }
+
+    func orientedImage(for deviceOrientation: UIDeviceOrientation) -> UIImage? {
+
+        var orientation: UIImage.Orientation = .up
+        switch deviceOrientation {
+        case .portrait:
+            orientation = .right
+        case .portraitUpsideDown:
+            orientation = .down
+        case .landscapeLeft:
+            orientation = .right
+        case .landscapeRight:
+            orientation = .left
+        default:
+            break
+        }
+        print("deviceOrientation:\(deviceOrientation)")
+        print("orientation:\(orientation)")
+        return UIImage(cgImage: self.cgImage!, scale: 1.0, orientation: orientation)
+    }
+
 }

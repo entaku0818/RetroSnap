@@ -3,19 +3,45 @@
 import SwiftUI
 import UIKit
 import AVFoundation
+import Photos
 
-import UIKit
-import AVFoundation
 
 class CameraViewController: UIViewController {
 
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
     var cameraOutput: AVCapturePhotoOutput!
+    var capturedImageView: UIImageView!
+    var closeButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupCameraSession()
+
+        // 画像を表示するUIImageViewを作成
+        capturedImageView = UIImageView(frame: view.bounds)
+        capturedImageView.contentMode = .scaleToFill
+        capturedImageView.isHidden = true
+        view.addSubview(capturedImageView)
+
+        // 閉じるボタンを追加
+        closeButton = UIButton(frame: CGRect(x: view.bounds.width - 50, y: 20, width: 30, height: 30))
+        closeButton.setTitle("✖️", for: .normal)
+        closeButton.addTarget(self, action: #selector(hideCapturedImage), for: .touchUpInside)
+        closeButton.isHidden = true
+        view.addSubview(closeButton)
+
+        setupCaptureButton()
+    }
+
+    @objc func hideCapturedImage() {
+        capturedImageView.isHidden = true
+        closeButton.isHidden = true
+        previewLayer.isHidden = false
+    }
+
+    func setupCameraSession() {
         view.backgroundColor = .black
         captureSession = AVCaptureSession()
 
@@ -46,8 +72,9 @@ class CameraViewController: UIViewController {
         } catch {
             print("Error accessing the camera: \(error)")
         }
+    }
 
-        // Add a capture button
+    func setupCaptureButton() {
         let captureButton = UIButton(frame: CGRect(x: 0, y: 0, width: 70, height: 70))
         captureButton.backgroundColor = .white
         captureButton.layer.cornerRadius = 35
@@ -66,17 +93,61 @@ class CameraViewController: UIViewController {
         captureSession.stopRunning()
     }
 
-    //... Other UIViewController methods ...
+    func checkPhotoLibraryPermission() {
+        let status = PHPhotoLibrary.authorizationStatus()
+        switch status {
+        case .authorized:
+            // you have permission, you can proceed
+            break
+        case .denied, .restricted:
+            // you don't have permission
+            break
+        case .notDetermined:
+            // you didn't ask for permission yet, ask for it
+            PHPhotoLibrary.requestAuthorization { status in
+                switch status {
+                case .authorized:
+                    // user granted permission
+                    break
+                default:
+                    // user denied permission
+                    break
+                }
+            }
+        case .limited:
+            break
+        @unknown default:
+            break
+        }
+    }
+
 }
 
 extension CameraViewController: AVCapturePhotoCaptureDelegate {
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
-        guard let data = photo.fileDataRepresentation(), let image = UIImage(data: data)?.sepiaTone() else {
+        guard let data = photo.fileDataRepresentation(), let image = UIImage(data: data) else {
             return
         }
 
-        // Do something with the image (e.g., save to photo library, etc.)
+        capturedImageView.image = image.sepiaTone()?.orientedImage(for: UIDevice.current.orientation)
+        capturedImageView.isHidden = false
+
+        closeButton.isHidden = false
+        previewLayer.isHidden = true
+        checkPhotoLibraryPermission()
         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+
+        showSavedMessage()
+    }
+
+    func showSavedMessage() {
+        let alert = UIAlertController(title: nil, message: "保存されました", preferredStyle: .alert)
+        present(alert, animated: true, completion: nil)
+
+        // 2秒後にアラートを自動的に閉じる
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            alert.dismiss(animated: true, completion: nil)
+        }
     }
 }
 
@@ -91,3 +162,5 @@ struct CameraView: UIViewControllerRepresentable {
         // 何もすることはありません
     }
 }
+
+
