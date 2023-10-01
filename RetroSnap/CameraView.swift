@@ -26,8 +26,11 @@ class CameraViewController: UIViewController {
         view.addSubview(capturedImageView)
 
         // 閉じるボタンを追加
-        closeButton = UIButton(frame: CGRect(x: view.bounds.width - 50, y: 20, width: 30, height: 30))
-        closeButton.setTitle("✖️", for: .normal)
+        closeButton = UIButton(frame: CGRect(x: view.bounds.width - 50, y: 20, width: 45, height: 45))
+        if let closeImage = UIImage(systemName: "xmark") {
+            closeButton.setImage(closeImage, for: .normal)
+            closeButton.tintColor = .white
+        }
         closeButton.addTarget(self, action: #selector(hideCapturedImage), for: .touchUpInside)
         closeButton.isHidden = true
         view.addSubview(closeButton)
