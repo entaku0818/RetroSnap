@@ -60,18 +60,21 @@ struct PhotosView: View {
     var body: some View {
         WithViewStore(self.store, observe: { $0 }) { viewStore in
             NavigationStack {
-                ScrollView {
-                    LazyVGrid(columns: columns, spacing: 20) {
-                        ForEach(viewStore.photos) { photo in
-                            PhotoRowView(photo: photo)
-                                .onTapGesture {
-                                    NavigationLink(destination: PhotoDetailView(photo: photo)) {
-                                        PhotoRowView(photo: photo)
+                VStack{
+                    ScrollView {
+                        LazyVGrid(columns: columns, spacing: 20) {
+                            ForEach(viewStore.photos) { photo in
+                                PhotoRowView(photo: photo)
+                                    .onTapGesture {
+                                        NavigationLink(destination: PhotoDetailView(photo: photo)) {
+                                            PhotoRowView(photo: photo)
+                                        }
                                     }
-                                }
+                            }
                         }
+                        .padding() // グリッドのパディングを調整
                     }
-                    .padding() // グリッドのパディングを調整
+                    AdmobBannerView().frame(width: .infinity, height: 50)
                 }
                 .navigationTitle("Photos")
                 .navigationBarItems(

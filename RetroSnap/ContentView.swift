@@ -7,6 +7,9 @@
 
 import SwiftUI
 
+import GoogleMobileAds
+
+
 
 struct ContentView: View {
     @State private var selectedImage: Image? = nil

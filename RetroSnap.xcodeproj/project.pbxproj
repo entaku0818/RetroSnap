@@ -12,6 +12,8 @@
 		61965AB62AD2608400A91BA7 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 61965AB52AD2608400A91BA7 /* ComposableArchitecture */; };
 		61965AB82AD2614F00A91BA7 /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61965AB72AD2614F00A91BA7 /* Photos.swift */; };
 		61965ABA2AD2618800A91BA7 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61965AB92AD2618800A91BA7 /* Photo.swift */; };
+		61965ABC2AD2703200A91BA7 /* AdmobBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61965ABB2AD2703200A91BA7 /* AdmobBannerView.swift */; };
+		61965ABF2AD270AD00A91BA7 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 61965ABE2AD270AD00A91BA7 /* GoogleMobileAds */; };
 		61BA08222AC7D98B0086E3C8 /* RetroSnapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BA08212AC7D98B0086E3C8 /* RetroSnapApp.swift */; };
 		61BA08242AC7D98B0086E3C8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BA08232AC7D98B0086E3C8 /* ContentView.swift */; };
 		61BA08262AC7D98C0086E3C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61BA08252AC7D98C0086E3C8 /* Assets.xcassets */; };
@@ -45,6 +47,7 @@
 		61965AB22AD2516B00A91BA7 /* PhotoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoRepository.swift; sourceTree = "<group>"; };
 		61965AB72AD2614F00A91BA7 /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
 		61965AB92AD2618800A91BA7 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		61965ABB2AD2703200A91BA7 /* AdmobBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmobBannerView.swift; sourceTree = "<group>"; };
 		61BA081E2AC7D98B0086E3C8 /* RetroSnap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RetroSnap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61BA08212AC7D98B0086E3C8 /* RetroSnapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetroSnapApp.swift; sourceTree = "<group>"; };
 		61BA08232AC7D98B0086E3C8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -64,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61965ABF2AD270AD00A91BA7 /* GoogleMobileAds in Frameworks */,
 				61965AB62AD2608400A91BA7 /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -126,6 +130,7 @@
 				61BA08252AC7D98C0086E3C8 /* Assets.xcassets */,
 				61BA08272AC7D98C0086E3C8 /* Preview Content */,
 				61BA084D2AC7EA5D0086E3C8 /* Image+extention.swift */,
+				61965ABB2AD2703200A91BA7 /* AdmobBannerView.swift */,
 			);
 			path = RetroSnap;
 			sourceTree = "<group>";
@@ -173,6 +178,7 @@
 			name = RetroSnap;
 			packageProductDependencies = (
 				61965AB52AD2608400A91BA7 /* ComposableArchitecture */,
+				61965ABE2AD270AD00A91BA7 /* GoogleMobileAds */,
 			);
 			productName = RetroSnap;
 			productReference = 61BA081E2AC7D98B0086E3C8 /* RetroSnap.app */;
@@ -248,6 +254,7 @@
 			mainGroup = 61BA08152AC7D98B0086E3C8;
 			packageReferences = (
 				61965AB42AD2608400A91BA7 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				61965ABD2AD270AD00A91BA7 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
 			);
 			productRefGroup = 61BA081F2AC7D98B0086E3C8 /* Products */;
 			projectDirPath = "";
@@ -296,6 +303,7 @@
 				61BA08242AC7D98B0086E3C8 /* ContentView.swift in Sources */,
 				61BA08222AC7D98B0086E3C8 /* RetroSnapApp.swift in Sources */,
 				61965AB12AD24B5A00A91BA7 /* Photo.xcdatamodeld in Sources */,
+				61965ABC2AD2703200A91BA7 /* AdmobBannerView.swift in Sources */,
 				61965AB32AD2516B00A91BA7 /* PhotoRepository.swift in Sources */,
 				61BA084C2AC7E1130086E3C8 /* CameraView.swift in Sources */,
 				61965AB82AD2614F00A91BA7 /* Photos.swift in Sources */,
@@ -392,6 +400,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -448,6 +457,7 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
@@ -465,6 +475,8 @@
 				DEVELOPMENT_TEAM = 4YZQY4C47E;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RetroSnap/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "カメラを使用して写真を撮影します。";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "カメラを使用して写真を撮影した結果をアルバムへ保存します。";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "カメラを使用して写真を撮影した結果をアルバムへ保存します。";
@@ -497,6 +509,8 @@
 				DEVELOPMENT_TEAM = 4YZQY4C47E;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RetroSnap/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "カメラを使用して写真を撮影します。";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "カメラを使用して写真を撮影した結果をアルバムへ保存します。";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "カメラを使用して写真を撮影した結果をアルバムへ保存します。";
@@ -644,6 +658,14 @@
 				minimumVersion = 1.2.0;
 			};
 		};
+		61965ABD2AD270AD00A91BA7 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.12.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -651,6 +673,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 61965AB42AD2608400A91BA7 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = ComposableArchitecture;
+		};
+		61965ABE2AD270AD00A91BA7 /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 61965ABD2AD270AD00A91BA7 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
 		};
 /* End XCSwiftPackageProductDependency section */
 
