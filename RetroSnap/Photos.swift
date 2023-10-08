@@ -65,7 +65,9 @@ struct PhotosView: View {
                         ForEach(viewStore.photos) { photo in
                             PhotoRowView(photo: photo)
                                 .onTapGesture {
-                                    viewStore.send(.photoTapped(id: photo.id))
+                                    NavigationLink(destination: PhotoDetailView(photo: photo)) {
+                                        PhotoRowView(photo: photo)
+                                    }
                                 }
                         }
                     }

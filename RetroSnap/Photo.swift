@@ -6,41 +6,21 @@
 //
 
 import Foundation
-import ComposableArchitecture
 import SwiftUI
 
-struct Todo: Reducer {
-  struct State: Equatable, Identifiable {
-    @BindingState var description = ""
-    let id: UUID
-    @BindingState var isComplete = false
-  }
+struct PhotoDetailView: View {
+    let photo: Photos.Photo
 
-  enum Action: BindableAction, Equatable, Sendable {
-    case binding(BindingAction<State>)
-  }
-
-  var body: some Reducer<State, Action> {
-    BindingReducer()
-  }
-}
-
-struct TodoView: View {
-  let store: StoreOf<Todo>
-
-  var body: some View {
-    WithViewStore(self.store, observe: { $0 }) { viewStore in
-      HStack {
-        Button {
-          viewStore.$isComplete.wrappedValue.toggle()
-        } label: {
-          Image(systemName: viewStore.isComplete ? "checkmark.square" : "square")
+    var body: some View {
+        VStack {
+            AsyncImage(url: photo.imageURL) { image in
+                image.resizable()
+                     .aspectRatio(contentMode: .fit)
+            } placeholder: {
+                ProgressView()
+            }
+            Spacer()
         }
-        .buttonStyle(.plain)
-
-        TextField("Untitled Todo", text: viewStore.$description)
-      }
-      .foregroundColor(viewStore.isComplete ? .gray : nil)
+        .navigationBarTitle(photo.name, displayMode: .inline)
     }
-  }
 }
