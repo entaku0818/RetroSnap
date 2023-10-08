@@ -4,6 +4,7 @@ import SwiftUI
 import UIKit
 import AVFoundation
 import Photos
+import ComposableArchitecture
 
 
 class CameraViewController: UIViewController {
@@ -13,6 +14,8 @@ class CameraViewController: UIViewController {
     var cameraOutput: AVCapturePhotoOutput!
     var capturedImageView: UIImageView!
     var closeButton: UIButton!
+    var goToPhotosButton: UIButton!
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +39,27 @@ class CameraViewController: UIViewController {
         view.addSubview(closeButton)
 
         setupCaptureButton()
+        setupGoToPhotosButton()
+    }
+
+    func setupGoToPhotosButton() {
+        goToPhotosButton = UIButton(frame: CGRect(x: view.bounds.width - 60, y: 20, width: 45, height: 45))
+        goToPhotosButton.backgroundColor = .white
+        goToPhotosButton.tintColor = .black
+        goToPhotosButton.layer.cornerRadius = 5
+        if let photoImage = UIImage(systemName: "photo") { // This is just one of many symbols available
+            goToPhotosButton.setImage(photoImage, for: .normal)
+        }
+        goToPhotosButton.addTarget(self, action: #selector(openPhotosView), for: .touchUpInside)
+        view.addSubview(goToPhotosButton)
+    }
+
+    @objc func openPhotosView() {
+        let photosView = PhotosView(store: Store(initialState: Photos.State(photos: IdentifiedArrayOf(uniqueElements: Photos.Photo.mock))) {
+            Photos()
+        })
+        let hostVC = UIHostingController(rootView: photosView)
+        self.present(hostVC, animated: true)
     }
 
     @objc func hideCapturedImage() {
@@ -188,3 +212,8 @@ struct CameraView: UIViewControllerRepresentable {
 }
 
 
+struct CameraView_Previews: PreviewProvider {
+    static var previews: some View {
+        CameraView()
+    }
+}
