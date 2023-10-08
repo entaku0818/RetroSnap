@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		61965AB12AD24B5A00A91BA7 /* Photo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 61965AAF2AD24B5A00A91BA7 /* Photo.xcdatamodeld */; };
 		61965AB32AD2516B00A91BA7 /* PhotoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61965AB22AD2516B00A91BA7 /* PhotoRepository.swift */; };
+		61965AB62AD2608400A91BA7 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 61965AB52AD2608400A91BA7 /* ComposableArchitecture */; };
+		61965AB82AD2614F00A91BA7 /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61965AB72AD2614F00A91BA7 /* Photos.swift */; };
+		61965ABA2AD2618800A91BA7 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61965AB92AD2618800A91BA7 /* Photo.swift */; };
 		61BA08222AC7D98B0086E3C8 /* RetroSnapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BA08212AC7D98B0086E3C8 /* RetroSnapApp.swift */; };
 		61BA08242AC7D98B0086E3C8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BA08232AC7D98B0086E3C8 /* ContentView.swift */; };
 		61BA08262AC7D98C0086E3C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61BA08252AC7D98C0086E3C8 /* Assets.xcassets */; };
@@ -40,6 +43,8 @@
 /* Begin PBXFileReference section */
 		61965AB02AD24B5A00A91BA7 /* Photo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Photo.xcdatamodel; sourceTree = "<group>"; };
 		61965AB22AD2516B00A91BA7 /* PhotoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoRepository.swift; sourceTree = "<group>"; };
+		61965AB72AD2614F00A91BA7 /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
+		61965AB92AD2618800A91BA7 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		61BA081E2AC7D98B0086E3C8 /* RetroSnap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RetroSnap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61BA08212AC7D98B0086E3C8 /* RetroSnapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetroSnapApp.swift; sourceTree = "<group>"; };
 		61BA08232AC7D98B0086E3C8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -59,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61965AB62AD2608400A91BA7 /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,6 +121,8 @@
 				61BA08212AC7D98B0086E3C8 /* RetroSnapApp.swift */,
 				61BA08232AC7D98B0086E3C8 /* ContentView.swift */,
 				61BA084B2AC7E1130086E3C8 /* CameraView.swift */,
+				61965AB72AD2614F00A91BA7 /* Photos.swift */,
+				61965AB92AD2618800A91BA7 /* Photo.swift */,
 				61BA08252AC7D98C0086E3C8 /* Assets.xcassets */,
 				61BA08272AC7D98C0086E3C8 /* Preview Content */,
 				61BA084D2AC7EA5D0086E3C8 /* Image+extention.swift */,
@@ -163,6 +171,9 @@
 			dependencies = (
 			);
 			name = RetroSnap;
+			packageProductDependencies = (
+				61965AB52AD2608400A91BA7 /* ComposableArchitecture */,
+			);
 			productName = RetroSnap;
 			productReference = 61BA081E2AC7D98B0086E3C8 /* RetroSnap.app */;
 			productType = "com.apple.product-type.application";
@@ -235,6 +246,9 @@
 				Base,
 			);
 			mainGroup = 61BA08152AC7D98B0086E3C8;
+			packageReferences = (
+				61965AB42AD2608400A91BA7 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+			);
 			productRefGroup = 61BA081F2AC7D98B0086E3C8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -277,12 +291,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61965ABA2AD2618800A91BA7 /* Photo.swift in Sources */,
 				61BA084E2AC7EA5D0086E3C8 /* Image+extention.swift in Sources */,
 				61BA08242AC7D98B0086E3C8 /* ContentView.swift in Sources */,
 				61BA08222AC7D98B0086E3C8 /* RetroSnapApp.swift in Sources */,
 				61965AB12AD24B5A00A91BA7 /* Photo.xcdatamodeld in Sources */,
 				61965AB32AD2516B00A91BA7 /* PhotoRepository.swift in Sources */,
 				61BA084C2AC7E1130086E3C8 /* CameraView.swift in Sources */,
+				61965AB82AD2614F00A91BA7 /* Photos.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -618,6 +634,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		61965AB42AD2608400A91BA7 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		61965AB52AD2608400A91BA7 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 61965AB42AD2608400A91BA7 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		61965AAF2AD24B5A00A91BA7 /* Photo.xcdatamodeld */ = {

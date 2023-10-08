@@ -64,4 +64,16 @@ class PhotoRepository: NSObject {
             }
         }
     }
+
+    func fetchAllPhotos() -> [Photo] {
+        let fetchRequest: NSFetchRequest<Photo> = Photo.fetchRequest()
+
+        do {
+            let photos = try managedContext.fetch(fetchRequest)
+            return photos
+        } catch let error {
+            print(error.localizedDescription)
+            return []
+        }
+    }
 }
