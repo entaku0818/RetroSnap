@@ -96,6 +96,25 @@ class CameraViewController: UIViewController {
         captureSession.stopRunning()
     }
 
+    // FileSystem上に保存する
+    func saveImageToFileSystem(image: UIImage) -> URL? {
+        let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let fileName = UUID().uuidString + ".png"
+        let fileURL = directory.appendingPathComponent(fileName)
+
+        do {
+            if let data = image.pngData() {
+                try data.write(to: fileURL)
+                return fileURL
+            }
+        } catch {
+            print("Failed to save image to file system: \(error)")
+        }
+
+        return nil
+    }
+
+
     func checkPhotoLibraryPermission() {
         let status = PHPhotoLibrary.authorizationStatus()
         switch status {
@@ -128,7 +147,7 @@ class CameraViewController: UIViewController {
 
 extension CameraViewController: AVCapturePhotoCaptureDelegate {
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
-        guard let data = photo.fileDataRepresentation(), let image = UIImage(data: data) else {
+        guard let data = photo.fileDataRepresentation(), let image = UIImage(data: data),let path = saveImageToFileSystem(image: image) else {
             return
         }
 
@@ -139,6 +158,8 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate {
         previewLayer.isHidden = true
         checkPhotoLibraryPermission()
         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+
+        PhotoRepository.shared.insert(name: "", path: path)
 
         showSavedMessage()
     }

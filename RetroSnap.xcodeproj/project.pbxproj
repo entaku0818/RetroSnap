@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		61965AB12AD24B5A00A91BA7 /* Photo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 61965AAF2AD24B5A00A91BA7 /* Photo.xcdatamodeld */; };
+		61965AB32AD2516B00A91BA7 /* PhotoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61965AB22AD2516B00A91BA7 /* PhotoRepository.swift */; };
 		61BA08222AC7D98B0086E3C8 /* RetroSnapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BA08212AC7D98B0086E3C8 /* RetroSnapApp.swift */; };
 		61BA08242AC7D98B0086E3C8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BA08232AC7D98B0086E3C8 /* ContentView.swift */; };
 		61BA08262AC7D98C0086E3C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61BA08252AC7D98C0086E3C8 /* Assets.xcassets */; };
@@ -36,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		61965AB02AD24B5A00A91BA7 /* Photo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Photo.xcdatamodel; sourceTree = "<group>"; };
+		61965AB22AD2516B00A91BA7 /* PhotoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoRepository.swift; sourceTree = "<group>"; };
 		61BA081E2AC7D98B0086E3C8 /* RetroSnap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RetroSnap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61BA08212AC7D98B0086E3C8 /* RetroSnapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetroSnapApp.swift; sourceTree = "<group>"; };
 		61BA08232AC7D98B0086E3C8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -75,6 +79,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		61965AAE2AD24B2500A91BA7 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				61965AAF2AD24B5A00A91BA7 /* Photo.xcdatamodeld */,
+				61965AB22AD2516B00A91BA7 /* PhotoRepository.swift */,
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
 		61BA08152AC7D98B0086E3C8 = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +111,7 @@
 		61BA08202AC7D98B0086E3C8 /* RetroSnap */ = {
 			isa = PBXGroup;
 			children = (
+				61965AAE2AD24B2500A91BA7 /* data */,
 				61BA08212AC7D98B0086E3C8 /* RetroSnapApp.swift */,
 				61BA08232AC7D98B0086E3C8 /* ContentView.swift */,
 				61BA084B2AC7E1130086E3C8 /* CameraView.swift */,
@@ -266,6 +280,8 @@
 				61BA084E2AC7EA5D0086E3C8 /* Image+extention.swift in Sources */,
 				61BA08242AC7D98B0086E3C8 /* ContentView.swift in Sources */,
 				61BA08222AC7D98B0086E3C8 /* RetroSnapApp.swift in Sources */,
+				61965AB12AD24B5A00A91BA7 /* Photo.xcdatamodeld in Sources */,
+				61965AB32AD2516B00A91BA7 /* PhotoRepository.swift in Sources */,
 				61BA084C2AC7E1130086E3C8 /* CameraView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -602,6 +618,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		61965AAF2AD24B5A00A91BA7 /* Photo.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				61965AB02AD24B5A00A91BA7 /* Photo.xcdatamodel */,
+			);
+			currentVersion = 61965AB02AD24B5A00A91BA7 /* Photo.xcdatamodel */;
+			path = Photo.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 61BA08162AC7D98B0086E3C8 /* Project object */;
 }
