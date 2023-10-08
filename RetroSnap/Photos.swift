@@ -50,17 +50,27 @@ struct Photos: Reducer {
 struct PhotosView: View {
     let store: StoreOf<Photos>
 
+    init(store: StoreOf<Photos>) {
+        self.store = store
+    }
+
+    // 3つの列のレイアウトを定義
+    private var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 3)
+
     var body: some View {
         WithViewStore(self.store, observe: { $0 }) { viewStore in
             NavigationStack {
-                List {
-                     ForEach(viewStore.photos) { photo in
-                         PhotoRowView(photo: photo)
-                             .onTapGesture {
-                                 viewStore.send(.photoTapped(id: photo.id))
-                             }
-                     }
-                 }
+                ScrollView {
+                    LazyVGrid(columns: columns, spacing: 20) {
+                        ForEach(viewStore.photos) { photo in
+                            PhotoRowView(photo: photo)
+                                .onTapGesture {
+                                    viewStore.send(.photoTapped(id: photo.id))
+                                }
+                        }
+                    }
+                    .padding() // グリッドのパディングを調整
+                }
                 .navigationTitle("Photos")
                 .navigationBarItems(
                     trailing: Button("Add Photo") {
@@ -77,8 +87,14 @@ struct PhotoRowView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            Text(photo.name)
-            AsyncImage(url: photo.imageURL)
+            AsyncImage(url: photo.imageURL) { image in
+                image.resizable()
+                     .aspectRatio(contentMode: .fill)
+            } placeholder: {
+                // ここには、画像がロードされるまでのプレースホルダを配置できます
+                ProgressView()
+            }.frame(width: 100, height: 100)
+            .clipped()
         }
         .onTapGesture {
             // ここで写真をタップしたときの処理を追加できます
@@ -89,8 +105,14 @@ struct PhotoRowView: View {
 
 extension Photos.Photo {
     static let mock: [Self] = [
-        Photos.Photo(id: UUID(), name: "Sample Photo 1", imageURL: URL(string: "https://example.com/photo1")!),
-        Photos.Photo(id: UUID(), name: "Sample Photo 2", imageURL: URL(string: "https://example.com/photo2")!)
+        Photos.Photo(id: UUID(), name: "Sample Photo 1", imageURL: URL(string: "https://pbs.twimg.com/profile_images/1598892937131458560/sgidJlol_400x400.jpg")!),
+        Photos.Photo(id: UUID(), name: "Sample Photo 1", imageURL: URL(string: "https://pbs.twimg.com/profile_images/1598892937131458560/sgidJlol_400x400.jpg")!),
+        Photos.Photo(id: UUID(), name: "Sample Photo 1", imageURL: URL(string: "https://pbs.twimg.com/profile_images/1598892937131458560/sgidJlol_400x400.jpg")!),
+        Photos.Photo(id: UUID(), name: "Sample Photo 1", imageURL: URL(string: "https://pbs.twimg.com/profile_images/1598892937131458560/sgidJlol_400x400.jpg")!),
+        Photos.Photo(id: UUID(), name: "Sample Photo 1", imageURL: URL(string: "https://pbs.twimg.com/profile_images/1598892937131458560/sgidJlol_400x400.jpg")!),
+        Photos.Photo(id: UUID(), name: "Sample Photo 1", imageURL: URL(string: "https://pbs.twimg.com/profile_images/1598892937131458560/sgidJlol_400x400.jpg")!),
+        Photos.Photo(id: UUID(), name: "Sample Photo 1", imageURL: URL(string: "https://pbs.twimg.com/profile_images/1598892937131458560/sgidJlol_400x400.jpg")!),
+        Photos.Photo(id: UUID(), name: "Sample Photo 2", imageURL: URL(string: "https://pbs.twimg.com/profile_images/1598892937131458560/sgidJlol_400x400.jpg")!)
     ]
 }
 
