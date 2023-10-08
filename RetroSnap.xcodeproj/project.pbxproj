@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		61965AB12AD24B5A00A91BA7 /* Photo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 61965AAF2AD24B5A00A91BA7 /* Photo.xcdatamodeld */; };
+		61965AB12AD24B5A00A91BA7 /* PhotoData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 61965AAF2AD24B5A00A91BA7 /* PhotoData.xcdatamodeld */; };
 		61965AB32AD2516B00A91BA7 /* PhotoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61965AB22AD2516B00A91BA7 /* PhotoRepository.swift */; };
 		61965AB62AD2608400A91BA7 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 61965AB52AD2608400A91BA7 /* ComposableArchitecture */; };
 		61965AB82AD2614F00A91BA7 /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61965AB72AD2614F00A91BA7 /* Photos.swift */; };
@@ -92,7 +92,7 @@
 		61965AAE2AD24B2500A91BA7 /* data */ = {
 			isa = PBXGroup;
 			children = (
-				61965AAF2AD24B5A00A91BA7 /* Photo.xcdatamodeld */,
+				61965AAF2AD24B5A00A91BA7 /* PhotoData.xcdatamodeld */,
 				61965AB22AD2516B00A91BA7 /* PhotoRepository.swift */,
 			);
 			path = data;
@@ -302,7 +302,7 @@
 				61BA084E2AC7EA5D0086E3C8 /* Image+extention.swift in Sources */,
 				61BA08242AC7D98B0086E3C8 /* ContentView.swift in Sources */,
 				61BA08222AC7D98B0086E3C8 /* RetroSnapApp.swift in Sources */,
-				61965AB12AD24B5A00A91BA7 /* Photo.xcdatamodeld in Sources */,
+				61965AB12AD24B5A00A91BA7 /* PhotoData.xcdatamodeld in Sources */,
 				61965ABC2AD2703200A91BA7 /* AdmobBannerView.swift in Sources */,
 				61965AB32AD2516B00A91BA7 /* PhotoRepository.swift in Sources */,
 				61BA084C2AC7E1130086E3C8 /* CameraView.swift in Sources */,
@@ -682,13 +682,13 @@
 /* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
-		61965AAF2AD24B5A00A91BA7 /* Photo.xcdatamodeld */ = {
+		61965AAF2AD24B5A00A91BA7 /* PhotoData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				61965AB02AD24B5A00A91BA7 /* Photo.xcdatamodel */,
 			);
 			currentVersion = 61965AB02AD24B5A00A91BA7 /* Photo.xcdatamodel */;
-			path = Photo.xcdatamodeld;
+			path = PhotoData.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

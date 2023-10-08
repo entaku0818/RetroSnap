@@ -43,7 +43,7 @@ class CameraViewController: UIViewController {
     }
 
     func setupGoToPhotosButton() {
-        goToPhotosButton = UIButton(frame: CGRect(x: view.bounds.width - 60, y: 20, width: 45, height: 45))
+        goToPhotosButton = UIButton(frame: CGRect(x: view.bounds.width - 60, y: view.bounds.height - 140, width: 45, height: 45))
         goToPhotosButton.backgroundColor = .white
         goToPhotosButton.tintColor = .black
         goToPhotosButton.layer.cornerRadius = 5
@@ -105,7 +105,7 @@ class CameraViewController: UIViewController {
         let captureButton = UIButton(frame: CGRect(x: 0, y: 0, width: 70, height: 70))
         captureButton.backgroundColor = .white
         captureButton.layer.cornerRadius = 35
-        captureButton.center = CGPoint(x: view.center.x, y: view.bounds.maxY - 100)
+        captureButton.center = CGPoint(x: view.center.x, y: view.bounds.maxY - 120)
         captureButton.addTarget(self, action: #selector(takePhoto), for: .touchUpInside)
         view.addSubview(captureButton)
     }
@@ -127,7 +127,7 @@ class CameraViewController: UIViewController {
         let fileURL = directory.appendingPathComponent(fileName)
 
         do {
-            if let data = image.pngData() {
+            if let data = image.sepiaTone()?.pngData() {
                 try data.write(to: fileURL)
                 return fileURL
             }

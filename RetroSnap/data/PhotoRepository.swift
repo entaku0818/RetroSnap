@@ -18,7 +18,7 @@ class PhotoRepository: NSObject {
     var managedContext: NSManagedObjectContext
     var entity: NSEntityDescription?
 
-    let entityName: String = "Photo"
+    let entityName: String = "PhotoData"
 
     override init() {
 
@@ -48,7 +48,7 @@ class PhotoRepository: NSObject {
     }
 
     func insert(name:String, path: URL) {
-        if let photo = NSManagedObject(entity: self.entity!, insertInto: managedContext) as? Photo {
+        if let photo = NSManagedObject(entity: self.entity!, insertInto: managedContext) as? PhotoData {
 
             photo.id = UUID()
             photo.name = name
@@ -65,15 +65,28 @@ class PhotoRepository: NSObject {
         }
     }
 
-    func fetchAllPhotos() -> [Photo] {
-        let fetchRequest: NSFetchRequest<Photo> = Photo.fetchRequest()
+    func fetchAllPhotos() -> [Photos.Photo] {
+        let fetchRequest: NSFetchRequest<PhotoData> = PhotoData.fetchRequest()
 
         do {
-            let photos = try managedContext.fetch(fetchRequest)
-            return photos
+            let coreDataPhotos = try managedContext.fetch(fetchRequest)
+            return coreDataPhotos.compactMap { Photos.Photo(from: $0) }
         } catch let error {
             print(error.localizedDescription)
             return []
         }
+    }
+}
+
+extension Photos.Photo {
+    init?(from coreDataPhoto: PhotoData) {
+        guard let id = coreDataPhoto.id,
+              let name = coreDataPhoto.name,
+              let imageURL = coreDataPhoto.path else {
+            return nil
+        }
+        self.id = id
+        self.name = name
+        self.imageURL = imageURL
     }
 }

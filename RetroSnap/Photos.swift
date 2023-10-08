@@ -4,6 +4,7 @@ import ComposableArchitecture
 
 struct Photos: Reducer {
     struct Photo: Identifiable, Equatable {
+
         var id: UUID
         var name: String
         var imageURL: URL
@@ -20,6 +21,7 @@ struct Photos: Reducer {
     enum Action: BindableAction, Equatable, Sendable {
         case addPhotoButtonTapped
         case binding(BindingAction<State>)
+        case onAppear
         case delete(IndexSet)
         case photoTapped(id: Photo.ID)
     }
@@ -27,6 +29,14 @@ struct Photos: Reducer {
     var body: some Reducer<State, Action> {
         Reduce { state, action in
             switch action {
+            case .onAppear:
+                // ここでAPIから写真を取得するロジックを書きます。
+                // 今回はモックデータを使用しています。
+                let repositoryPhotos = PhotoRepository.shared.fetchAllPhotos()
+                
+                state.photos = IdentifiedArrayOf(uniqueElements: repositoryPhotos)
+
+                return .none
             case .addPhotoButtonTapped:
                 let newPhoto = Photo(id: UUID(), name: "New Photo", imageURL: URL(string: "https://example.com/new_photo")!)
                 state.photos.insert(newPhoto, at: 0)
@@ -77,11 +87,8 @@ struct PhotosView: View {
                     AdmobBannerView().frame(width: .infinity, height: 50)
                 }
                 .navigationTitle("Photos")
-                .navigationBarItems(
-                    trailing: Button("Add Photo") {
-                        viewStore.send(.addPhotoButtonTapped)
-                    }
-                )
+            }.onAppear {
+                viewStore.send(.onAppear)
             }
         }
     }
@@ -92,20 +99,34 @@ struct PhotoRowView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            AsyncImage(url: photo.imageURL) { image in
-                image.resizable()
-                     .aspectRatio(contentMode: .fill)
-            } placeholder: {
-                // ここには、画像がロードされるまでのプレースホルダを配置できます
+            if let imagePath = imagePathInDocuments(fileName: photo.imageURL.lastPathComponent),
+               let uiImage = UIImage(contentsOfFile: imagePath) {
+                Image(uiImage: uiImage)
+                    .resizable()
+                    .scaledToFill()
+
+            } else {
                 ProgressView()
-            }.frame(width: 100, height: 100)
-            .clipped()
-        }
+            }
+
+        }.frame(width: 100, height: 100)
+        .clipped()
+
         .onTapGesture {
             // ここで写真をタップしたときの処理を追加できます
         }
 
     }
+
+    func imagePathInDocuments(fileName: String) -> String? {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        guard let documentDirectory = paths.first else {
+            return nil
+        }
+        return documentDirectory.appendingPathComponent(fileName).path
+    }
+
+
 }
 
 extension Photos.Photo {
