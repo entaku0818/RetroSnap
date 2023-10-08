@@ -68,6 +68,10 @@ class PhotoRepository: NSObject {
     func fetchAllPhotos() -> [Photos.Photo] {
         let fetchRequest: NSFetchRequest<PhotoData> = PhotoData.fetchRequest()
 
+        // 作成日順にソートするためのソート記述子を作成
+        let sortDescriptor = NSSortDescriptor(key: "createdAt", ascending: false)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+
         do {
             let coreDataPhotos = try managedContext.fetch(fetchRequest)
             return coreDataPhotos.compactMap { Photos.Photo(from: $0) }

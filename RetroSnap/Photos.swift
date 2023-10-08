@@ -30,8 +30,7 @@ struct Photos: Reducer {
         Reduce { state, action in
             switch action {
             case .onAppear:
-                // ここでAPIから写真を取得するロジックを書きます。
-                // 今回はモックデータを使用しています。
+
                 let repositoryPhotos = PhotoRepository.shared.fetchAllPhotos()
                 
                 state.photos = IdentifiedArrayOf(uniqueElements: repositoryPhotos)
@@ -74,12 +73,9 @@ struct PhotosView: View {
                     ScrollView {
                         LazyVGrid(columns: columns, spacing: 20) {
                             ForEach(viewStore.photos) { photo in
-                                PhotoRowView(photo: photo)
-                                    .onTapGesture {
-                                        NavigationLink(destination: PhotoDetailView(photo: photo)) {
-                                            PhotoRowView(photo: photo)
-                                        }
-                                    }
+                                NavigationLink(destination: PhotoDetailView(photo: photo)) {
+                                     PhotoRowView(photo: photo)
+                                 }
                             }
                         }
                         .padding() // グリッドのパディングを調整
@@ -112,9 +108,6 @@ struct PhotoRowView: View {
         }.frame(width: 100, height: 100)
         .clipped()
 
-        .onTapGesture {
-            // ここで写真をタップしたときの処理を追加できます
-        }
 
     }
 
