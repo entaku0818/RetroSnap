@@ -9,6 +9,7 @@ import SwiftUI
 import GoogleMobileAds
 import FirebaseCrashlytics
 import FirebaseCore
+import AppTrackingTransparency
 
 @main
 struct RetroSnapApp: App {
@@ -23,9 +24,11 @@ struct RetroSnapApp: App {
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        GADMobileAds.sharedInstance().start(completionHandler: nil)
         FirebaseApp.configure()
         Crashlytics.crashlytics().setCrashlyticsCollectionEnabled(true)
+        ATTrackingManager.requestTrackingAuthorization(completionHandler: { status in
+            GADMobileAds.sharedInstance().start(completionHandler: nil)
+        })
 
         return true
     }

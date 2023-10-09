@@ -65,6 +65,24 @@
           }
         }
       }
+    },
+    "NSUserTrackingUsageDescription" : {
+      "comment" : "Privacy - Tracking Usage Description",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "This identifier will be used to deliver personalized ads to you."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "広告を適切に表示するために利用します。アプリを無料で運営するためのものです。ご協力お願いします。"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"
