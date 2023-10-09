@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyDMif3nsOwMc4Zeu02RaKa_2QfAPL6jM2g</string>
+	<key>GCM_SENDER_ID</key>
+	<string>639471474222</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.entaku.RetroSnap</string>
+	<key>PROJECT_ID</key>
+	<string>retrosnap-entaku</string>
+	<key>STORAGE_BUCKET</key>
+	<string>retrosnap-entaku.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:639471474222:ios:68aa62dca00942331471bf</string>
+</dict>
+</plist>

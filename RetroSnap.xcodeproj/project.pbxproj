@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		617269D62AD3956B00C3994D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 617269D52AD3956B00C3994D /* GoogleService-Info.plist */; };
+		61897C9F2AD306A3009365D0 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 61897C9E2AD306A3009365D0 /* InfoPlist.xcstrings */; };
+		61897CA22AD308A9009365D0 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 61897CA12AD308A9009365D0 /* FirebaseAnalytics */; };
+		61897CA42AD308A9009365D0 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 61897CA32AD308A9009365D0 /* FirebaseCrashlytics */; };
 		61965AB12AD24B5A00A91BA7 /* PhotoData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 61965AAF2AD24B5A00A91BA7 /* PhotoData.xcdatamodeld */; };
 		61965AB32AD2516B00A91BA7 /* PhotoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61965AB22AD2516B00A91BA7 /* PhotoRepository.swift */; };
 		61965AB62AD2608400A91BA7 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 61965AB52AD2608400A91BA7 /* ComposableArchitecture */; };
@@ -43,6 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		617269D52AD3956B00C3994D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		61897C9E2AD306A3009365D0 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		61965AB02AD24B5A00A91BA7 /* Photo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Photo.xcdatamodel; sourceTree = "<group>"; };
 		61965AB22AD2516B00A91BA7 /* PhotoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoRepository.swift; sourceTree = "<group>"; };
 		61965AB72AD2614F00A91BA7 /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
@@ -68,7 +74,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				61965ABF2AD270AD00A91BA7 /* GoogleMobileAds in Frameworks */,
+				61897CA42AD308A9009365D0 /* FirebaseCrashlytics in Frameworks */,
 				61965AB62AD2608400A91BA7 /* ComposableArchitecture in Frameworks */,
+				61897CA22AD308A9009365D0 /* FirebaseAnalytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +109,8 @@
 		61BA08152AC7D98B0086E3C8 = {
 			isa = PBXGroup;
 			children = (
+				617269D52AD3956B00C3994D /* GoogleService-Info.plist */,
+				61897C9E2AD306A3009365D0 /* InfoPlist.xcstrings */,
 				61BA08202AC7D98B0086E3C8 /* RetroSnap */,
 				61BA08312AC7D98C0086E3C8 /* RetroSnapTests */,
 				61BA083B2AC7D98C0086E3C8 /* RetroSnapUITests */,
@@ -179,6 +189,8 @@
 			packageProductDependencies = (
 				61965AB52AD2608400A91BA7 /* ComposableArchitecture */,
 				61965ABE2AD270AD00A91BA7 /* GoogleMobileAds */,
+				61897CA12AD308A9009365D0 /* FirebaseAnalytics */,
+				61897CA32AD308A9009365D0 /* FirebaseCrashlytics */,
 			);
 			productName = RetroSnap;
 			productReference = 61BA081E2AC7D98B0086E3C8 /* RetroSnap.app */;
@@ -250,11 +262,13 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = 61BA08152AC7D98B0086E3C8;
 			packageReferences = (
 				61965AB42AD2608400A91BA7 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 				61965ABD2AD270AD00A91BA7 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
+				61897CA02AD308A9009365D0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 61BA081F2AC7D98B0086E3C8 /* Products */;
 			projectDirPath = "";
@@ -272,6 +286,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61897C9F2AD306A3009365D0 /* InfoPlist.xcstrings in Resources */,
+				617269D62AD3956B00C3994D /* GoogleService-Info.plist in Resources */,
 				61BA08292AC7D98C0086E3C8 /* Preview Assets.xcassets in Resources */,
 				61BA08262AC7D98C0086E3C8 /* Assets.xcassets in Resources */,
 			);
@@ -476,7 +492,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RetroSnap/Info.plist;
-				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSCameraUsageDescription = "カメラを使用して写真を撮影します。";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "カメラを使用して写真を撮影した結果をアルバムへ保存します。";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "カメラを使用して写真を撮影した結果をアルバムへ保存します。";
@@ -489,12 +505,15 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.entaku.RetroSnap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -510,7 +529,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RetroSnap/Info.plist;
-				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSCameraUsageDescription = "カメラを使用して写真を撮影します。";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "カメラを使用して写真を撮影した結果をアルバムへ保存します。";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "カメラを使用して写真を撮影した結果をアルバムへ保存します。";
@@ -523,12 +542,15 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.entaku.RetroSnap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -650,6 +672,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		61897CA02AD308A9009365D0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.16.0;
+			};
+		};
 		61965AB42AD2608400A91BA7 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture.git";
@@ -669,6 +699,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		61897CA12AD308A9009365D0 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 61897CA02AD308A9009365D0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		61897CA32AD308A9009365D0 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 61897CA02AD308A9009365D0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
 		61965AB52AD2608400A91BA7 /* ComposableArchitecture */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 61965AB42AD2608400A91BA7 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;

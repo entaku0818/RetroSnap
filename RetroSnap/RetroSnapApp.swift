@@ -7,6 +7,8 @@
 
 import SwiftUI
 import GoogleMobileAds
+import FirebaseCrashlytics
+import FirebaseCore
 
 @main
 struct RetroSnapApp: App {
@@ -22,6 +24,9 @@ struct RetroSnapApp: App {
 class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         GADMobileAds.sharedInstance().start(completionHandler: nil)
+        FirebaseApp.configure()
+        Crashlytics.crashlytics().setCrashlyticsCollectionEnabled(true)
+
         return true
     }
 }

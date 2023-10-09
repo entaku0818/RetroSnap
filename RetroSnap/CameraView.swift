@@ -15,6 +15,7 @@ class CameraViewController: UIViewController {
     var capturedImageView: UIImageView!
     var closeButton: UIButton!
     var goToPhotosButton: UIButton!
+    var captureButton: UIButton!
 
 
     override func viewDidLoad() {
@@ -55,7 +56,7 @@ class CameraViewController: UIViewController {
     }
 
     @objc func openPhotosView() {
-        let photosView = PhotosView(store: Store(initialState: Photos.State(photos: IdentifiedArrayOf(uniqueElements: Photos.Photo.mock))) {
+        let photosView = PhotosView(store: Store(initialState: Photos.State(photos: IdentifiedArrayOf([]))) {
             Photos()
         })
         let hostVC = UIHostingController(rootView: photosView)
@@ -64,6 +65,7 @@ class CameraViewController: UIViewController {
 
     @objc func hideCapturedImage() {
         capturedImageView.isHidden = true
+        captureButton.isHidden = false
         closeButton.isHidden = true
         previewLayer.isHidden = false
     }
@@ -102,7 +104,7 @@ class CameraViewController: UIViewController {
     }
 
     func setupCaptureButton() {
-        let captureButton = UIButton(frame: CGRect(x: 0, y: 0, width: 70, height: 70))
+        captureButton = UIButton(frame: CGRect(x: 0, y: 0, width: 70, height: 70))
         captureButton.backgroundColor = .white
         captureButton.layer.cornerRadius = 35
         captureButton.center = CGPoint(x: view.center.x, y: view.bounds.maxY - 120)
@@ -177,11 +179,11 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate {
 
         capturedImageView.image = image.sepiaTone()?.orientedImage(for: UIDevice.current.orientation)
         capturedImageView.isHidden = false
+        captureButton.isHidden = true
 
         closeButton.isHidden = false
         previewLayer.isHidden = true
         checkPhotoLibraryPermission()
-        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
 
         PhotoRepository.shared.insert(name: "", path: path)
 
