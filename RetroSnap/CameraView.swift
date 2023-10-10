@@ -5,6 +5,7 @@ import UIKit
 import AVFoundation
 import Photos
 import ComposableArchitecture
+import AppTrackingTransparency
 
 
 class CameraViewController: UIViewController {
@@ -41,6 +42,33 @@ class CameraViewController: UIViewController {
 
         setupCaptureButton()
         setupGoToPhotosButton()
+
+        checkTrackingAuthorizationStatus()
+    }
+
+    private func checkTrackingAuthorizationStatus() {
+        switch ATTrackingManager.trackingAuthorizationStatus {
+        case .notDetermined:
+            requestTrackingAuthorization()
+        case .restricted:  break
+        case .denied:  break
+        case .authorized:  break
+        @unknown default:  break
+        }
+    }
+
+    private func requestTrackingAuthorization() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            ATTrackingManager.requestTrackingAuthorization { status in
+                switch status {
+                case .notDetermined: break
+                case .restricted:  break
+                case .denied:  break
+                case .authorized:  break
+                @unknown default:  break
+                }
+            }
+        }
     }
 
     func setupGoToPhotosButton() {
