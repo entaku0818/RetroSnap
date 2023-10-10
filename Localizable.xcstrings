@@ -1,0 +1,30 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Photos" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "写真一覧"
+          }
+        }
+      }
+    },
+    "Save Photo" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "写真が保存されました"
+          }
+        }
+      }
+    },
+    "Select Photo" : {
+
+    }
+  },
+  "version" : "1.0"
+}

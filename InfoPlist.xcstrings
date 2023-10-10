@@ -12,7 +12,7 @@
         },
         "ja" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "レトロカメラ"
           }
         }
@@ -27,6 +27,12 @@
             "state" : "new",
             "value" : "RetroSnap"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "レトロカメラ"
+          }
         }
       }
     },
@@ -37,19 +43,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "カメラを使用して写真を撮影します。"
+            "value" : "Use the camera to take a photo"
           }
-        }
-      }
-    },
-    "NSPhotoLibraryAddUsageDescription" : {
-      "comment" : "Privacy - Photo Library Additions Usage Description",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
+        },
+        "ja" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "カメラを使用して写真を撮影した結果をアルバムへ保存します。"
+            "state" : "translated",
+            "value" : "カメラを使用して写真を撮影します。\n"
           }
         }
       }
@@ -61,7 +61,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "カメラを使用して写真を撮影した結果をアルバムへ保存します。"
+            "value" : "Use the camera to take a photo and save it to the album"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "カメラを使用して写真を撮影した結果をアルバムへ保存します。\n"
           }
         }
       }

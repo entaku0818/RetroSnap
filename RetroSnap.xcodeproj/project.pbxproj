@@ -27,6 +27,7 @@
 		61BA083F2AC7D98C0086E3C8 /* RetroSnapUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BA083E2AC7D98C0086E3C8 /* RetroSnapUITestsLaunchTests.swift */; };
 		61BA084C2AC7E1130086E3C8 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BA084B2AC7E1130086E3C8 /* CameraView.swift */; };
 		61BA084E2AC7EA5D0086E3C8 /* Image+extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BA084D2AC7EA5D0086E3C8 /* Image+extention.swift */; };
+		61F9C6612AD59BFC00F326A7 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 61F9C6602AD59BFC00F326A7 /* Localizable.xcstrings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		61BA083E2AC7D98C0086E3C8 /* RetroSnapUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetroSnapUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		61BA084B2AC7E1130086E3C8 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		61BA084D2AC7EA5D0086E3C8 /* Image+extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+extention.swift"; sourceTree = "<group>"; };
+		61F9C6602AD59BFC00F326A7 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 		61BA08152AC7D98B0086E3C8 = {
 			isa = PBXGroup;
 			children = (
+				61F9C6602AD59BFC00F326A7 /* Localizable.xcstrings */,
 				617269D52AD3956B00C3994D /* GoogleService-Info.plist */,
 				61897C9E2AD306A3009365D0 /* InfoPlist.xcstrings */,
 				61BA08202AC7D98B0086E3C8 /* RetroSnap */,
@@ -287,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				61897C9F2AD306A3009365D0 /* InfoPlist.xcstrings in Resources */,
+				61F9C6612AD59BFC00F326A7 /* Localizable.xcstrings in Resources */,
 				617269D62AD3956B00C3994D /* GoogleService-Info.plist in Resources */,
 				61BA08292AC7D98C0086E3C8 /* Preview Assets.xcassets in Resources */,
 				61BA08262AC7D98C0086E3C8 /* Assets.xcassets in Resources */,
@@ -493,9 +497,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RetroSnap/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
-				INFOPLIST_KEY_NSCameraUsageDescription = "カメラを使用して写真を撮影します。";
-				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "カメラを使用して写真を撮影した結果をアルバムへ保存します。";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "カメラを使用して写真を撮影した結果をアルバムへ保存します。";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Use the camera to take a photo";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Use the camera to take a photo and save it to the album";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "This identifier will be used to deliver personalized ads to you.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -532,9 +535,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RetroSnap/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
-				INFOPLIST_KEY_NSCameraUsageDescription = "カメラを使用して写真を撮影します。";
-				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "カメラを使用して写真を撮影した結果をアルバムへ保存します。";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "カメラを使用して写真を撮影した結果をアルバムへ保存します。";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Use the camera to take a photo";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Use the camera to take a photo and save it to the album";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "This identifier will be used to deliver personalized ads to you.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

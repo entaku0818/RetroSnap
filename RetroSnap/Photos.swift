@@ -19,7 +19,6 @@ struct Photos: Reducer {
     }
 
     enum Action: BindableAction, Equatable, Sendable {
-        case addPhotoButtonTapped
         case binding(BindingAction<State>)
         case onAppear
         case delete(IndexSet)
@@ -36,11 +35,6 @@ struct Photos: Reducer {
                 state.photos = IdentifiedArrayOf(uniqueElements: repositoryPhotos)
 
                 return .none
-            case .addPhotoButtonTapped:
-                let newPhoto = Photo(id: UUID(), name: "New Photo", imageURL: URL(string: "https://example.com/new_photo")!)
-                state.photos.insert(newPhoto, at: 0)
-                return .none
-
             case .binding:
                 return .none
 

@@ -219,7 +219,7 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate {
     }
 
     func showSavedMessage() {
-        let alert = UIAlertController(title: nil, message: "保存されました", preferredStyle: .alert)
+        let alert = UIAlertController(title: nil, message: "Save Photo", preferredStyle: .alert)
         present(alert, animated: true, completion: nil)
 
         // 2秒後にアラートを自動的に閉じる
