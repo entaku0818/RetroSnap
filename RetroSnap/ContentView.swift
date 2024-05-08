@@ -70,7 +70,7 @@ func applyRetroEffect(to image: UIImage) -> UIImage? {
 
     if let filter = CIFilter(name: "CISepiaTone") {
         filter.setValue(CIImage(image: image), forKey: kCIInputImageKey)
-        filter.setValue(0.7, forKey: kCIInputIntensityKey) // インテンシティの値を調整することでセピアの深さを変えられます
+        filter.setValue(0.7, forKey: kCIInputIntensityKey)
 
         if let outputImage = filter.outputImage, let cgImage = context.createCGImage(outputImage, from: outputImage.extent) {
             return UIImage(cgImage: cgImage)
