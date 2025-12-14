@@ -18,7 +18,7 @@ struct AdmobBannerView: UIViewRepresentable {
         #if DEBUG
         view.adUnitID = "ca-app-pub-3940256099942544/2934735716"
         #else
-        view.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        view.adUnitID = "ca-app-pub-3484697221349891/8738220120"
         #endif
         view.rootViewController = UIApplication.shared.windows.first?.rootViewController
         view.delegate = context.coordinator
