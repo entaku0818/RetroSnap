@@ -54,20 +54,20 @@
         }
       }
     },
-    "NSPhotoLibraryUsageDescription" : {
-      "comment" : "Privacy - Photo Library Usage Description",
+    "NSPhotoLibraryAddUsageDescription" : {
+      "comment" : "Privacy - Photo Library Additions Usage Description",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
-            "state" : "new",
-            "value" : "Use the camera to take a photo and save it to the album"
+            "state" : "translated",
+            "value" : "Save the photos you take to your photo library"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "カメラを使用して写真を撮影した結果をアルバムへ保存します。\n"
+            "value" : "撮影した写真を「写真」アプリへ保存します。"
           }
         }
       }

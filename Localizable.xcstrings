@@ -14,6 +14,12 @@
     "Save Photo" : {
       "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saved to your photo library"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",

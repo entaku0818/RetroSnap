@@ -169,31 +169,22 @@ class CameraViewController: UIViewController {
     }
 
 
-    func checkPhotoLibraryPermission() {
-        let status = PHPhotoLibrary.authorizationStatus()
-        switch status {
-        case .authorized:
-            // you have permission, you can proceed
-            break
-        case .denied, .restricted:
-            // you don't have permission
-            break
-        case .notDetermined:
-            // you didn't ask for permission yet, ask for it
-            PHPhotoLibrary.requestAuthorization { status in
-                switch status {
-                case .authorized:
-                    // user granted permission
-                    break
-                default:
-                    // user denied permission
-                    break
+    // 「写真」アプリへ保存する。
+    // 読み取りは一切しないので .addOnly で要求する（要求する権限を最小にする）
+    func saveImageToPhotoLibrary(_ image: UIImage) {
+        PHPhotoLibrary.requestAuthorization(for: .addOnly) { status in
+            guard status == .authorized || status == .limited else {
+                // 断られてもアプリ内には保存済みなので、撮影自体は成立させる
+                return
+            }
+
+            PHPhotoLibrary.shared().performChanges {
+                PHAssetChangeRequest.creationRequestForAsset(from: image)
+            } completionHandler: { _, error in
+                if let error {
+                    print("Failed to save image to photo library: \(error)")
                 }
             }
-        case .limited:
-            break
-        @unknown default:
-            break
         }
     }
 
@@ -205,21 +196,27 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate {
             return
         }
 
-        capturedImageView.image = image.sepiaTone()?.orientedImage(for: UIDevice.current.orientation)
+        let displayImage = image.sepiaTone()?.orientedImage(for: UIDevice.current.orientation)
+
+        capturedImageView.image = displayImage
         capturedImageView.isHidden = false
         captureButton.isHidden = true
 
         closeButton.isHidden = false
         previewLayer.isHidden = true
-        checkPhotoLibraryPermission()
 
         PhotoRepository.shared.insert(name: "", path: path)
+
+        // 画面に出したものと同じ絵をアルバムへ入れる
+        if let displayImage {
+            saveImageToPhotoLibrary(displayImage)
+        }
 
         showSavedMessage()
     }
 
     func showSavedMessage() {
-        let alert = UIAlertController(title: nil, message: "Save Photo", preferredStyle: .alert)
+        let alert = UIAlertController(title: nil, message: String(localized: "Save Photo"), preferredStyle: .alert)
         present(alert, animated: true, completion: nil)
 
         // 2秒後にアラートを自動的に閉じる
