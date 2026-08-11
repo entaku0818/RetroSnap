@@ -687,7 +687,7 @@
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 10.16.0;
+				minimumVersion = 12.17.0;
 			};
 		};
 		61965AB42AD2608400A91BA7 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
@@ -695,7 +695,7 @@
 			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.2.0;
+				minimumVersion = 1.26.1;
 			};
 		};
 		61965ABD2AD270AD00A91BA7 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {

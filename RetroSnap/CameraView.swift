@@ -84,7 +84,7 @@ class CameraViewController: UIViewController {
     }
 
     @objc func openPhotosView() {
-        let photosView = PhotosView(store: Store(initialState: Photos.State(photos: IdentifiedArrayOf([]))) {
+        let photosView = PhotosView(store: Store(initialState: Photos.State()) {
             Photos()
         })
         let hostVC = UIHostingController(rootView: photosView)

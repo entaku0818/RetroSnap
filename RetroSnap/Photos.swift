@@ -10,6 +10,7 @@ struct Photos: Reducer {
         var imageURL: URL
     }
 
+    @ObservableState
     struct State: Equatable {
         var photos: IdentifiedArrayOf<Photo> = []
 
@@ -42,7 +43,7 @@ struct Photos: Reducer {
                 state.photos.remove(atOffsets: indexSet)
                 return .none
 
-            case .photoTapped(let id):
+            case .photoTapped:
                 // ここで写真をタップしたときの処理を追加できます
                 return .none
             }
@@ -61,25 +62,23 @@ struct PhotosView: View {
     private var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 3)
 
     var body: some View {
-        WithViewStore(self.store, observe: { $0 }) { viewStore in
-            NavigationStack {
-                VStack{
-                    ScrollView {
-                        LazyVGrid(columns: columns, spacing: 20) {
-                            ForEach(viewStore.photos) { photo in
-                                NavigationLink(destination: PhotoDetailView(photo: photo)) {
-                                     PhotoRowView(photo: photo)
-                                 }
-                            }
+        NavigationStack {
+            VStack{
+                ScrollView {
+                    LazyVGrid(columns: columns, spacing: 20) {
+                        ForEach(store.photos) { photo in
+                            NavigationLink(destination: PhotoDetailView(photo: photo)) {
+                                 PhotoRowView(photo: photo)
+                             }
                         }
-                        .padding() // グリッドのパディングを調整
                     }
-                    AdmobBannerView().frame(width: .infinity, height: 50)
+                    .padding() // グリッドのパディングを調整
                 }
-                .navigationTitle("Photos")
-            }.onAppear {
-                viewStore.send(.onAppear)
+                AdmobBannerView().frame(width: .infinity, height: 50)
             }
+            .navigationTitle("Photos")
+        }.onAppear {
+            store.send(.onAppear)
         }
     }
 }
