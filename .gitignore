@@ -1,4 +1,10 @@
+.DS_Store
+
 RetroSnap.xcodeproj/project.xcworkspace/xcuserdata/entaku.xcuserdatad
 RetroSnap.xcodeproj/xcuserdata
 RetroSnap.xcodeproj/project.xcworkspace/contents.xcworkspacedata
 RetroSnap.xcodeproj/xcshareddata/
+
+# launchpad
+.env
+build/

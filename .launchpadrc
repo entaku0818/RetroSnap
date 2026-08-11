@@ -1,0 +1,9 @@
+{
+  "ios" : {
+    "bundleId" : "com.entaku.RetroSnap",
+    "exportMethod" : "app-store",
+    "output" : "./build",
+    "project" : "RetroSnap.xcodeproj",
+    "scheme" : "RetroSnap"
+  }
+}
