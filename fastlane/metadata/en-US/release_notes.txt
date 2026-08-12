@@ -1,0 +1,3 @@
+- Photos you take are now saved to your photo library.
+- Removed a photo library permission request that was no longer needed.
+- Updated for the latest iOS and improved stability.
