@@ -16,9 +16,10 @@ struct PhotoDetailView: View {
         VStack {
             if let imagePath = imagePathInDocuments(fileName: photo.imageURL.lastPathComponent),
                let uiImage = UIImage(contentsOfFile: imagePath) {
+                // 保存画像は FilmRenderer が .up に正規化して書き出しているので、
+                // ここで向きを補正する必要はない（診断レポート §11-#2 / #3）
                 Image(uiImage: uiImage)
                     .resizable()
-                    .rotationEffect(.degrees(shouldRotateImage(uiImage) ? 90 : 0))
                     .scaledToFill()
                     .frame(width: .infinity, height: .infinity)
                     .clipped()
@@ -53,10 +54,6 @@ struct PhotoDetailView: View {
             return nil
         }
         return documentDirectory.appendingPathComponent(fileName).path
-    }
-
-    func shouldRotateImage(_ image: UIImage) -> Bool {
-        return image.size.width > image.size.height
     }
 }
 

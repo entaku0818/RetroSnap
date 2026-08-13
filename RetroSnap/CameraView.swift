@@ -18,6 +18,9 @@ class CameraViewController: UIViewController {
     var goToPhotosButton: UIButton!
     var captureButton: UIButton!
 
+    /// 現像に使うカメラ。切替 UI（カルーセル）は次のステップで載せる。
+    var selectedCamera: CameraSpec = CameraCatalog.default
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -150,14 +153,15 @@ class CameraViewController: UIViewController {
         captureSession.stopRunning()
     }
 
-    // FileSystem上に保存する
+    // FileSystem上に保存する。
+    // 渡すのは現像済みの画像。ここで現像はしない（現像は FilmRenderer だけが行う）
     func saveImageToFileSystem(image: UIImage) -> URL? {
         let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let fileName = UUID().uuidString + ".png"
         let fileURL = directory.appendingPathComponent(fileName)
 
         do {
-            if let data = image.sepiaTone()?.pngData() {
+            if let data = image.pngData() {
                 try data.write(to: fileURL)
                 return fileURL
             }
@@ -192,27 +196,31 @@ class CameraViewController: UIViewController {
 
 extension CameraViewController: AVCapturePhotoCaptureDelegate {
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
-        guard let data = photo.fileDataRepresentation(), let image = UIImage(data: data),let path = saveImageToFileSystem(image: image) else {
+        guard let data = photo.fileDataRepresentation(), let image = UIImage(data: data) else {
             return
         }
 
-        let displayImage = image.sepiaTone()?.orientedImage(for: UIDevice.current.orientation)
+        // 現像は多段フィルタになったのでメインスレッドから逃がす。
+        // 保存・表示・アルバムのすべてが、この1枚の現像結果を共有する
+        FilmRenderer.shared.render(image, with: selectedCamera) { [weak self] developed in
+            guard let self, let developed, let path = self.saveImageToFileSystem(image: developed) else {
+                return
+            }
 
-        capturedImageView.image = displayImage
-        capturedImageView.isHidden = false
-        captureButton.isHidden = true
+            self.capturedImageView.image = developed
+            self.capturedImageView.isHidden = false
+            self.captureButton.isHidden = true
 
-        closeButton.isHidden = false
-        previewLayer.isHidden = true
+            self.closeButton.isHidden = false
+            self.previewLayer.isHidden = true
 
-        PhotoRepository.shared.insert(name: "", path: path)
+            PhotoRepository.shared.insert(name: "", path: path)
 
-        // 画面に出したものと同じ絵をアルバムへ入れる
-        if let displayImage {
-            saveImageToPhotoLibrary(displayImage)
+            // 画面に出したものと同じ絵をアルバムへ入れる
+            self.saveImageToPhotoLibrary(developed)
+
+            self.showSavedMessage()
         }
-
-        showSavedMessage()
     }
 
     func showSavedMessage() {

@@ -7,42 +7,23 @@
 
 import Foundation
 import UIKit
-import CoreImage
-import AVFoundation
 
 extension UIImage {
-    func sepiaTone(intensity: Float = 0.8) -> UIImage? {
-        let context = CIContext()
+    /// ピクセルの並びを `.up` に揃えた画像を返す。
+    ///
+    /// `AVCapturePhoto` から作った `UIImage` は、ピクセルは横倒しのままで
+    /// `imageOrientation` に「本来の向き」を持っている状態になる。
+    /// 一方 `CIImage(cgImage:)` は `imageOrientation` を見ないため、そのまま現像すると
+    /// 「画面では正しいのに保存すると倒れている」という食い違いが起きる（診断レポート §11-#2）。
+    /// 現像の入口でここを通し、以降は向きの補正を一切しない。
+    func normalizedUp() -> UIImage {
+        guard imageOrientation != .up else { return self }
 
-        if let filter = CIFilter(name: "CISepiaTone") {
-            filter.setValue(CIImage(image: self), forKey: kCIInputImageKey)
-            filter.setValue(intensity, forKey: kCIInputIntensityKey)
-
-            if let outputImage = filter.outputImage, let cgImage = context.createCGImage(outputImage, from: outputImage.extent) {
-                return UIImage(cgImage: cgImage)
-            }
+        let format = UIGraphicsImageRendererFormat.default()
+        format.scale = scale
+        format.opaque = false
+        return UIGraphicsImageRenderer(size: size, format: format).image { _ in
+            draw(in: CGRect(origin: .zero, size: size))
         }
-        return nil
     }
-
-    func orientedImage(for deviceOrientation: UIDeviceOrientation) -> UIImage? {
-
-        var orientation: UIImage.Orientation = .up
-        switch deviceOrientation {
-        case .portrait:
-            orientation = .right
-        case .portraitUpsideDown:
-            orientation = .down
-        case .landscapeLeft:
-            orientation = .right
-        case .landscapeRight:
-            orientation = .left
-        default:
-            break
-        }
-        print("deviceOrientation:\(deviceOrientation)")
-        print("orientation:\(orientation)")
-        return UIImage(cgImage: self.cgImage!, scale: 1.0, orientation: orientation)
-    }
-
 }

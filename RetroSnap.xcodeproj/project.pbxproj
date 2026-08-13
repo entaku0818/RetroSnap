@@ -19,7 +19,10 @@
 		61965ABC2AD2703200A91BA7 /* AdmobBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61965ABB2AD2703200A91BA7 /* AdmobBannerView.swift */; };
 		61965ABF2AD270AD00A91BA7 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 61965ABE2AD270AD00A91BA7 /* GoogleMobileAds */; };
 		61BA08222AC7D98B0086E3C8 /* RetroSnapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BA08212AC7D98B0086E3C8 /* RetroSnapApp.swift */; };
-		61BA08242AC7D98B0086E3C8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BA08232AC7D98B0086E3C8 /* ContentView.swift */; };
+		61CA7A022BF0000100C3994D /* CameraSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA7A012BF0000100C3994D /* CameraSpec.swift */; };
+		61CA7A042BF0000100C3994D /* CameraCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA7A032BF0000100C3994D /* CameraCatalog.swift */; };
+		61CA7A062BF0000100C3994D /* FilmRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA7A052BF0000100C3994D /* FilmRenderer.swift */; };
+		61CA7A082BF0000100C3994D /* FilmRendererTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA7A072BF0000100C3994D /* FilmRendererTests.swift */; };
 		61BA08262AC7D98C0086E3C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61BA08252AC7D98C0086E3C8 /* Assets.xcassets */; };
 		61BA08292AC7D98C0086E3C8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61BA08282AC7D98C0086E3C8 /* Preview Assets.xcassets */; };
 		61BA08332AC7D98C0086E3C8 /* RetroSnapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BA08322AC7D98C0086E3C8 /* RetroSnapTests.swift */; };
@@ -57,7 +60,6 @@
 		61965ABB2AD2703200A91BA7 /* AdmobBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmobBannerView.swift; sourceTree = "<group>"; };
 		61BA081E2AC7D98B0086E3C8 /* RetroSnap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RetroSnap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61BA08212AC7D98B0086E3C8 /* RetroSnapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetroSnapApp.swift; sourceTree = "<group>"; };
-		61BA08232AC7D98B0086E3C8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		61BA08252AC7D98C0086E3C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		61BA08282AC7D98C0086E3C8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		61BA082E2AC7D98C0086E3C8 /* RetroSnapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RetroSnapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,6 +69,10 @@
 		61BA083E2AC7D98C0086E3C8 /* RetroSnapUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetroSnapUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		61BA084B2AC7E1130086E3C8 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		61BA084D2AC7EA5D0086E3C8 /* Image+extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+extention.swift"; sourceTree = "<group>"; };
+		61CA7A012BF0000100C3994D /* CameraSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraSpec.swift; sourceTree = "<group>"; };
+		61CA7A032BF0000100C3994D /* CameraCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCatalog.swift; sourceTree = "<group>"; };
+		61CA7A052BF0000100C3994D /* FilmRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmRenderer.swift; sourceTree = "<group>"; };
+		61CA7A072BF0000100C3994D /* FilmRendererTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmRendererTests.swift; sourceTree = "<group>"; };
 		61F9C6602AD59BFC00F326A7 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -99,6 +105,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		61CA7A002BF0000100C3994D /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				61CA7A012BF0000100C3994D /* CameraSpec.swift */,
+				61CA7A032BF0000100C3994D /* CameraCatalog.swift */,
+				61CA7A052BF0000100C3994D /* FilmRenderer.swift */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
 		61965AAE2AD24B2500A91BA7 /* data */ = {
 			isa = PBXGroup;
 			children = (
@@ -134,9 +150,9 @@
 		61BA08202AC7D98B0086E3C8 /* RetroSnap */ = {
 			isa = PBXGroup;
 			children = (
+				61CA7A002BF0000100C3994D /* Camera */,
 				61965AAE2AD24B2500A91BA7 /* data */,
 				61BA08212AC7D98B0086E3C8 /* RetroSnapApp.swift */,
-				61BA08232AC7D98B0086E3C8 /* ContentView.swift */,
 				61BA084B2AC7E1130086E3C8 /* CameraView.swift */,
 				61965AB72AD2614F00A91BA7 /* Photos.swift */,
 				61965AB92AD2618800A91BA7 /* Photo.swift */,
@@ -160,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				61BA08322AC7D98C0086E3C8 /* RetroSnapTests.swift */,
+				61CA7A072BF0000100C3994D /* FilmRendererTests.swift */,
 			);
 			path = RetroSnapTests;
 			sourceTree = "<group>";
@@ -324,7 +341,9 @@
 			files = (
 				61965ABA2AD2618800A91BA7 /* Photo.swift in Sources */,
 				61BA084E2AC7EA5D0086E3C8 /* Image+extention.swift in Sources */,
-				61BA08242AC7D98B0086E3C8 /* ContentView.swift in Sources */,
+				61CA7A022BF0000100C3994D /* CameraSpec.swift in Sources */,
+				61CA7A042BF0000100C3994D /* CameraCatalog.swift in Sources */,
+				61CA7A062BF0000100C3994D /* FilmRenderer.swift in Sources */,
 				61BA08222AC7D98B0086E3C8 /* RetroSnapApp.swift in Sources */,
 				61965AB12AD24B5A00A91BA7 /* PhotoData.xcdatamodeld in Sources */,
 				61965ABC2AD2703200A91BA7 /* AdmobBannerView.swift in Sources */,
@@ -339,6 +358,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				61BA08332AC7D98C0086E3C8 /* RetroSnapTests.swift in Sources */,
+				61CA7A082BF0000100C3994D /* FilmRendererTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
