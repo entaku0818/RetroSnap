@@ -56,8 +56,12 @@ struct Photos: Reducer {
 struct PhotosView: View {
     let store: StoreOf<Photos>
 
-    init(store: StoreOf<Photos>) {
+    /// 課金の所有状態。1台でも買っていれば広告を出さない。
+    @ObservedObject var purchases: StoreClient = .shared
+
+    init(store: StoreOf<Photos>, purchases: StoreClient = .shared) {
         self.store = store
+        self._purchases = ObservedObject(wrappedValue: purchases)
     }
 
     // 3つの列のレイアウトを定義
@@ -76,7 +80,11 @@ struct PhotosView: View {
                     }
                     .padding() // グリッドのパディングを調整
                 }
-                AdmobBannerView().frame(width: .infinity, height: 50)
+                // カメラを1台でも買ったら広告は全消し。
+                // 今アプリに広告があるのはこの1箇所だけなので、ここを出さなければ全消しになる。
+                if !purchases.hasAnyPurchase {
+                    AdmobBannerView().frame(width: .infinity, height: 50)
+                }
             }
             .navigationTitle("Photos")
         }.onAppear {

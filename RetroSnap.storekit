@@ -1,0 +1,74 @@
+{
+  "identifier": "6C1A9F20-3B84-4E17-A0D2-5F9C8B1E4A73",
+  "nonRenewingSubscriptions": [],
+  "products": [
+    {
+      "displayPrice": "300",
+      "familyShareable": false,
+      "internalID": "1000000001",
+      "localizations": [
+        {
+          "description": "Cool shadows, glowing lights.",
+          "displayName": "Night Neon",
+          "locale": "en_US"
+        },
+        {
+          "description": "影は青く沈み、光が滲む。",
+          "displayName": "ナイトネオン",
+          "locale": "ja_JP"
+        }
+      ],
+      "productID": "com.entaku.retrosnap.camera.nightneon",
+      "referenceName": "Night Neon",
+      "type": "NonConsumable"
+    },
+    {
+      "displayPrice": "300",
+      "familyShareable": false,
+      "internalID": "1000000002",
+      "localizations": [
+        {
+          "description": "Heavy vignette and light leaks.",
+          "displayName": "Toy Plastic",
+          "locale": "en_US"
+        },
+        {
+          "description": "強い周辺減光と光漏れ。",
+          "displayName": "トイプラスチック",
+          "locale": "ja_JP"
+        }
+      ],
+      "productID": "com.entaku.retrosnap.camera.toyplastic",
+      "referenceName": "Toy Plastic",
+      "type": "NonConsumable"
+    },
+    {
+      "displayPrice": "500",
+      "familyShareable": false,
+      "internalID": "1000000003",
+      "localizations": [
+        {
+          "description": "Burns the date into the corner.",
+          "displayName": "Datestamp 98",
+          "locale": "en_US"
+        },
+        {
+          "description": "右下に日付を焼き込む。",
+          "displayName": "デートスタンプ98",
+          "locale": "ja_JP"
+        }
+      ],
+      "productID": "com.entaku.retrosnap.camera.datestamp98",
+      "referenceName": "Datestamp 98",
+      "type": "NonConsumable"
+    }
+  ],
+  "settings": {
+    "_storeKitErrors": []
+  },
+  "subscriptionGroups": [],
+  "version": {
+    "major": 3,
+    "minor": 0
+  }
+}

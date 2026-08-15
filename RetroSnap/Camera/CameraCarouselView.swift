@@ -38,6 +38,11 @@ struct CameraCarouselView: View {
 
     @ObservedObject var selection: CameraSelection
 
+    /// 所有状態。**選べるかどうかには使わない。**
+    /// 未購入のカメラも選べてプレビューも効く（買う前に写りが分かることが単品売りの肝）。
+    /// ここでは錠前を出して「保存には購入が要る」ことを事前に伝えるだけに使う。
+    @ObservedObject var store: StoreClient
+
     var body: some View {
         VStack(spacing: 10) {
             caption
@@ -62,7 +67,11 @@ struct CameraCarouselView: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 10) {
                     ForEach(selection.cameras) { spec in
-                        CameraChip(spec: spec, isSelected: spec.id == selection.selected.id) {
+                        CameraChip(
+                            spec: spec,
+                            isSelected: spec.id == selection.selected.id,
+                            isLocked: !store.isUnlocked(spec)
+                        ) {
                             guard spec.id != selection.selected.id else { return }
                             withAnimation(.easeOut(duration: 0.18)) {
                                 selection.selected = spec
@@ -95,11 +104,19 @@ private struct CameraChip: View {
 
     let spec: CameraSpec
     let isSelected: Bool
+    /// 未購入の有料カメラ。選択も切替も妨げない（錠前を出すだけ）。
+    let isLocked: Bool
     let onTap: () -> Void
 
     var body: some View {
         Button(action: onTap) {
-            Text(LocalizedStringKey(spec.displayNameKey))
+            HStack(spacing: 5) {
+                if isLocked {
+                    Image(systemName: "lock.fill")
+                        .font(.caption2)
+                }
+                Text(LocalizedStringKey(spec.displayNameKey))
+            }
                 .font(.subheadline.weight(isSelected ? .bold : .regular))
                 .foregroundColor(isSelected ? .black : .white)
                 .lineLimit(1)
@@ -127,7 +144,7 @@ struct CameraCarouselView_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             Color.gray
-            CameraCarouselView(selection: CameraSelection())
+            CameraCarouselView(selection: CameraSelection(), store: StoreClient(startsListening: false))
         }
         .ignoresSafeArea()
     }

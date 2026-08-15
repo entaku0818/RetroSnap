@@ -24,6 +24,12 @@ enum SamplePreviewFrame {
     /// - 中間調の建物（彩度・コントラストが見える面）
     /// - 影（ビネットが見える暗部）
     static func make(size: CGSize = CGSize(width: 900, height: 1600)) -> CIImage? {
+        guard let cgImage = makeImage(size: size)?.cgImage else { return nil }
+        return CIImage(cgImage: cgImage)
+    }
+
+    /// シャッターを切ったときの「撮れた1枚」の代わり。プレビューと同じ絵を使う。
+    static func makeImage(size: CGSize = CGSize(width: 900, height: 1600)) -> UIImage? {
         let format = UIGraphicsImageRendererFormat.default()
         format.scale = 1
         format.opaque = true
@@ -86,8 +92,7 @@ enum SamplePreviewFrame {
             cgContext.fill(CGRect(x: 0, y: size.height * 0.88, width: size.width, height: size.height * 0.12))
         }
 
-        guard let cgImage = image.cgImage else { return nil }
-        return CIImage(cgImage: cgImage)
+        return image
     }
 }
 

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scheme
+   LastUpgradeVersion = "2610"
+   version = "1.7">
+   <BuildAction
+      parallelizeBuildables = "YES"
+      buildImplicitDependencies = "YES">
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "61BA081D2AC7D98B0086E3C8"
+               BuildableName = "RetroSnap.app"
+               BlueprintName = "RetroSnap"
+               ReferencedContainer = "container:RetroSnap.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
+   </BuildAction>
+   <TestAction
+      buildConfiguration = "Debug"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      shouldUseLaunchSchemeArgsEnv = "YES">
+      <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "61BA082D2AC7D98C0086E3C8"
+               BuildableName = "RetroSnapTests.xctest"
+               BlueprintName = "RetroSnapTests"
+               ReferencedContainer = "container:RetroSnap.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "61BA08372AC7D98C0086E3C8"
+               BuildableName = "RetroSnapUITests.xctest"
+               BlueprintName = "RetroSnapUITests"
+               ReferencedContainer = "container:RetroSnap.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+      </Testables>
+      <StoreKitConfigurationFileReference
+         identifier = "../../../RetroSnap.storekit">
+      </StoreKitConfigurationFileReference>
+   </TestAction>
+   <LaunchAction
+      buildConfiguration = "Debug"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      launchStyle = "0"
+      useCustomWorkingDirectory = "NO"
+      ignoresPersistentStateOnLaunch = "NO"
+      debugDocumentVersioning = "YES"
+      debugServiceExtension = "internal"
+      allowLocationSimulation = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "61BA081D2AC7D98B0086E3C8"
+            BuildableName = "RetroSnap.app"
+            BlueprintName = "RetroSnap"
+            ReferencedContainer = "container:RetroSnap.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
+      <StoreKitConfigurationFileReference
+         identifier = "../../../RetroSnap.storekit">
+      </StoreKitConfigurationFileReference>
+   </LaunchAction>
+   <ProfileAction
+      buildConfiguration = "Release"
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      savedToolIdentifier = ""
+      useCustomWorkingDirectory = "NO"
+      debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "61BA081D2AC7D98B0086E3C8"
+            BuildableName = "RetroSnap.app"
+            BlueprintName = "RetroSnap"
+            ReferencedContainer = "container:RetroSnap.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
+   </ProfileAction>
+   <AnalyzeAction
+      buildConfiguration = "Debug">
+   </AnalyzeAction>
+   <ArchiveAction
+      buildConfiguration = "Release"
+      revealArchiveInOrganizer = "YES">
+   </ArchiveAction>
+</Scheme>

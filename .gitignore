@@ -3,7 +3,11 @@
 RetroSnap.xcodeproj/project.xcworkspace/xcuserdata/entaku.xcuserdatad
 RetroSnap.xcodeproj/xcuserdata
 RetroSnap.xcodeproj/project.xcworkspace/contents.xcworkspacedata
-RetroSnap.xcodeproj/xcshareddata/
+# 共有スキームだけは版管理する。
+# StoreKit Configuration（RetroSnap.storekit）の紐づけがスキームに入っており、
+# 追跡しないと「手元では買えるのに clone した環境では買えない」が起きるため。
+RetroSnap.xcodeproj/xcshareddata/*
+!RetroSnap.xcodeproj/xcshareddata/xcschemes/
 
 # launchpad
 .env
