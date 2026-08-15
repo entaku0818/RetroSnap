@@ -4,6 +4,7 @@ import SwiftUI
 import UIKit
 import AVFoundation
 import Photos
+import Combine
 import ComposableArchitecture
 import AppTrackingTransparency
 
@@ -11,20 +12,36 @@ import AppTrackingTransparency
 class CameraViewController: UIViewController {
 
     var captureSession: AVCaptureSession!
-    var previewLayer: AVCaptureVideoPreviewLayer!
     var cameraOutput: AVCapturePhotoOutput!
+    var videoOutput: AVCaptureVideoDataOutput!
+    /// 現像済みのライブプレビュー。生の映像は画面に出さない。
+    var filmPreviewView: FilmPreviewView!
     var capturedImageView: UIImageView!
     var closeButton: UIButton!
     var goToPhotosButton: UIButton!
     var captureButton: UIButton!
+    /// カメラ切替カルーセル（SwiftUI）のホスト。
+    private var carouselHost: UIHostingController<CameraCarouselView>!
 
-    /// 現像に使うカメラ。切替 UI（カルーセル）は次のステップで載せる。
-    var selectedCamera: CameraSpec = CameraCatalog.default
+    /// 撮影画面とカルーセルが共有する選択状態。ラインナップは CameraCatalog が唯一の情報源。
+    let cameraSelection = CameraSelection()
+    private var selectionObservation: AnyCancellable?
+
+    /// 現像に使うカメラ。
+    var selectedCamera: CameraSpec { cameraSelection.selected }
+
+    /// `startRunning` / `stopRunning` は同期的に時間が掛かるのでメインから逃がす。
+    private let sessionQueue = DispatchQueue(label: "com.entaku.RetroSnap.CaptureSession")
+    /// 映像フレームの受け口。
+    private let videoQueue = DispatchQueue(label: "com.entaku.RetroSnap.VideoOutput", qos: .userInitiated)
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        view.backgroundColor = .black
+
+        setupPreviewView()
         setupCameraSession()
 
         // 画像を表示するUIImageViewを作成
@@ -45,6 +62,7 @@ class CameraViewController: UIViewController {
 
         setupCaptureButton()
         setupGoToPhotosButton()
+        setupCameraCarousel()
 
         checkTrackingAuthorizationStatus()
     }
@@ -98,20 +116,67 @@ class CameraViewController: UIViewController {
         capturedImageView.isHidden = true
         captureButton.isHidden = false
         closeButton.isHidden = true
-        previewLayer.isHidden = false
+        filmPreviewView.isHidden = false
+        carouselHost.view.isHidden = false
     }
 
+    // MARK: - プレビュー
+
+    private func setupPreviewView() {
+        filmPreviewView = FilmPreviewView(camera: selectedCamera)
+        filmPreviewView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(filmPreviewView)
+        NSLayoutConstraint.activate([
+            filmPreviewView.topAnchor.constraint(equalTo: view.topAnchor),
+            filmPreviewView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            filmPreviewView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            filmPreviewView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+        ])
+    }
+
+    // MARK: - カメラ切替
+
+    private func setupCameraCarousel() {
+        let carousel = CameraCarouselView(selection: cameraSelection)
+        carouselHost = UIHostingController(rootView: carousel)
+        carouselHost.view.backgroundColor = .clear
+        carouselHost.view.translatesAutoresizingMaskIntoConstraints = false
+
+        addChild(carouselHost)
+        view.addSubview(carouselHost.view)
+        carouselHost.didMove(toParent: self)
+
+        // 撮影ボタン（画面下から 120pt の中心・半径 35）の真上に置く。
+        NSLayoutConstraint.activate([
+            carouselHost.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            carouselHost.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            carouselHost.view.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -170),
+        ])
+
+        // 選択が変わったらライブプレビューへ即座に伝える。
+        // 撮影後ではなく「選んだ瞬間」に写りが変わるのが、このカルーセルの主目的。
+        selectionObservation = cameraSelection.$selected
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] spec in
+                self?.filmPreviewView.camera = spec
+            }
+    }
+
+    // MARK: - セッション
+
     func setupCameraSession() {
-        view.backgroundColor = .black
         captureSession = AVCaptureSession()
 
         guard let backCamera = AVCaptureDevice.default(for: .video) else {
             print("Unable to access the camera!")
+            showSampleFrameIfSimulator()
             return
         }
 
         do {
             let input = try AVCaptureDeviceInput(device: backCamera)
+            captureSession.beginConfiguration()
+
             if captureSession.canAddInput(input) {
                 captureSession.addInput(input)
             }
@@ -122,16 +187,54 @@ class CameraViewController: UIViewController {
                 captureSession.addOutput(cameraOutput)
             }
 
-            previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-            previewLayer.frame = view.layer.bounds
-            previewLayer.videoGravity = .resizeAspectFill
-            view.layer.addSublayer(previewLayer)
+            // Video output（ライブプレビューを現像するための素材）
+            videoOutput = AVCaptureVideoDataOutput()
+            videoOutput.videoSettings = [
+                kCVPixelBufferPixelFormatTypeKey as String: kCVPixelFormatType_32BGRA
+            ]
+            // 現像が追いつかないフレームは捨てる。溜めるとプレビューが遅れて手応えが悪くなる。
+            videoOutput.alwaysDiscardsLateVideoFrames = true
+            videoOutput.setSampleBufferDelegate(self, queue: videoQueue)
+            if captureSession.canAddOutput(videoOutput) {
+                captureSession.addOutput(videoOutput)
+            }
 
-            captureSession.startRunning()
+            captureSession.commitConfiguration()
+
+            applyPortraitOrientation(to: videoOutput.connection(with: .video))
+
+            sessionQueue.async { [weak self] in
+                self?.captureSession.startRunning()
+            }
 
         } catch {
             print("Error accessing the camera: \(error)")
         }
+    }
+
+    /// 映像バッファは既定で横倒しなので、縦位置に揃えてから現像へ渡す。
+    private func applyPortraitOrientation(to connection: AVCaptureConnection?) {
+        guard let connection else { return }
+
+        if #available(iOS 17.0, *) {
+            if connection.isVideoRotationAngleSupported(90) {
+                connection.videoRotationAngle = 90
+            }
+        } else if connection.isVideoOrientationSupported {
+            connection.videoOrientation = .portrait
+        }
+    }
+
+    /// シミュレータには実カメラが無いので、代わりに手続き的な1枚を現像パイプラインへ流す。
+    /// 実機では何もしない（`SamplePreviewFrame` 自体がシミュレータ限定でコンパイルされる）。
+    private func showSampleFrameIfSimulator() {
+        #if targetEnvironment(simulator)
+        guard let frame = SamplePreviewFrame.make() else { return }
+        // レイアウト確定後でないと縮小先の幅が決まらないので、次のループで流す。
+        DispatchQueue.main.async { [weak self] in
+            self?.filmPreviewView.enqueue(frame)
+        }
+        #endif
     }
 
     func setupCaptureButton() {
@@ -144,13 +247,17 @@ class CameraViewController: UIViewController {
     }
 
     @objc func takePhoto() {
+        guard let cameraOutput else { return }
         let settings = AVCapturePhotoSettings()
         cameraOutput.capturePhoto(with: settings, delegate: self)
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        captureSession.stopRunning()
+        sessionQueue.async { [weak self] in
+            guard let session = self?.captureSession, session.isRunning else { return }
+            session.stopRunning()
+        }
     }
 
     // FileSystem上に保存する。
@@ -194,15 +301,32 @@ class CameraViewController: UIViewController {
 
 }
 
+// MARK: - ライブプレビュー
+
+extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
+    func captureOutput(
+        _ output: AVCaptureOutput,
+        didOutput sampleBuffer: CMSampleBuffer,
+        from connection: AVCaptureConnection
+    ) {
+        guard let buffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
+        filmPreviewView.enqueue(CIImage(cvPixelBuffer: buffer))
+    }
+}
+
 extension CameraViewController: AVCapturePhotoCaptureDelegate {
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         guard let data = photo.fileDataRepresentation(), let image = UIImage(data: data) else {
             return
         }
 
+        // シャッターを切った時点の選択で現像する。
+        // 現像中にカルーセルを触られても、出てくる絵はプレビューで見えていたものと一致する。
+        let camera = selectedCamera
+
         // 現像は多段フィルタになったのでメインスレッドから逃がす。
         // 保存・表示・アルバムのすべてが、この1枚の現像結果を共有する
-        FilmRenderer.shared.render(image, with: selectedCamera) { [weak self] developed in
+        FilmRenderer.shared.render(image, with: camera) { [weak self] developed in
             guard let self, let developed, let path = self.saveImageToFileSystem(image: developed) else {
                 return
             }
@@ -210,11 +334,13 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate {
             self.capturedImageView.image = developed
             self.capturedImageView.isHidden = false
             self.captureButton.isHidden = true
+            self.carouselHost.view.isHidden = true
 
             self.closeButton.isHidden = false
-            self.previewLayer.isHidden = true
+            self.filmPreviewView.isHidden = true
 
-            PhotoRepository.shared.insert(name: "", path: path)
+            // どのカメラで撮ったかを写真ごとに残す（写真一覧でカメラ別に扱えるようにするため）
+            PhotoRepository.shared.insert(name: "", path: path, cameraID: camera.id)
 
             // 画面に出したものと同じ絵をアルバムへ入れる
             self.saveImageToPhotoLibrary(developed)

@@ -20,9 +20,24 @@ class PhotoRepository: NSObject {
 
     let entityName: String = "PhotoData"
 
-    override init() {
+    /// - Parameter inMemory: true でディスクに触らない一時ストアを使う（テスト用）。
+    init(inMemory: Bool = false) {
 
         container = NSPersistentContainer(name: entityName)
+
+        if inMemory {
+            container.persistentStoreDescriptions = [NSPersistentStoreDescription(url: URL(fileURLWithPath: "/dev/null"))]
+        }
+
+        // モデルは版管理されている（Photo → Photo 2 で cameraID を追加）。
+        // 既存ユーザーのストアは Photo のままなので、開くときに必ず移行が要る。
+        // 属性を1つ足しただけなので推論マッピングで足り、写真は1枚も失われない。
+        // 既定値だが、消えると既存データが開けなくなる設定なので明示しておく。
+        for description in container.persistentStoreDescriptions {
+            description.shouldMigrateStoreAutomatically = true
+            description.shouldInferMappingModelAutomatically = true
+        }
+
         container.loadPersistentStores(completionHandler: { (_, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
@@ -47,12 +62,19 @@ class PhotoRepository: NSObject {
         }
     }
 
-    func insert(name:String, path: URL) {
+    /// - Parameter cameraID: 撮影に使ったカメラ。
+    ///   nil を許すのは、**カメラ切替より前に撮られた写真がどのカメラでもないから**。
+    ///   移行時に既存レコードへ `plain70` を書き込む案は採らなかった。当時の現像は
+    ///   今の plain70 とは別物で、後から plain70 だったことにするのは事実と違う記録になる。
+    ///   「不明」は nil のまま残し、表示側が必要なときだけ `CameraCatalog.camera(forSlug:)` で
+    ///   既定へ寄せる（＝寄せるかどうかを読み手が選べる）。
+    func insert(name: String, path: URL, cameraID: CameraID? = nil) {
         if let photo = NSManagedObject(entity: self.entity!, insertInto: managedContext) as? PhotoData {
 
             photo.id = UUID()
             photo.name = name
             photo.path = path
+            photo.cameraID = cameraID?.rawValue
             photo.createdAt = Date()
             photo.updatedAt = Date()
 
@@ -92,5 +114,7 @@ extension Photos.Photo {
         self.id = id
         self.name = name
         self.imageURL = imageURL
+        // カメラ切替より前の写真は nil。どのカメラで撮ったか分からないことを、そのまま持ち上げる。
+        self.cameraID = coreDataPhoto.cameraID.map(CameraID.init(_:))
     }
 }

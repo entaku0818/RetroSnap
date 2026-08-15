@@ -57,18 +57,32 @@ final class FilmRenderer {
         // ここで入力を .up に正規化し、保存・表示・アルバムのすべてが同じ1枚を使う。
         guard let source = image.normalizedUp().cgImage else { return nil }
 
-        var ciImage = CIImage(cgImage: source)
-        let extent = ciImage.extent
+        guard let developed = develop(CIImage(cgImage: source), with: spec, capturedAt: capturedAt),
+              let rendered = context.createCGImage(developed, from: developed.extent) else { return nil }
+        return UIImage(cgImage: rendered, scale: image.scale, orientation: .up)
+    }
+
+    /// CIImage をそのまま現像する。ラスタライズはしない。
+    ///
+    /// ライブプレビューは1フレームごとにここを通る。撮影後の1枚（`render`）とプレビューが
+    /// **同じステージ列を共有する**ので、「選んだ瞬間の写り」と「保存された写り」がずれない。
+    /// - Returns: 現像済みの CIImage。extent が扱えない入力なら nil。
+    func develop(_ input: CIImage, with spec: CameraSpec, capturedAt: Date = Date()) -> CIImage? {
+        let extent = input.extent
         guard !extent.isEmpty, !extent.isInfinite,
               extent.width.isFinite, extent.height.isFinite else { return nil }
 
+        var image = input
         for stage in Self.stages {
             // 各ステージはぼかしや歪みで extent を広げうるので、毎回元のサイズに戻す。
-            ciImage = stage(ciImage, spec, capturedAt).cropped(to: extent)
+            image = stage(image, spec, capturedAt).cropped(to: extent)
         }
+        return image
+    }
 
-        guard let rendered = context.createCGImage(ciImage, from: extent) else { return nil }
-        return UIImage(cgImage: rendered, scale: image.scale, orientation: .up)
+    /// 現像済みの CIImage を CGImage に焼く。共有の CIContext を使い回すための入口。
+    func rasterize(_ image: CIImage) -> CGImage? {
+        context.createCGImage(image, from: image.extent)
     }
 
     // MARK: - パイプライン

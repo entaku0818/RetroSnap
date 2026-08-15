@@ -1,6 +1,186 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "camera.datestamp98.name" : {
+      "comment" : "カメラ名。CameraSpec.displayNameKey から引かれる",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Datestamp 98"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "デートスタンプ98"
+          }
+        }
+      }
+    },
+    "camera.datestamp98.tagline" : {
+      "comment" : "カメラの短い説明。CameraSpec.taglineKey から引かれる",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Burns the date into the corner"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "右下に日付を焼き込む"
+          }
+        }
+      }
+    },
+    "camera.nightneon.name" : {
+      "comment" : "カメラ名。CameraSpec.displayNameKey から引かれる",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Night Neon"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ナイトネオン"
+          }
+        }
+      }
+    },
+    "camera.nightneon.tagline" : {
+      "comment" : "カメラの短い説明。CameraSpec.taglineKey から引かれる",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cool shadows, glowing lights"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "影は青く沈み、光が滲む"
+          }
+        }
+      }
+    },
+    "camera.plain70.name" : {
+      "comment" : "カメラ名。CameraSpec.displayNameKey から引かれる",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plain 70"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "プレーン70"
+          }
+        }
+      }
+    },
+    "camera.plain70.tagline" : {
+      "comment" : "カメラの短い説明。CameraSpec.taglineKey から引かれる",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gently faded everyday color"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ほんのり褪せた日常の色"
+          }
+        }
+      }
+    },
+    "camera.sunsetfade.name" : {
+      "comment" : "カメラ名。CameraSpec.displayNameKey から引かれる",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sunset Fade"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "サンセットフェード"
+          }
+        }
+      }
+    },
+    "camera.sunsetfade.tagline" : {
+      "comment" : "カメラの短い説明。CameraSpec.taglineKey から引かれる",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sun-bleached orange highlights"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "陽に灼けたオレンジの飛び"
+          }
+        }
+      }
+    },
+    "camera.toyplastic.name" : {
+      "comment" : "カメラ名。CameraSpec.displayNameKey から引かれる",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toy Plastic"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "トイプラスチック"
+          }
+        }
+      }
+    },
+    "camera.toyplastic.tagline" : {
+      "comment" : "カメラの短い説明。CameraSpec.taglineKey から引かれる",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Heavy vignette and light leaks"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "強い周辺減光と光漏れ"
+          }
+        }
+      }
+    },
     "Photos" : {
       "localizations" : {
         "ja" : {

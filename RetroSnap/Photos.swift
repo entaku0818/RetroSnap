@@ -8,6 +8,8 @@ struct Photos: Reducer {
         var id: UUID
         var name: String
         var imageURL: URL
+        /// 撮影に使ったカメラ。カメラ切替より前に撮られた写真は nil（＝不明）。
+        var cameraID: CameraID?
     }
 
     @ObservableState
