@@ -1,600 +1,599 @@
 {
-  "sourceLanguage": "en",
-  "strings": {
-    "Photos": {
-      "localizations": {
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "写真一覧"
-          }
-        }
-      }
-    },
-    "Save Photo": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Saved to your photo library"
+  "sourceLanguage" : "en",
+  "strings" : {
+    "camera.datestamp98.name" : {
+      "comment" : "カメラ名。CameraSpec.displayNameKey から引かれる",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Datestamp 98"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "写真が保存されました"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "デートスタンプ98"
           }
         }
       }
     },
-    "Select Photo": {},
-    "camera.datestamp98.name": {
-      "comment": "カメラ名。CameraSpec.displayNameKey から引かれる",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Datestamp 98"
+    "camera.datestamp98.tagline" : {
+      "comment" : "カメラの短い説明。CameraSpec.taglineKey から引かれる",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Burns the date into the corner"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "デートスタンプ98"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "右下に日付を焼き込む"
           }
         }
       }
     },
-    "camera.datestamp98.tagline": {
-      "comment": "カメラの短い説明。CameraSpec.taglineKey から引かれる",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Burns the date into the corner"
+    "camera.nightneon.name" : {
+      "comment" : "カメラ名。CameraSpec.displayNameKey から引かれる",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Night Neon"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "右下に日付を焼き込む"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ナイトネオン"
           }
         }
       }
     },
-    "camera.nightneon.name": {
-      "comment": "カメラ名。CameraSpec.displayNameKey から引かれる",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Night Neon"
+    "camera.nightneon.tagline" : {
+      "comment" : "カメラの短い説明。CameraSpec.taglineKey から引かれる",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cool shadows, glowing lights"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ナイトネオン"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "影は青く沈み、光が滲む"
           }
         }
       }
     },
-    "camera.nightneon.tagline": {
-      "comment": "カメラの短い説明。CameraSpec.taglineKey から引かれる",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cool shadows, glowing lights"
+    "camera.plain70.name" : {
+      "comment" : "カメラ名。CameraSpec.displayNameKey から引かれる",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plain 70"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "影は青く沈み、光が滲む"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "プレーン70"
           }
         }
       }
     },
-    "camera.plain70.name": {
-      "comment": "カメラ名。CameraSpec.displayNameKey から引かれる",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Plain 70"
+    "camera.plain70.tagline" : {
+      "comment" : "カメラの短い説明。CameraSpec.taglineKey から引かれる",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gently faded everyday color"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "プレーン70"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ほんのり褪せた日常の色"
           }
         }
       }
     },
-    "camera.plain70.tagline": {
-      "comment": "カメラの短い説明。CameraSpec.taglineKey から引かれる",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Gently faded everyday color"
+    "camera.sunsetfade.name" : {
+      "comment" : "カメラ名。CameraSpec.displayNameKey から引かれる",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sunset Fade"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ほんのり褪せた日常の色"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "サンセットフェード"
           }
         }
       }
     },
-    "camera.sunsetfade.name": {
-      "comment": "カメラ名。CameraSpec.displayNameKey から引かれる",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sunset Fade"
+    "camera.sunsetfade.tagline" : {
+      "comment" : "カメラの短い説明。CameraSpec.taglineKey から引かれる",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sun-bleached orange highlights"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "サンセットフェード"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "陽に灼けたオレンジの飛び"
           }
         }
       }
     },
-    "camera.sunsetfade.tagline": {
-      "comment": "カメラの短い説明。CameraSpec.taglineKey から引かれる",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sun-bleached orange highlights"
+    "camera.toyplastic.name" : {
+      "comment" : "カメラ名。CameraSpec.displayNameKey から引かれる",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toy Plastic"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "陽に灼けたオレンジの飛び"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "トイプラスチック"
           }
         }
       }
     },
-    "camera.toyplastic.name": {
-      "comment": "カメラ名。CameraSpec.displayNameKey から引かれる",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Toy Plastic"
+    "camera.toyplastic.tagline" : {
+      "comment" : "カメラの短い説明。CameraSpec.taglineKey から引かれる",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Heavy vignette and light leaks"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "トイプラスチック"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "強い周辺減光と光漏れ"
           }
         }
       }
     },
-    "camera.toyplastic.tagline": {
-      "comment": "カメラの短い説明。CameraSpec.taglineKey から引かれる",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Heavy vignette and light leaks"
+    "capture.locked.notice" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This shot was taken with a camera you have not purchased, so it was not saved."
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "強い周辺減光と光漏れ"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未購入のカメラで撮影したため、この写真は保存されていません。"
           }
         }
       }
     },
-    "capture.locked.notice": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "This shot was taken with a camera you have not purchased, so it was not saved."
+    "capture.locked.openStore" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unlock this camera"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "未購入のカメラで撮影したため、この写真は保存されていません。"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このカメラを購入する"
           }
         }
       }
     },
-    "capture.locked.openStore": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Unlock this camera"
+    "Photos" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "写真一覧"
+          }
+        }
+      }
+    },
+    "Save Photo" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saved to your photo library"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "このカメラを購入する"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "写真が保存されました"
           }
         }
       }
     },
-    "settings.cameraStore": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Camera Store"
+    "settings.cameras" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cameras"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "カメラストア"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "カメラ"
           }
         }
       }
     },
-    "settings.cameras": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cameras"
+    "settings.cameraStore" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Camera Store"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "カメラ"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "カメラストア"
           }
         }
       }
     },
-    "settings.title": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Settings"
+    "settings.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Settings"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "設定"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "設定"
           }
         }
       }
     },
-    "store.close": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Close"
+    "store.close" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Close"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "閉じる"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "閉じる"
           }
         }
       }
     },
-    "store.error.productsUnavailable": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Could not load prices. Check your connection and try again."
+    "store.error.productsUnavailable" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not load prices. Check your connection and try again."
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "価格を取得できませんでした。通信状況を確認してもう一度お試しください。"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "価格を取得できませんでした。通信状況を確認してもう一度お試しください。"
           }
         }
       }
     },
-    "store.error.unknown": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "The purchase could not be completed."
+    "store.error.unknown" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The purchase could not be completed."
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "購入を完了できませんでした。"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "購入を完了できませんでした。"
           }
         }
       }
     },
-    "store.footer.preview": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "You can try every camera in the live preview before buying. A purchase is only needed to save a photo taken with that camera."
+    "store.footer.preview" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You can try every camera in the live preview before buying. A purchase is only needed to save a photo taken with that camera."
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "どのカメラもライブプレビューで試せます。購入が必要になるのは、そのカメラで撮った写真を保存するときだけです。"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "どのカメラもライブプレビューで試せます。購入が必要になるのは、そのカメラで撮った写真を保存するときだけです。"
           }
         }
       }
     },
-    "store.footer.restore": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Restores cameras you have already bought with this Apple Account."
+    "store.footer.restore" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restores cameras you have already bought with this Apple Account."
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "この Apple アカウントで購入済みのカメラを元に戻します。"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "この Apple アカウントで購入済みのカメラを元に戻します。"
           }
         }
       }
     },
-    "store.free": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Free"
+    "store.free" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Free"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "無料"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無料"
           }
         }
       }
     },
-    "store.locked": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Not purchased"
+    "store.locked" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Not purchased"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "未購入"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未購入"
           }
         }
       }
     },
-    "store.message.alreadyFree": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "This camera is free."
+    "store.message.alreadyFree" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This camera is free."
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "このカメラは無料です。"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このカメラは無料です。"
           }
         }
       }
     },
-    "store.message.cancelled": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Purchase cancelled."
+    "store.message.cancelled" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Purchase cancelled."
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "購入をキャンセルしました。"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "購入をキャンセルしました。"
           }
         }
       }
     },
-    "store.message.nothingToRestore": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "No purchases found for this Apple Account."
+    "store.message.nothingToRestore" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No purchases found for this Apple Account."
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "この Apple アカウントに購入履歴はありませんでした。"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "この Apple アカウントに購入履歴はありませんでした。"
           }
         }
       }
     },
-    "store.message.pending": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Waiting for approval. The camera unlocks once the purchase is approved."
+    "store.message.pending" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Waiting for approval. The camera unlocks once the purchase is approved."
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "承認待ちです。承認されるとカメラが使えるようになります。"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "承認待ちです。承認されるとカメラが使えるようになります。"
           }
         }
       }
     },
-    "store.message.purchased": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Purchased. You can save photos with this camera now."
+    "store.message.purchased" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Purchased. You can save photos with this camera now."
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "購入しました。このカメラで保存できます。"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "購入しました。このカメラで保存できます。"
           }
         }
       }
     },
-    "store.message.restored %lld": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "variations": {
-            "plural": {
-              "one": {
-                "stringUnit": {
-                  "state": "translated",
-                  "value": "Restored %lld camera."
+    "store.message.restored %lld" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Restored %lld camera."
                 }
               },
-              "other": {
-                "stringUnit": {
-                  "state": "translated",
-                  "value": "Restored %lld cameras."
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Restored %lld cameras."
                 }
               }
             }
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%lld 台のカメラを復元しました。"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld 台のカメラを復元しました。"
           }
         }
       }
     },
-    "store.owned": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Purchased"
+    "store.owned" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Purchased"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "購入済み"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "購入済み"
           }
         }
       }
     },
-    "store.restore": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Restore Purchases"
+    "store.restore" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restore Purchases"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "購入を復元"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "購入を復元"
           }
         }
       }
     },
-    "store.title": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Camera Store"
+    "store.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Camera Store"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "カメラストア"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "カメラストア"
           }
         }
       }
     },
-    "store.unavailable": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Unavailable"
+    "store.unavailable" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unavailable"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "取得できません"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "取得できません"
           }
         }
       }
     }
   },
-  "version": "1.0"
+  "version" : "1.0"
 }
