@@ -1,0 +1,3 @@
+- Les photos que vous prenez sont désormais enregistrées dans votre photothèque.
+- Suppression d'une demande d'autorisation d'accès à la photothèque devenue inutile.
+- Mise à jour pour la dernière version d'iOS et stabilité améliorée.
