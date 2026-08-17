@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>RetroSnap App Store Screenshots (JA)</title>
+<!--
+  App Store 用スクリーンショット5枚の版下（日本語）。
+
+  ★これはアプリのコードではない。App Store Connect に載せる画像を作るためのものだけ。
+
+  - 1枚 1290 x 2796 px（iPhone 6.9" / 6.7" 兼用のサイズ）
+  - `?only=1`〜`?only=5` を付けると、その1枚だけを余白なしで表示する。
+    render.sh はこれを使って1枚ずつ PNG に焼く
+  - 写真は photos/ に置いたものを読む。差し替えるときは photos/ のファイルを入れ替えるだけ
+    （このファイルは触らない）。何を置くかは photos/README.md を見ること
+
+  価格について:
+  元の版下は ¥200 / ¥200 / ¥400 だったが、**決定事項は ¥300 / ¥300 / ¥500** なので
+  そちらに直してある。スクリーンショットの価格が実際のストアと食い違うと審査で問題になる。
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: #17171A;
+    font-family: 'Zen Kaku Gothic New', system-ui, sans-serif;
+  }
+
+  .sheet {
+    display: flex;
+    gap: 80px;
+    padding: 80px;
+    align-items: flex-start;
+  }
+
+  /* 1枚分。App Store の要求サイズそのまま */
+  .shot {
+    position: relative;
+    width: 1290px;
+    height: 2796px;
+    background: #000000;
+    overflow: hidden;
+    flex: none;
+  }
+
+  .caption {
+    position: absolute;
+    top: 150px;
+    left: 100px;
+    right: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+  .caption .index {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 34px;
+    letter-spacing: 0.24em;
+    color: #FF6B0F;
+  }
+  .caption h2 {
+    margin: 0;
+    font-size: 100px;
+    font-weight: 900;
+    line-height: 1.22;
+    letter-spacing: -0.02em;
+    color: #FFFFFF;
+  }
+  .caption em { font-style: normal; color: #FF6B0F; }
+
+  /* 端末の外枠。中身は 393x852 の実寸を 2.545 倍して流し込む */
+  .device {
+    position: absolute;
+    left: 145px;
+    top: 640px;
+    width: 1000px;
+    height: 2168px;
+    border-radius: 90px;
+    overflow: hidden;
+    box-shadow: 0 0 0 12px #1E1E20, 0 60px 120px rgba(0, 0, 0, 0.6);
+  }
+  .screen {
+    width: 393px;
+    height: 852px;
+    transform: scale(2.545);
+    transform-origin: top left;
+    position: relative;
+    background: #000000;
+    overflow: hidden;
+  }
+
+  .photo { width: 100%; height: 100%; object-fit: cover; display: block; }
+  /* 写真が入っていないときに、どの枠に何を入れるかが分かるようにしておく */
+  .photo-slot {
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(45deg, #2A2A2E 0 18px, #212125 18px 36px);
+  }
+  .photo-slot::after {
+    content: attr(data-placeholder);
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+    padding: 12px;
+  }
+  .photo-slot:has(img) { background: none; }
+  .photo-slot:has(img)::after { content: none; }
+
+  /* 現像の効き。FilmRenderer のパラメータに合わせた近似（版下用） */
+  .film-plain70    { filter: saturate(0.86) contrast(1.04) brightness(1.05) sepia(0.12); }
+  .film-sunsetfade { filter: saturate(0.9) contrast(0.88) brightness(1.28) sepia(0.2); }
+  .film-nightneon  { filter: saturate(1.28) contrast(1.16) brightness(0.86); }
+  .film-toyplastic { filter: saturate(1.45) contrast(1.22); }
+  .film-datestamp  { filter: saturate(1.06) contrast(1.06) brightness(1.02); }
+
+  .status-bar {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px 0 34px;
+    color: #FFFFFF;
+    font-family: system-ui, sans-serif;
+    pointer-events: none;
+  }
+  .status-bar .clock { font-size: 16px; font-weight: 600; }
+  .status-bar .icons { display: flex; align-items: center; gap: 6px; }
+  .status-bar.dark { color: #000000; position: static; }
+
+  .chip-row {
+    position: absolute;
+    left: 0; right: 0;
+    bottom: 170px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    pointer-events: none;
+  }
+  .chip-row .tagline {
+    font-family: system-ui, sans-serif;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.85);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  }
+  .chip-strip {
+    width: 393px;
+    display: flex;
+    padding: 4px 24px;
+  }
+  .chips { display: flex; gap: 10px; flex: none; }
+  .chip {
+    font-family: system-ui, sans-serif;
+    font-size: 15px;
+    color: #FFFFFF;
+    background: rgba(255, 255, 255, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 8px 15px;
+    border-radius: 999px;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .chip.selected {
+    font-weight: 700;
+    color: #000000;
+    background: #FFFFFF;
+    border-color: transparent;
+    padding: 9px 16px;
+  }
+
+  .shutter {
+    position: absolute;
+    left: 161.5px;
+    top: 697px;
+    width: 70px;
+    height: 70px;
+    border-radius: 35px;
+    background: #FFFFFF;
+    pointer-events: none;
+  }
+  .gallery-button {
+    position: absolute;
+    left: 333px;
+    top: 712px;
+    width: 45px;
+    height: 45px;
+    border-radius: 5px;
+    background: #FFFFFF;
+    display: grid;
+    place-items: center;
+    color: #000000;
+    pointer-events: none;
+  }
+  .icon-button {
+    position: absolute;
+    top: 20px;
+    width: 45px;
+    height: 45px;
+    display: grid;
+    place-items: center;
+    color: #FFFFFF;
+    pointer-events: none;
+  }
+  .icon-button.left { left: 15px; }
+  .icon-button.right { right: 5px; }
+
+  .datestamp {
+    position: absolute;
+    right: 20px;
+    bottom: 34px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 34px;
+    font-weight: 500;
+    color: #FF6B0F;
+    text-shadow: 0 0 14px rgba(255, 107, 15, 0.65);
+    pointer-events: none;
+  }
+
+  /* カメラストア（04枚目） */
+  .sheet-screen {
+    background: #F2F2F7;
+    font-family: system-ui, sans-serif;
+  }
+  .nav-bar {
+    height: 44px;
+    background: rgba(249, 249, 249, 0.94);
+    border-bottom: 1px solid rgba(60, 60, 67, 0.24);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+  }
+  .nav-bar .action { font-size: 17px; color: #007AFF; }
+  .nav-bar .title { font-size: 17px; font-weight: 600; color: #000000; }
+  .store-body { padding: 18px 16px; display: flex; flex-direction: column; gap: 18px; }
+  .store-group { background: #FFFFFF; border-radius: 10px; overflow: hidden; }
+  .store-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 16px;
+    border-bottom: 1px solid rgba(60, 60, 67, 0.14);
+  }
+  .store-row:last-child { border-bottom: none; }
+  .store-row.highlighted { background: rgba(255, 107, 15, 0.08); }
+  .store-row .labels { flex: 1; display: flex; flex-direction: column; gap: 3px; }
+  .store-row .name { font-size: 17px; color: #000000; }
+  .store-row.highlighted .name { font-weight: 600; }
+  .store-row .tagline { font-size: 12px; color: rgba(60, 60, 67, 0.6); }
+  .store-row .free { font-size: 12px; color: rgba(60, 60, 67, 0.6); }
+  .store-row .price {
+    font-size: 16px;
+    font-weight: 600;
+    color: #FFFFFF;
+    background: #007AFF;
+    padding: 7px 14px;
+    border-radius: 999px;
+  }
+  .footnote { font-size: 12px; line-height: 1.45; color: rgba(60, 60, 67, 0.6); padding: 0 16px; }
+  .restore { background: #FFFFFF; border-radius: 10px; padding: 12px 16px; }
+  .restore span { font-size: 17px; color: #007AFF; }
+
+  /* 写真一覧（05枚目） */
+  .photos-screen { background: #FFFFFF; font-family: system-ui, sans-serif; display: flex; flex-direction: column; }
+  .photos-title { padding: 4px 16px 10px; flex: none; }
+  .photos-title span { font-size: 34px; font-weight: 700; color: #000000; letter-spacing: -0.01em; }
+  .photo-grid {
+    flex: 1;
+    padding: 16px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    align-content: start;
+  }
+  .photo-grid > div { aspect-ratio: 1; overflow: hidden; position: relative; }
+
+  /* ?only=N で1枚だけを余白なしで出す（PNG に焼くとき用） */
+  body.single .sheet { padding: 0; gap: 0; }
+  body.single .shot { display: none; }
+  body.single .shot.target { display: block; }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <!-- 01 -->
+  <section class="shot" id="shot-1">
+    <div class="caption">
+      <span class="index">01</span>
+      <h2>押すだけで、<br><em>あの頃の色</em></h2>
+    </div>
+    <div class="device">
+      <div class="screen">
+        <div class="photo-slot film-plain70" data-placeholder="プレーン70で撮った写真"><img class="photo" src="photos/01-plain70.jpg" alt="" onerror="this.remove()"></div>
+        <div style="position: absolute; inset: 0; box-shadow: inset 0 0 120px 30px rgba(0,0,0,0.35); pointer-events: none;"></div>
+        <div class="status-bar">
+          <span class="clock">9:41</span>
+          <div class="icons">
+            <svg width="18" height="12" viewBox="0 0 18 12" fill="currentColor"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="6" width="3" height="6" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg>
+            <svg width="16" height="12" viewBox="0 0 16 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 4a10 10 0 0114 0M3.5 6.6a6.5 6.5 0 019 0M6.2 9.2a2.7 2.7 0 013.6 0"/></svg>
+            <svg width="26" height="12" viewBox="0 0 26 12" fill="none"><rect x="0.6" y="0.6" width="22" height="10.8" rx="3" stroke="currentColor" stroke-opacity="0.5"/><rect x="2.4" y="2.4" width="17" height="7.2" rx="1.8" fill="currentColor"/><path d="M24.4 4.2v3.6a2 2 0 000-3.6z" fill="currentColor" fill-opacity="0.5"/></svg>
+          </div>
+        </div>
+        <div class="icon-button left">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="3.4"/><path d="M12 2.2v3M12 18.8v3M2.2 12h3M18.8 12h3M5.1 5.1l2.1 2.1M16.8 16.8l2.1 2.1M18.9 5.1l-2.1 2.1M7.2 16.8l-2.1 2.1"/></svg>
+        </div>
+        <div class="chip-row">
+          <span class="tagline">ほんのり褪せた日常の色</span>
+          <div class="chip-strip" style="justify-content: flex-start;">
+            <div class="chips">
+              <span class="chip selected">プレーン70</span>
+              <span class="chip">サンセットフェード</span>
+              <span class="chip"><svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor"><path d="M2 5V3.5a3 3 0 016 0V5h.5A1.5 1.5 0 0110 6.5v4A1.5 1.5 0 018.5 12h-7A1.5 1.5 0 010 10.5v-4A1.5 1.5 0 011.5 5H2zm1.4 0h3.2V3.5a1.6 1.6 0 00-3.2 0V5z"/></svg>ナイトネオン</span>
+              <span class="chip"><svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor"><path d="M2 5V3.5a3 3 0 016 0V5h.5A1.5 1.5 0 0110 6.5v4A1.5 1.5 0 018.5 12h-7A1.5 1.5 0 010 10.5v-4A1.5 1.5 0 011.5 5H2zm1.4 0h3.2V3.5a1.6 1.6 0 00-3.2 0V5z"/></svg>トイプラスチック</span>
+            </div>
+          </div>
+        </div>
+        <div class="shutter"></div>
+        <div class="gallery-button">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M4 5.5A2.5 2.5 0 016.5 3h11A2.5 2.5 0 0120 5.5v13A2.5 2.5 0 0117.5 21h-11A2.5 2.5 0 014 18.5v-13zm2.5-.5a.5.5 0 00-.5.5v9.2l3.3-3.2a1.4 1.4 0 011.94 0L18 17.6V5.5a.5.5 0 00-.5-.5h-11z"/></svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 -->
+  <section class="shot" id="shot-2">
+    <div class="caption">
+      <span class="index">02</span>
+      <h2>選んだ瞬間、<br><em>写りが変わる</em></h2>
+    </div>
+    <div class="device">
+      <div class="screen">
+        <div class="photo-slot film-nightneon" data-placeholder="夜の街の写真"><img class="photo" src="photos/02-nightneon.jpg" alt="" onerror="this.remove()"></div>
+        <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(107,90,255,0.26), rgba(255,107,184,0.22)); mix-blend-mode: screen; pointer-events: none;"></div>
+        <div style="position: absolute; inset: 0; box-shadow: inset 0 0 140px 34px rgba(0,0,0,0.5); pointer-events: none;"></div>
+        <div class="status-bar">
+          <span class="clock">9:41</span>
+          <div class="icons">
+            <svg width="18" height="12" viewBox="0 0 18 12" fill="currentColor"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="6" width="3" height="6" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg>
+            <svg width="16" height="12" viewBox="0 0 16 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 4a10 10 0 0114 0M3.5 6.6a6.5 6.5 0 019 0M6.2 9.2a2.7 2.7 0 013.6 0"/></svg>
+            <svg width="26" height="12" viewBox="0 0 26 12" fill="none"><rect x="0.6" y="0.6" width="22" height="10.8" rx="3" stroke="currentColor" stroke-opacity="0.5"/><rect x="2.4" y="2.4" width="17" height="7.2" rx="1.8" fill="currentColor"/><path d="M24.4 4.2v3.6a2 2 0 000-3.6z" fill="currentColor" fill-opacity="0.5"/></svg>
+          </div>
+        </div>
+        <div class="icon-button left">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="3.4"/><path d="M12 2.2v3M12 18.8v3M2.2 12h3M18.8 12h3M5.1 5.1l2.1 2.1M16.8 16.8l2.1 2.1M18.9 5.1l-2.1 2.1M7.2 16.8l-2.1 2.1"/></svg>
+        </div>
+        <div class="chip-row">
+          <span class="tagline">影は青く沈み、光が滲む</span>
+          <div class="chip-strip" style="justify-content: center;">
+            <div class="chips">
+              <span class="chip">プレーン70</span>
+              <span class="chip">サンセットフェード</span>
+              <span class="chip selected"><svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor"><path d="M2 5V3.5a3 3 0 016 0V5h.5A1.5 1.5 0 0110 6.5v4A1.5 1.5 0 018.5 12h-7A1.5 1.5 0 010 10.5v-4A1.5 1.5 0 011.5 5H2zm1.4 0h3.2V3.5a1.6 1.6 0 00-3.2 0V5z"/></svg>ナイトネオン</span>
+              <span class="chip"><svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor"><path d="M2 5V3.5a3 3 0 016 0V5h.5A1.5 1.5 0 0110 6.5v4A1.5 1.5 0 018.5 12h-7A1.5 1.5 0 010 10.5v-4A1.5 1.5 0 011.5 5H2zm1.4 0h3.2V3.5a1.6 1.6 0 00-3.2 0V5z"/></svg>トイプラスチック</span>
+              <span class="chip"><svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor"><path d="M2 5V3.5a3 3 0 016 0V5h.5A1.5 1.5 0 0110 6.5v4A1.5 1.5 0 018.5 12h-7A1.5 1.5 0 010 10.5v-4A1.5 1.5 0 011.5 5H2zm1.4 0h3.2V3.5a1.6 1.6 0 00-3.2 0V5z"/></svg>デートスタンプ98</span>
+            </div>
+          </div>
+        </div>
+        <div class="shutter"></div>
+        <div class="gallery-button">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M4 5.5A2.5 2.5 0 016.5 3h11A2.5 2.5 0 0120 5.5v13A2.5 2.5 0 0117.5 21h-11A2.5 2.5 0 014 18.5v-13zm2.5-.5a.5.5 0 00-.5.5v9.2l3.3-3.2a1.4 1.4 0 011.94 0L18 17.6V5.5a.5.5 0 00-.5-.5h-11z"/></svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 -->
+  <section class="shot" id="shot-3">
+    <div class="caption">
+      <span class="index">03</span>
+      <h2>日付は<br><em>右下に焼き込む</em></h2>
+    </div>
+    <div class="device">
+      <div class="screen">
+        <div class="photo-slot film-datestamp" data-placeholder="撮影直後の1枚"><img class="photo" src="photos/03-datestamp98.jpg" alt="" onerror="this.remove()"></div>
+        <div style="position: absolute; inset: 0; box-shadow: inset 0 0 90px 16px rgba(0,0,0,0.22); pointer-events: none;"></div>
+        <div class="status-bar">
+          <span class="clock">9:41</span>
+          <div class="icons">
+            <svg width="18" height="12" viewBox="0 0 18 12" fill="currentColor"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="6" width="3" height="6" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg>
+            <svg width="16" height="12" viewBox="0 0 16 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 4a10 10 0 0114 0M3.5 6.6a6.5 6.5 0 019 0M6.2 9.2a2.7 2.7 0 013.6 0"/></svg>
+            <svg width="26" height="12" viewBox="0 0 26 12" fill="none"><rect x="0.6" y="0.6" width="22" height="10.8" rx="3" stroke="currentColor" stroke-opacity="0.5"/><rect x="2.4" y="2.4" width="17" height="7.2" rx="1.8" fill="currentColor"/><path d="M24.4 4.2v3.6a2 2 0 000-3.6z" fill="currentColor" fill-opacity="0.5"/></svg>
+          </div>
+        </div>
+        <div class="icon-button right">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </div>
+        <span class="datestamp">'26 8 16</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 -->
+  <section class="shot" id="shot-4">
+    <div class="caption">
+      <span class="index">04</span>
+      <h2>買う前に、<br><em>写りを試せる</em></h2>
+    </div>
+    <div class="device">
+      <div class="screen sheet-screen">
+        <div class="status-bar dark">
+          <span class="clock">9:41</span>
+          <div class="icons">
+            <svg width="18" height="12" viewBox="0 0 18 12" fill="currentColor"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="6" width="3" height="6" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg>
+            <svg width="16" height="12" viewBox="0 0 16 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 4a10 10 0 0114 0M3.5 6.6a6.5 6.5 0 019 0M6.2 9.2a2.7 2.7 0 013.6 0"/></svg>
+            <svg width="26" height="12" viewBox="0 0 26 12" fill="none"><rect x="0.6" y="0.6" width="22" height="10.8" rx="3" stroke="currentColor" stroke-opacity="0.4"/><rect x="2.4" y="2.4" width="17" height="7.2" rx="1.8" fill="currentColor"/><path d="M24.4 4.2v3.6a2 2 0 000-3.6z" fill="currentColor" fill-opacity="0.4"/></svg>
+          </div>
+        </div>
+        <div class="nav-bar">
+          <span class="action">閉じる</span>
+          <span class="title">カメラストア</span>
+          <span style="width: 44px;"></span>
+        </div>
+        <div class="store-body">
+          <div class="store-group">
+            <div class="store-row">
+              <div class="labels"><span class="name">プレーン70</span><span class="tagline">ほんのり褪せた日常の色</span></div>
+              <span class="free">無料</span>
+            </div>
+            <div class="store-row">
+              <div class="labels"><span class="name">サンセットフェード</span><span class="tagline">陽に灼けたオレンジの飛び</span></div>
+              <span class="free">無料</span>
+            </div>
+            <div class="store-row highlighted">
+              <div class="labels"><span class="name">ナイトネオン</span><span class="tagline">影は青く沈み、光が滲む</span></div>
+              <span class="price">¥300</span>
+            </div>
+            <div class="store-row">
+              <div class="labels"><span class="name">トイプラスチック</span><span class="tagline">強い周辺減光と光漏れ</span></div>
+              <span class="price">¥300</span>
+            </div>
+            <div class="store-row">
+              <div class="labels"><span class="name">デートスタンプ98</span><span class="tagline">右下に日付を焼き込む</span></div>
+              <span class="price">¥500</span>
+            </div>
+          </div>
+          <span class="footnote">どのカメラもライブプレビューで試せます。購入が必要になるのは、そのカメラで撮った写真を保存するときだけです。</span>
+          <div class="restore"><span>購入を復元</span></div>
+          <span class="footnote">この Apple アカウントで購入済みのカメラを元に戻します。</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 -->
+  <section class="shot" id="shot-5">
+    <div class="caption">
+      <span class="index">05</span>
+      <h2>撮った写真は<br><em>まとめて残る</em></h2>
+    </div>
+    <div class="device">
+      <div class="screen photos-screen">
+        <div class="status-bar dark" style="flex: none;">
+          <span class="clock">9:41</span>
+          <div class="icons">
+            <svg width="18" height="12" viewBox="0 0 18 12" fill="currentColor"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="6" width="3" height="6" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg>
+            <svg width="16" height="12" viewBox="0 0 16 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 4a10 10 0 0114 0M3.5 6.6a6.5 6.5 0 019 0M6.2 9.2a2.7 2.7 0 013.6 0"/></svg>
+            <svg width="26" height="12" viewBox="0 0 26 12" fill="none"><rect x="0.6" y="0.6" width="22" height="10.8" rx="3" stroke="currentColor" stroke-opacity="0.4"/><rect x="2.4" y="2.4" width="17" height="7.2" rx="1.8" fill="currentColor"/><path d="M24.4 4.2v3.6a2 2 0 000-3.6z" fill="currentColor" fill-opacity="0.4"/></svg>
+          </div>
+        </div>
+        <div class="photos-title"><span>写真一覧</span></div>
+        <div class="photo-grid">
+          <div class="photo-slot film-plain70" data-placeholder="写真"><img class="photo" src="photos/05-a.jpg" alt="" onerror="this.remove()"></div>
+          <div class="photo-slot film-sunsetfade" data-placeholder="写真"><img class="photo" src="photos/05-b.jpg" alt="" onerror="this.remove()"></div>
+          <div class="photo-slot film-nightneon" data-placeholder="写真"><img class="photo" src="photos/05-c.jpg" alt="" onerror="this.remove()"></div>
+          <div class="photo-slot film-toyplastic" data-placeholder="写真"><img class="photo" src="photos/05-d.jpg" alt="" onerror="this.remove()"></div>
+          <div class="photo-slot film-datestamp" data-placeholder="写真"><img class="photo" src="photos/05-e.jpg" alt="" onerror="this.remove()"></div>
+          <div class="photo-slot film-plain70" data-placeholder="写真"><img class="photo" src="photos/05-f.jpg" alt="" onerror="this.remove()"></div>
+          <div class="photo-slot film-sunsetfade" data-placeholder="写真"><img class="photo" src="photos/05-g.jpg" alt="" onerror="this.remove()"></div>
+          <div class="photo-slot film-nightneon" data-placeholder="写真"><img class="photo" src="photos/05-h.jpg" alt="" onerror="this.remove()"></div>
+          <div class="photo-slot film-toyplastic" data-placeholder="写真"><img class="photo" src="photos/05-i.jpg" alt="" onerror="this.remove()"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+  // ?only=N のときは、その1枚だけを余白なしで出す。render.sh がこれを使う。
+  var only = new URLSearchParams(location.search).get('only');
+  if (only) {
+    document.body.classList.add('single');
+    var target = document.getElementById('shot-' + only);
+    if (target) { target.classList.add('target'); }
+  }
+</script>
+</body>
+</html>
