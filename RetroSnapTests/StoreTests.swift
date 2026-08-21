@@ -2,13 +2,15 @@
 //  StoreTests.swift
 //  RetroSnapTests
 //
-//  課金まわりのうち、StoreKit を起動しなくても決まる部分の保証。
-//  - 所有判定（無料は常に使える / 有料は買ったときだけ）
+//  課金まわりのうち、**課金の実装（RevenueCat）を起動しなくても決まる部分**の保証。
+//  - 所有判定（無料は常に使える / 有料は entitlement があるときだけ）
 //  - 保存時ゲートの分岐（保存する / 購入を求める）
 //  - 広告を全消しにする条件
+//  - entitlement 識別子の規約（RevenueCat のダッシュボードに入れる文字列）
 //  - .storekit の中身がカタログとずれていないこと
 //
-//  実際に買って復元するところは StoreClientTests（StoreKit Testing）が見る。
+//  実際に買う・復元するところは、RevenueCat のサーバと API キーが要るため
+//  ここでは見ない（キーが入ってからの実機 / Sandbox 確認に回す）。
 //
 
 import XCTest
@@ -53,9 +55,9 @@ final class StoreTests: XCTestCase {
         }
     }
 
-    func testUnrelatedProductIDDoesNotUnlockAnything() {
-        // 他アプリの product ID や古い ID を持っていても開かないこと
-        let entitlements = StaticCameraEntitlements(ownedProductIDs: ["com.entaku.other.pro", "unlock.all"])
+    func testUnrelatedEntitlementDoesNotUnlockAnything() {
+        // 他アプリや廃止済みの entitlement を持っていても開かないこと
+        let entitlements = StaticCameraEntitlements(activeEntitlementIDs: ["camera_other", "unlock_all", "pro"])
 
         for spec in paidCameras {
             XCTAssertFalse(entitlements.isUnlocked(spec))
@@ -117,13 +119,13 @@ final class StoreTests: XCTestCase {
     // MARK: - 広告
 
     func testAdsStayUntilSomethingIsPurchased() {
-        XCTAssertFalse(StaticCameraEntitlements().hasAnyPurchase)
+        XCTAssertFalse(StaticCameraEntitlements().hasAnyPurchase())
     }
 
     func testBuyingASingleCameraRemovesAds() throws {
         let bought = try XCTUnwrap(paidCameras.first)
 
-        XCTAssertTrue(StaticCameraEntitlements(owned: [bought]).hasAnyPurchase)
+        XCTAssertTrue(StaticCameraEntitlements(owned: [bought]).hasAnyPurchase())
     }
 
     // MARK: - .storekit とカタログの一致
@@ -170,5 +172,35 @@ final class StoreTests: XCTestCase {
         XCTAssertEqual(prices[CameraSpec.nightNeon.productID], "300")
         XCTAssertEqual(prices[CameraSpec.toyPlastic.productID], "300")
         XCTAssertEqual(prices[CameraSpec.dateStamp98.productID], "500")
+    }
+
+    // MARK: - entitlement 識別子の規約
+
+    func testEntitlementIDsAreDerivedFromSlug() {
+        for spec in CameraCatalog.all {
+            XCTAssertEqual(spec.entitlementID, "camera_" + spec.id.rawValue)
+        }
+    }
+
+    func testEntitlementIDsAreUnique() {
+        let ids = CameraCatalog.all.map(\.entitlementID)
+        XCTAssertEqual(Set(ids).count, ids.count)
+    }
+
+    func testEntitlementIDsUseLowercaseAlphanumericsAndUnderscore() {
+        // RevenueCat のダッシュボードに入れる文字列。表記を機械で固定しておく
+        for spec in CameraCatalog.all {
+            XCTAssertNotNil(
+                spec.entitlementID.range(of: "^[a-z0-9_]+$", options: .regularExpression),
+                "\(spec.entitlementID) に使えない文字が入っている"
+            )
+        }
+    }
+
+    func testUnknownEntitlementDoesNotRemoveAds() {
+        // カタログに無い entitlement が1つあるだけで広告が消える、という事故を防ぐ
+        let entitlements = StaticCameraEntitlements(activeEntitlementIDs: ["camera_retired", "pro"])
+
+        XCTAssertFalse(entitlements.hasAnyPurchase())
     }
 }

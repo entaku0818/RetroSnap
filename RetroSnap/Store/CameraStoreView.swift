@@ -12,7 +12,7 @@
 //     押したのに何も起きない、という状態を作らない。
 //
 
-import StoreKit
+import RevenueCat
 import SwiftUI
 
 struct CameraStoreView: View {
@@ -49,7 +49,7 @@ struct CameraStoreView: View {
                     ForEach(cameras) { spec in
                         CameraStoreRow(
                             spec: spec,
-                            product: store.products[spec.productID],
+                            package: store.packages[spec.productID],
                             isOwned: store.isUnlocked(spec),
                             isPurchasing: store.purchasingProductIDs.contains(spec.productID),
                             isHighlighted: spec.id == highlighted
@@ -85,7 +85,7 @@ struct CameraStoreView: View {
                 }
             }
             .overlay {
-                if store.isLoadingProducts && store.products.isEmpty {
+                if store.isLoadingProducts && store.packages.isEmpty {
                     ProgressView()
                 }
             }
@@ -139,7 +139,7 @@ struct CameraStoreView: View {
 private struct CameraStoreRow: View {
 
     let spec: CameraSpec
-    let product: Product?
+    let package: Package?
     let isOwned: Bool
     let isPurchasing: Bool
     let isHighlighted: Bool
@@ -173,8 +173,9 @@ private struct CameraStoreRow: View {
                 .foregroundColor(.secondary)
         } else if isPurchasing {
             ProgressView()
-        } else if let product {
-            Button(product.displayPrice, action: onBuy)
+        } else if let package {
+            // 価格は RevenueCat が返す表示用文字列。通貨・地域で変わるので直書きしない。
+            Button(package.storeProduct.localizedPriceString, action: onBuy)
                 .font(.callout.weight(.semibold))
                 .buttonStyle(.borderedProminent)
                 .accessibilityIdentifier("store.buy.\(spec.id.rawValue)")

@@ -214,6 +214,15 @@ extension CameraSpec {
     /// ASC に登録する ID もこれと一致させること。カタログが唯一の情報源になる。
     var productID: String { Self.productIDPrefix + id.rawValue }
 
+    /// RevenueCat の entitlement 識別子。これも slug から機械的に導出する。
+    ///
+    /// RevenueCat のダッシュボードで、この名前の entitlement を1台につき1つ作り、
+    /// `productID` の商品を紐づける。アプリは entitlement しか見ないので、
+    /// 後から価格や商品を差し替えてもアプリ側は無変更で済む。
+    /// - Note: RevenueCat の識別子はハイフンよりアンダースコアが一般的なので
+    ///   `camera_<slug>` にしてある。product ID と同じく**一度決めたら変えない**。
+    var entitlementID: String { "camera_" + id.rawValue }
+
     /// 課金対象か（無料カメラは ASC に登録しない）。
     var isPurchasable: Bool { tier != .free }
 }

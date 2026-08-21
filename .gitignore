@@ -12,3 +12,6 @@ RetroSnap.xcodeproj/xcshareddata/*
 # launchpad
 .env
 build/
+
+# RevenueCat の API キー。雛形（Secrets.xcconfig.example）だけを版管理する
+Config/Secrets.xcconfig

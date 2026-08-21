@@ -82,7 +82,7 @@ struct PhotosView: View {
                 }
                 // カメラを1台でも買ったら広告は全消し。
                 // 今アプリに広告があるのはこの1箇所だけなので、ここを出さなければ全消しになる。
-                if !purchases.hasAnyPurchase {
+                if !purchases.hasAnyPurchase() {
                     AdmobBannerView().frame(width: .infinity, height: 50)
                 }
             }

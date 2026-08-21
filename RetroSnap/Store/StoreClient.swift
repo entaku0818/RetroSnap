@@ -2,21 +2,23 @@
 //  StoreClient.swift
 //  RetroSnap
 //
-//  購入・所有判定・復元をまとめた唯一の入口。UI からは「このカメラは使えるか」
-//  （`isUnlocked`）と「買う」「復元する」しか触らない。
+//  購入・所有判定・復元をまとめた唯一の入口。中身は RevenueCat。
+//  UI からは「このカメラは使えるか」（`isUnlocked`）と「買う」「復元する」しか触らない。
 //
 //  ★設計の要点:
-//   - 所有は必ず `Transaction.currentEntitlements` から作り直す。
+//   - 所有は必ず RevenueCat の `CustomerInfo.entitlements` から作り直す。
 //     **UserDefaults に購入フラグを持たない**（払い戻し・家族共有・復元でずれるため）。
-//   - `Transaction.updates` を購読し続ける。別端末での購入や、アプリ外で完了した
+//   - `customerInfoStream` を購読し続ける。別端末での購入や、アプリ外で完了した
 //     保留中の購入も、アプリを再起動せずに反映される。
 //   - 失敗は握り潰さない。すべての経路が `PurchaseOutcome` / `RestoreOutcome` を返し、
 //     UI が必ず何かを表示できるようにしてある（黙って無反応が一番まずい）。
-//   - product ID は `CameraSpec.productID` から導出する。文字列をここに書かない。
+//   - product ID / entitlement ID は `CameraSpec` から導出する。文字列をここに書かない。
+//   - **API キーが未設定でもクラッシュさせない。** 未設定なら課金は「使えない」状態に留め、
+//     理由を UI に出す。無料カメラは今までどおり使える。
 //
 
 import Foundation
-import StoreKit
+import RevenueCat
 
 // MARK: - 結果
 
@@ -28,9 +30,9 @@ enum PurchaseOutcome: Equatable {
     case free
     /// ユーザーが自分でやめた。
     case cancelled
-    /// 承認待ち（ファミリー共有の「承認と購入のリクエスト」など）。後から `Transaction.updates` で届く。
+    /// 承認待ち（ファミリー共有の「承認と購入のリクエスト」など）。後から反映される。
     case pending
-    /// 商品情報が取れなかった（通信断 / ASC 未登録 / .storekit 未設定）。
+    /// 商品情報が取れなかった（通信断 / RevenueCat 未設定 / 商品未登録）。
     case unavailable
     /// それ以外の失敗。
     case failed(String)
@@ -52,11 +54,11 @@ final class StoreClient: ObservableObject, CameraEntitlements {
 
     static let shared = StoreClient()
 
-    /// 所有している product ID。ここが唯一の所有の真実。
-    @Published private(set) var ownedProductIDs: Set<String> = []
+    /// 有効な entitlement。ここが唯一の所有の真実。
+    @Published private(set) var activeEntitlementIDs: Set<String> = []
 
     /// 取得済みの商品。キーは product ID。
-    @Published private(set) var products: [String: Product] = [:]
+    @Published private(set) var packages: [String: Package] = [:]
 
     /// 商品情報の取得中か。カメラストアのスピナー表示に使う。
     @Published private(set) var isLoadingProducts = false
@@ -68,17 +70,18 @@ final class StoreClient: ObservableObject, CameraEntitlements {
     @Published private(set) var productLoadFailure: String?
 
     private let catalog: [CameraSpec]
-    private var updatesTask: Task<Void, Never>?
+    private var customerInfoTask: Task<Void, Never>?
 
     init(catalog: [CameraSpec] = CameraCatalog.all, startsListening: Bool = true) {
         self.catalog = catalog
-        guard startsListening else { return }
-        updatesTask = makeUpdatesTask()
+        guard startsListening, StoreConfiguration.isConfigured else { return }
+
+        customerInfoTask = makeCustomerInfoTask()
         Task { await refresh() }
     }
 
     deinit {
-        updatesTask?.cancel()
+        customerInfoTask?.cancel()
     }
 
     // MARK: - 読み込み
@@ -89,16 +92,18 @@ final class StoreClient: ObservableObject, CameraEntitlements {
         await refreshEntitlements()
     }
 
-    /// 所有状態を entitlements から作り直す。
+    /// 所有状態を entitlement から作り直す。
     func refreshEntitlements() async {
-        var owned: Set<String> = []
-        for await result in Transaction.currentEntitlements {
-            guard case .verified(let transaction) = result else { continue }
-            // 払い戻し済み・取り消し済みは所有に数えない。
-            guard transaction.revocationDate == nil else { continue }
-            owned.insert(transaction.productID)
+        guard StoreConfiguration.isConfigured else { return }
+
+        do {
+            let info = try await Purchases.shared.customerInfo()
+            apply(info)
+        } catch {
+            // 取れなかったときに所有を空にしてはいけない。
+            // 通信断で「買ったのに使えない」が起きるより、直前の状態を保つほうが害が小さい。
+            print("所有状態を取得できなかった: \(error)")
         }
-        ownedProductIDs = owned
     }
 
     /// カタログの有料カメラぶんの商品情報を取る。
@@ -106,14 +111,30 @@ final class StoreClient: ObservableObject, CameraEntitlements {
         let identifiers = catalog.filter(\.isPurchasable).map(\.productID)
         guard !identifiers.isEmpty else { return }
 
+        guard StoreConfiguration.isConfigured else {
+            productLoadFailure = String(localized: "store.error.notConfigured")
+            return
+        }
+
         isLoadingProducts = true
         defer { isLoadingProducts = false }
 
         do {
-            let loaded = try await Product.products(for: identifiers)
-            products = Dictionary(uniqueKeysWithValues: loaded.map { ($0.id, $0) })
-            // 1つも取れないのは通信断か、商品が未登録かのどちらか。UI に出すために残す。
-            productLoadFailure = loaded.isEmpty ? String(localized: "store.error.productsUnavailable") : nil
+            let offerings = try await Purchases.shared.offerings()
+            // Offering の構成に依存しないよう、全 offering の package を product ID で引けるようにする。
+            // ダッシュボードで offering をどう組んでも、カタログ側の product ID で解決できる。
+            var found: [String: Package] = [:]
+            for offering in offerings.all.values {
+                for package in offering.availablePackages {
+                    found[package.storeProduct.productIdentifier] = package
+                }
+            }
+            packages = found
+
+            let missing = identifiers.filter { found[$0] == nil }
+            productLoadFailure = missing.isEmpty
+                ? nil
+                : String(localized: "store.error.productsUnavailable")
         } catch {
             productLoadFailure = error.localizedDescription
         }
@@ -124,40 +145,32 @@ final class StoreClient: ObservableObject, CameraEntitlements {
     /// カメラを1台買う。
     func purchase(_ spec: CameraSpec) async -> PurchaseOutcome {
         guard spec.isPurchasable else { return .free }
-        guard !ownedProductIDs.contains(spec.productID) else { return .purchased }
+        guard !activeEntitlementIDs.contains(spec.entitlementID) else { return .purchased }
         guard !purchasingProductIDs.contains(spec.productID) else { return .cancelled }
+        guard StoreConfiguration.isConfigured else { return .unavailable }
 
         // 通信断で商品を取れていないことがあるので、買う直前に一度だけ取り直す。
-        if products[spec.productID] == nil {
+        if packages[spec.productID] == nil {
             await loadProducts()
         }
-        guard let product = products[spec.productID] else { return .unavailable }
+        guard let package = packages[spec.productID] else { return .unavailable }
 
         purchasingProductIDs.insert(spec.productID)
         defer { purchasingProductIDs.remove(spec.productID) }
 
         do {
-            switch try await product.purchase() {
-            case .success(let verification):
-                switch verification {
-                case .verified(let transaction):
-                    await transaction.finish()
-                    await refreshEntitlements()
-                    return .purchased
-                case .unverified(_, let error):
-                    // 署名が検証できないものは所有に数えない。黙って通さない。
-                    return .failed(error.localizedDescription)
-                }
-            case .userCancelled:
-                return .cancelled
-            case .pending:
-                // ここで終わりではない。承認されたら Transaction.updates 経由で所有に入る。
-                return .pending
-            @unknown default:
-                return .failed(String(localized: "store.error.unknown"))
+            let result = try await Purchases.shared.purchase(package: package)
+            if result.userCancelled { return .cancelled }
+
+            apply(result.customerInfo)
+            // 課金は通ったのに entitlement が付いてこない場合は、ダッシュボードの
+            // 商品と entitlement の紐づけが漏れている。黙って成功にしない。
+            guard activeEntitlementIDs.contains(spec.entitlementID) else {
+                return .failed(String(localized: "store.error.entitlementMissing"))
             }
+            return .purchased
         } catch {
-            return .failed(error.localizedDescription)
+            return classify(error)
         }
     }
 
@@ -165,25 +178,54 @@ final class StoreClient: ObservableObject, CameraEntitlements {
 
     /// 購入を復元する（App Review Guideline 3.1.1 で必須）。
     func restore() async -> RestoreOutcome {
+        guard StoreConfiguration.isConfigured else {
+            return .failed(String(localized: "store.error.notConfigured"))
+        }
+
         do {
-            try await AppStore.sync()
-            await refreshEntitlements()
-            return ownedProductIDs.isEmpty ? .nothingToRestore : .restored(ownedProductIDs.count)
+            let info = try await Purchases.shared.restorePurchases()
+            apply(info)
+            let count = catalog.filter { $0.isPurchasable && activeEntitlementIDs.contains($0.entitlementID) }.count
+            return count == 0 ? .nothingToRestore : .restored(count)
         } catch {
             return .failed(error.localizedDescription)
+        }
+    }
+
+    // MARK: - 反映
+
+    /// `CustomerInfo` から所有状態を作り直す。所有を触るのはここだけ。
+    private func apply(_ info: CustomerInfo) {
+        activeEntitlementIDs = Set(info.entitlements.active.keys)
+    }
+
+    /// RevenueCat のエラーを、UI が出せる結末に落とす。
+    private func classify(_ error: Error) -> PurchaseOutcome {
+        guard let rcError = error as? RevenueCat.ErrorCode else {
+            return .failed(error.localizedDescription)
+        }
+
+        switch rcError {
+        case .purchaseCancelledError:
+            return .cancelled
+        case .paymentPendingError:
+            // ここで終わりではない。承認されたら customerInfoStream 経由で所有に入る。
+            return .pending
+        case .productNotAvailableForPurchaseError, .productAlreadyPurchasedError:
+            // 「既に買っている」は失敗ではない。所有を取り直して判断させる。
+            return .unavailable
+        default:
+            return .failed(rcError.localizedDescription)
         }
     }
 
     // MARK: - 監視
 
     /// 別端末での購入、保留中の購入の承認、払い戻しを取りこぼさないための購読。
-    private func makeUpdatesTask() -> Task<Void, Never> {
+    private func makeCustomerInfoTask() -> Task<Void, Never> {
         Task { [weak self] in
-            for await result in Transaction.updates {
-                if case .verified(let transaction) = result {
-                    await transaction.finish()
-                }
-                await self?.refreshEntitlements()
+            for await info in Purchases.shared.customerInfoStream {
+                self?.apply(info)
             }
         }
     }

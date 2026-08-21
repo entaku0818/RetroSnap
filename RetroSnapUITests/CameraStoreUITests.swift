@@ -7,43 +7,22 @@
 //  1. 未購入カメラでも**ライブプレビューは効く**。塞がるのは保存だけ
 //  2. シミュレータで購入すると、そのカメラで撮った1枚が保存まで通る
 //
-//  StoreKit Testing（SKTestSession）で RetroSnap.storekit を読むので、
-//  App Store Connect に商品が無くても通る。
+//  課金の中身は RevenueCat なので、価格が出るかどうかは API キーと
+//  ダッシュボードの設定に依存する。1 はキー無しでも確かめられる（ゲートはアプリ内の判断）。
+//  2 は価格が出ない環境では飛ばす。
 //
 //  `RETROSNAP_SCREENSHOT_DIR` を渡すと各段のスクリーンショットを書き出す。
 //
 
-import StoreKitTest
 import XCTest
 
 final class CameraStoreUITests: XCTestCase {
 
     /// 有料カメラ1台。slug は CameraCatalog と揃える（product ID は slug から機械的に決まる）。
     private let paidCameraSlug = "nightneon"
-    private var paidProductID: String { "com.entaku.retrosnap.camera.\(paidCameraSlug)" }
-
-    private var session: SKTestSession!
 
     override func setUpWithError() throws {
         continueAfterFailure = false
-
-        session = try SKTestSession(configurationFileNamed: "RetroSnap")
-
-        // iOS 26 系のシミュレータでは StoreKit Test が使えない（storefront が空で返る）。
-        // 実行環境の問題なので落とさずに飛ばす。課金の確認は iOS 18 系のシミュレータで行う。
-        try XCTSkipIf(
-            session.storefront.isEmpty,
-            "StoreKit Testing が使えない実行環境。iOS 18 系のシミュレータで実行すること"
-        )
-
-        session.disableDialogs = true
-        // 前のテストの購入を持ち越すと「買わずに保存できた」を見逃す。毎回まっさらから。
-        session.clearTransactions()
-    }
-
-    override func tearDownWithError() throws {
-        session?.clearTransactions()
-        session = nil
     }
 
     // MARK: - 未購入: プレビューは効く / 保存は止まる
@@ -66,13 +45,15 @@ final class CameraStoreUITests: XCTestCase {
         // 2. シャッターを切ると購入を求められる（＝保存されずにカメラストアが出る）
         app.buttons["camera.shutter"].tap()
 
-        let storeRow = app.buttons["store.row.\(paidCameraSlug)"]
+        // 型で引かないこと。価格が出ない環境では行の中の Button が消え、
+        // 行の要素型が Button から変わるため `app.buttons[...]` では当たらない。
+        let storeRow = element("store.row.\(paidCameraSlug)", in: app)
         XCTAssertTrue(storeRow.waitForExistence(timeout: 30), "保存しようとしても購入導線が出てこない")
         record(XCUIScreen.main.screenshot(), as: "locked-store")
 
         // 3. 買わずに閉じたら、保存できていないことが画面に残る
         app.buttons["store.close"].tap()
-        let notice = app.otherElements["camera.lockedNotice"]
+        let notice = element("camera.lockedNotice", in: app)
         XCTAssertTrue(notice.waitForExistence(timeout: 5), "保存されなかったことが画面に出ていない")
         record(XCUIScreen.main.screenshot(), as: "locked-notice")
 
@@ -89,13 +70,11 @@ final class CameraStoreUITests: XCTestCase {
         app.buttons["camera.shutter"].tap()
 
         let buyButton = app.buttons["store.buy.\(paidCameraSlug)"]
-        // コマンドラインからの実行では、アプリ側のプロセスに StoreKit の
-        // テストストアが渡らない（UI テスト側の SKTestSession も、スキームの
-        // StoreKit 設定も、テスト対象アプリには効かない）。価格が出ないので買えない。
-        // 実装ではなく実行経路の制約なので、ここでは飛ばす。
+        // RevenueCat の API キーが未設定、または商品が未登録だと価格が出ない。
+        // 実装ではなく設定の問題なので、ここでは飛ばす。
         try XCTSkipUnless(
             buyButton.waitForExistence(timeout: 30),
-            "アプリ側に StoreKit のテストストアが無い実行環境（価格が出ないため購入できない）"
+            "価格が出ない環境（RevenueCat の API キー未設定、または商品未登録）"
         )
         record(XCUIScreen.main.screenshot(), as: "purchase-before")
 
@@ -115,7 +94,8 @@ final class CameraStoreUITests: XCTestCase {
         XCTAssertTrue(savedAlert.waitForExistence(timeout: 10), "購入後も保存されない")
         record(XCUIScreen.main.screenshot(), as: "purchase-saved")
 
-        XCTAssertTrue(session.allTransactions().contains { $0.productIdentifier == paidProductID })
+        // 保存されなかったときの掲示が消えていること（＝保存に進んだ）
+        XCTAssertFalse(element("camera.lockedNotice", in: app).exists)
     }
 
     // MARK: - 補助
@@ -131,6 +111,11 @@ final class CameraStoreUITests: XCTestCase {
         let chip = app.buttons["camera.chip.\(paidCameraSlug)"]
         XCTAssertTrue(chip.waitForExistence(timeout: 10), "カルーセルに \(paidCameraSlug) が無い")
         chip.tap()
+    }
+
+    /// 識別子だけで引く。要素の型は画面の状態で変わるので当てにしない。
+    private func element(_ identifier: String, in app: XCUIApplication) -> XCUIElement {
+        app.descendants(matching: .any).matching(identifier: identifier).firstMatch
     }
 
     private func dismissTrackingPromptIfPresent() {

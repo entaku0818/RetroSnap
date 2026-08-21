@@ -18,6 +18,7 @@
 		61965ABA2AD2618800A91BA7 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61965AB92AD2618800A91BA7 /* Photo.swift */; };
 		61965ABC2AD2703200A91BA7 /* AdmobBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61965ABB2AD2703200A91BA7 /* AdmobBannerView.swift */; };
 		61965ABF2AD270AD00A91BA7 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 61965ABE2AD270AD00A91BA7 /* GoogleMobileAds */; };
+		61CA7F032BF0000600C3994D /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 61CA7F022BF0000600C3994D /* RevenueCat */; };
 		61BA08222AC7D98B0086E3C8 /* RetroSnapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BA08212AC7D98B0086E3C8 /* RetroSnapApp.swift */; };
 		61CA7A022BF0000100C3994D /* CameraSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA7A012BF0000100C3994D /* CameraSpec.swift */; };
 		61CA7A042BF0000100C3994D /* CameraCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA7A032BF0000100C3994D /* CameraCatalog.swift */; };
@@ -30,8 +31,8 @@
 		61CA7C042BF0000300C3994D /* StoreClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA7C032BF0000300C3994D /* StoreClient.swift */; };
 		61CA7C062BF0000300C3994D /* CameraStoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA7C052BF0000300C3994D /* CameraStoreView.swift */; };
 		61CA7C082BF0000300C3994D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA7C072BF0000300C3994D /* SettingsView.swift */; };
+		61CA7F052BF0000600C3994D /* StoreConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA7F042BF0000600C3994D /* StoreConfiguration.swift */; };
 		61CA7C0A2BF0000300C3994D /* StoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA7C092BF0000300C3994D /* StoreTests.swift */; };
-		61CA7C0C2BF0000300C3994D /* StoreClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA7C0B2BF0000300C3994D /* StoreClientTests.swift */; };
 		61CA7C0E2BF0000300C3994D /* RetroSnap.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 61CA7C0D2BF0000300C3994D /* RetroSnap.storekit */; };
 		61CA7B0A2BF0000200C3994D /* PhotoRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA7B092BF0000200C3994D /* PhotoRepositoryTests.swift */; };
 		61CA7B0C2BF0000200C3994D /* CameraSelectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA7B0B2BF0000200C3994D /* CameraSelectionTests.swift */; };
@@ -97,8 +98,8 @@
 		61CA7C032BF0000300C3994D /* StoreClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreClient.swift; sourceTree = "<group>"; };
 		61CA7C052BF0000300C3994D /* CameraStoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraStoreView.swift; sourceTree = "<group>"; };
 		61CA7C072BF0000300C3994D /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		61CA7F042BF0000600C3994D /* StoreConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreConfiguration.swift; sourceTree = "<group>"; };
 		61CA7C092BF0000300C3994D /* StoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTests.swift; sourceTree = "<group>"; };
-		61CA7C0B2BF0000300C3994D /* StoreClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreClientTests.swift; sourceTree = "<group>"; };
 		61CA7C0D2BF0000300C3994D /* RetroSnap.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = RetroSnap.storekit; sourceTree = "<group>"; };
 		61CA7B092BF0000200C3994D /* PhotoRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoRepositoryTests.swift; sourceTree = "<group>"; };
 		61CA7B0B2BF0000200C3994D /* CameraSelectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraSelectionTests.swift; sourceTree = "<group>"; };
@@ -112,6 +113,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				61965ABF2AD270AD00A91BA7 /* GoogleMobileAds in Frameworks */,
+				61CA7F032BF0000600C3994D /* RevenueCat in Frameworks */,
 				61897CA42AD308A9009365D0 /* FirebaseCrashlytics in Frameworks */,
 				61965AB62AD2608400A91BA7 /* ComposableArchitecture in Frameworks */,
 				61897CA22AD308A9009365D0 /* FirebaseAnalytics in Frameworks */,
@@ -142,6 +144,7 @@
 				61CA7C032BF0000300C3994D /* StoreClient.swift */,
 				61CA7C052BF0000300C3994D /* CameraStoreView.swift */,
 				61CA7C072BF0000300C3994D /* SettingsView.swift */,
+				61CA7F042BF0000600C3994D /* StoreConfiguration.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -225,7 +228,6 @@
 				61CA7A072BF0000100C3994D /* FilmRendererTests.swift */,
 				61CA7B092BF0000200C3994D /* PhotoRepositoryTests.swift */,
 				61CA7C092BF0000300C3994D /* StoreTests.swift */,
-				61CA7C0B2BF0000300C3994D /* StoreClientTests.swift */,
 				61CA7B0B2BF0000200C3994D /* CameraSelectionTests.swift */,
 			);
 			path = RetroSnapTests;
@@ -345,6 +347,7 @@
 				61965AB42AD2608400A91BA7 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 				61965ABD2AD270AD00A91BA7 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
 				61897CA02AD308A9009365D0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				61CA7F012BF0000600C3994D /* XCRemoteSwiftPackageReference "purchases-ios" */,
 			);
 			productRefGroup = 61BA081F2AC7D98B0086E3C8 /* Products */;
 			projectDirPath = "";
@@ -405,6 +408,7 @@
 				61CA7C042BF0000300C3994D /* StoreClient.swift in Sources */,
 				61CA7C062BF0000300C3994D /* CameraStoreView.swift in Sources */,
 				61CA7C082BF0000300C3994D /* SettingsView.swift in Sources */,
+				61CA7F052BF0000600C3994D /* StoreConfiguration.swift in Sources */,
 				61BA08222AC7D98B0086E3C8 /* RetroSnapApp.swift in Sources */,
 				61965AB12AD24B5A00A91BA7 /* PhotoData.xcdatamodeld in Sources */,
 				61965ABC2AD2703200A91BA7 /* AdmobBannerView.swift in Sources */,
@@ -422,7 +426,6 @@
 				61CA7A082BF0000100C3994D /* FilmRendererTests.swift in Sources */,
 				61CA7B0A2BF0000200C3994D /* PhotoRepositoryTests.swift in Sources */,
 				61CA7C0A2BF0000300C3994D /* StoreTests.swift in Sources */,
-				61CA7C0C2BF0000300C3994D /* StoreClientTests.swift in Sources */,
 				61CA7B0C2BF0000200C3994D /* CameraSelectionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -602,6 +605,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.3.0;
+				REVENUECAT_API_KEY = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.entaku.RetroSnap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -640,6 +644,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.3.0;
+				REVENUECAT_API_KEY = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.entaku.RetroSnap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -793,6 +798,14 @@
 				minimumVersion = 13.7.0;
 			};
 		};
+		61CA7F012BF0000600C3994D /* XCRemoteSwiftPackageReference "purchases-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RevenueCat/purchases-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -815,6 +828,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 61965ABD2AD270AD00A91BA7 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
 			productName = GoogleMobileAds;
+		};
+		61CA7F022BF0000600C3994D /* RevenueCat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 61CA7F012BF0000600C3994D /* XCRemoteSwiftPackageReference "purchases-ios" */;
+			productName = RevenueCat;
 		};
 /* End XCSwiftPackageProductDependency section */
 
