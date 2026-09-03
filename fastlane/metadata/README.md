@@ -4,7 +4,7 @@ App Store Connect のメタデータをリポジトリで版管理する。反�
 
 ```bash
 launchpad ios metadata      # このディレクトリの内容を App Store Connect へ反映
-launchpad ios aso lint      # 文字数・バイト数の検査
+launchpad ios aso metadata-check  # 文字数・バイト数の検査
 ```
 
 ## launchpad が反映するもの / しないもの
