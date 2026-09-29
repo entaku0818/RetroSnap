@@ -70,19 +70,19 @@ enum SamplePreviewFrame {
             cgContext.fill(CGRect(x: 0, y: size.height * 0.62, width: size.width, height: size.height * 0.38))
 
             // 建物（中間調）
-            let buildings: [(x: CGFloat, w: CGFloat, h: CGFloat, color: UIColor)] = [
-                (0.04, 0.22, 0.26, UIColor(red: 0.75, green: 0.35, blue: 0.3, alpha: 1)),
-                (0.28, 0.18, 0.36, UIColor(red: 0.55, green: 0.58, blue: 0.62, alpha: 1)),
-                (0.48, 0.24, 0.22, UIColor(red: 0.32, green: 0.55, blue: 0.45, alpha: 1)),
-                (0.74, 0.2, 0.31, UIColor(red: 0.82, green: 0.72, blue: 0.4, alpha: 1)),
+            let buildings: [Building] = [
+                Building(left: 0.04, width: 0.22, height: 0.26, color: UIColor(red: 0.75, green: 0.35, blue: 0.3, alpha: 1)),
+                Building(left: 0.28, width: 0.18, height: 0.36, color: UIColor(red: 0.55, green: 0.58, blue: 0.62, alpha: 1)),
+                Building(left: 0.48, width: 0.24, height: 0.22, color: UIColor(red: 0.32, green: 0.55, blue: 0.45, alpha: 1)),
+                Building(left: 0.74, width: 0.2, height: 0.31, color: UIColor(red: 0.82, green: 0.72, blue: 0.4, alpha: 1)),
             ]
             for building in buildings {
                 building.color.setFill()
-                let height = size.height * building.h
+                let height = size.height * building.height
                 cgContext.fill(CGRect(
-                    x: size.width * building.x,
+                    x: size.width * building.left,
                     y: size.height * 0.62 - height,
-                    width: size.width * building.w,
+                    width: size.width * building.width,
                     height: height
                 ))
             }
@@ -93,6 +93,14 @@ enum SamplePreviewFrame {
         }
 
         return image
+    }
+
+    /// 建物1棟。値はすべて画像サイズに対する比率。
+    private struct Building {
+        let left: CGFloat
+        let width: CGFloat
+        let height: CGFloat
+        let color: UIColor
     }
 }
 

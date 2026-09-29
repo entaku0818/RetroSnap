@@ -351,13 +351,13 @@ final class FilmRenderer {
         var stampImage = CIImage(cgImage: stampCG)
 
         let margin = min(extent.width, extent.height) * params.margin
-        let x = params.corner.isTrailing
+        let originX = params.corner.isTrailing
             ? extent.maxX - margin - stampImage.extent.width
             : extent.minX + margin
-        let y = params.corner.isTop
+        let originY = params.corner.isTop
             ? extent.maxY - margin - stampImage.extent.height
             : extent.minY + margin
-        stampImage = stampImage.transformed(by: CGAffineTransform(translationX: x, y: y))
+        stampImage = stampImage.transformed(by: CGAffineTransform(translationX: originX, y: originY))
 
         // 光として焼き込まれた見え方にしたいのでスクリーン合成にする。
         let blend = CIFilter.screenBlendMode()
