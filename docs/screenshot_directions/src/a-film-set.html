@@ -1,0 +1,90 @@
+<!doctype html>
+<!--
+  A案（フィルム写真風の温かみ）の本番セット。1枚 1320x2868（6.9インチ）。
+  ?shot=1|2|3&lang=ja|en で1枚ずつ出す。書き出しは ../render-set.sh
+-->
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@700;900&family=Klee+One:wght@600&family=Noto+Sans+JP:wght@500;700&family=Playfair+Display:wght@800;900&family=Caveat:wght@700&display=block" rel="stylesheet">
+<style>
+  html,body{margin:0;width:1320px;height:2868px;overflow:hidden}
+  body{background:#efe4d0;position:relative;font-family:"Noto Sans JP",sans-serif;color:#3b2a1e}
+  body::before{content:"";position:absolute;inset:0;opacity:.35;mix-blend-mode:multiply;z-index:0;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/><feColorMatrix values='0 0 0 0 .45  0 0 0 0 .35  0 0 0 0 .25  0 0 0 .5 0'/></filter><rect width='300' height='300' filter='url(%23n)'/></svg>")}
+  .shot{display:none;position:absolute;inset:0}
+  .stamp{position:absolute;top:150px;left:110px;font-weight:700;letter-spacing:.18em;color:#e8642c;font-size:40px}
+  h1{position:absolute;top:220px;left:104px;right:80px;margin:0;font-family:"Zen Old Mincho",serif;font-weight:900;font-size:128px;line-height:1.22;letter-spacing:.02em}
+  .en h1{font-family:"Playfair Display",serif;font-size:132px;line-height:1.08;letter-spacing:0}
+  .sub{position:absolute;top:560px;left:110px;right:80px;font-size:46px;font-weight:500;line-height:1.6;color:#6b5240}
+  .en .sub{font-size:48px;line-height:1.45}
+  .phone{position:absolute;width:700px;height:1521px;border-radius:118px;background:#1b1512;padding:22px;box-sizing:border-box;box-shadow:0 40px 80px rgba(60,35,15,.35)}
+  .phone img{width:100%;height:100%;object-fit:cover;border-radius:96px;display:block}
+  .print{position:absolute;background:#fbf7ef;padding:22px 22px 86px;box-shadow:0 22px 44px rgba(60,35,15,.3);width:370px}
+  .print img{width:100%;height:420px;object-fit:cover;display:block}
+  .print span{position:absolute;bottom:22px;left:0;right:0;text-align:center;font-family:"Klee One";font-size:40px;color:#4a3626}
+  .en .print span{font-family:Caveat;font-size:52px;bottom:16px}
+  .strip{position:absolute;left:0;right:0;bottom:0;height:300px;background:#2a1f19;display:flex;align-items:center;justify-content:center;gap:26px}
+  .strip::before,.strip::after{content:"";position:absolute;left:0;right:0;height:26px;
+    background:repeating-linear-gradient(90deg,transparent 0 22px,#efe4d0 22px 48px,transparent 48px 70px)}
+  .strip::before{top:18px}.strip::after{bottom:18px}
+  .strip div{width:210px;height:170px;position:relative}
+  .strip img{width:100%;height:100%;object-fit:cover;display:block}
+  .strip b{position:absolute;bottom:-1px;left:0;right:0;font-size:22px;color:#fff;text-align:center;background:rgba(0,0,0,.45);font-weight:500}
+
+  /* 2枚目: カメラ5台のカード */
+  .cards{position:absolute;left:90px;right:90px;top:800px;display:flex;flex-direction:column;gap:34px}
+  .card{display:flex;align-items:center;gap:40px;background:#fbf7ef;padding:24px;box-shadow:0 16px 32px rgba(60,35,15,.22)}
+  .card:nth-child(odd){transform:rotate(-1.2deg)}.card:nth-child(even){transform:rotate(1deg)}
+  .card img{width:300px;height:300px;object-fit:cover;display:block;flex:none}
+  .card h3{margin:0 0 12px;font-family:"Zen Old Mincho",serif;font-size:62px;font-weight:900}
+  .en .card h3{font-family:"Playfair Display",serif}
+  .card p{margin:0;font-size:38px;color:#6b5240;line-height:1.4}
+  .tag{display:inline-block;margin-top:16px;font-size:30px;font-weight:700;padding:6px 20px;border-radius:999px}
+  .free{background:#3b2a1e;color:#efe4d0}
+  .paid{border:3px solid #3b2a1e;color:#3b2a1e}
+
+  /* 3枚目 */
+  .notes{position:absolute;left:110px;right:110px;bottom:130px;display:flex;gap:30px}
+  .notes div{flex:1;background:#2a1f19;color:#efe4d0;text-align:center;padding:36px 10px;font-size:40px;font-weight:700;line-height:1.35}
+  .notes small{display:block;font-size:28px;font-weight:500;color:#cdb9a0;margin-top:8px}
+</style></head><body>
+<div id="root"></div>
+<script>
+const q=new URLSearchParams(location.search), shot=q.get('shot')||'1', lang=q.get('lang')||'ja';
+const S=n=>(lang==='en'?'assets/en/':'assets/')+'screen-'+n+'.jpg', P=n=>'assets/photo-'+n+'.jpg';
+const T={
+ ja:{h1:'撮るだけで、<br>フィルム写真。',sub1:'5つのレトロカメラから選んで<br>シャッターを押すだけ。',
+     h2:'5台のカメラを、<br>タップで切り替え。',sub2:'写りはライブプレビューで確かめられる。',
+     h3:'買う前に、<br>全部試し撮り。',sub3:'有料のカメラも、プレビューはそのまま使える。<br>買うのは、保存したくなってから。',
+     free:'無料',paid:'買い切り',n1:['2台は無料','プレーン70・サンセット'],n2:['買い切り','サブスクなし'],
+     names:{plain70:'プレーン70',sunsetfade:'サンセットフェード',nightneon:'ナイトネオン',toyplastic:'トイプラスチック',datestamp98:'デートスタンプ98'},
+     short:{plain70:'プレーン70',sunsetfade:'サンセット',nightneon:'ナイトネオン',toyplastic:'トイプラ',datestamp98:'デート98'},
+     tag:{plain70:'ほんのり褪せた日常の色',sunsetfade:'陽に灼けたオレンジの飛び',nightneon:'影は青く沈み、光が滲む',toyplastic:'強い周辺減光と光漏れ',datestamp98:'右下に日付を焼き込む'}},
+ en:{h1:'Just shoot.<br>Get film.',sub1:'Pick one of 5 retro cameras<br>and press the shutter.',
+     h2:'5 cameras.<br>One tap to switch.',sub2:'See the look in the live preview before you shoot.',
+     h3:'Try every camera<br>before you buy.',sub3:'Paid cameras work in the live preview, too.<br>Buy only when you want to keep the shot.',
+     free:'FREE',paid:'One-time',n1:['2 free cameras','Plain 70 · Sunset Fade'],n2:['One-time purchase','No subscription'],
+     names:{plain70:'Plain 70',sunsetfade:'Sunset Fade',nightneon:'Night Neon',toyplastic:'Toy Plastic',datestamp98:'Datestamp 98'},
+     short:{plain70:'Plain 70',sunsetfade:'Sunset',nightneon:'Neon',toyplastic:'Toy',datestamp98:'Date 98'},
+     tag:{plain70:'Gently faded everyday color',sunsetfade:'Sun-bleached orange highlights',nightneon:'Cool shadows, glowing lights',toyplastic:'Heavy vignette and light leaks',datestamp98:'Burns the date into the corner'}}
+}[lang];
+const cams=['plain70','sunsetfade','nightneon','toyplastic','datestamp98'], freeCams=['plain70','sunsetfade'];
+const strip='<div class="strip">'+cams.map(c=>`<div><img src="${P(c)}"><b>${T.short[c]}</b></div>`).join('')+'</div>';
+const html={
+ '1':`<div class="stamp">'26 10 01</div><h1>${T.h1}</h1><div class="sub">${T.sub1}</div>
+   <div class="phone" style="left:96px;top:820px;transform:rotate(-4deg)"><img src="${S('sunsetfade')}"></div>
+   <div class="print" style="left:790px;top:860px;transform:rotate(6deg)"><img src="${P('nightneon')}"><span>${T.names.nightneon}</span></div>
+   <div class="print" style="left:845px;top:1440px;transform:rotate(-5deg)"><img src="${P('toyplastic')}"><span>${T.names.toyplastic}</span></div>
+   <div class="print" style="left:800px;top:2000px;transform:rotate(4deg)"><img src="${P('plain70')}"><span>${T.names.plain70}</span></div>${strip}`,
+ '2':`<h1 style="top:170px;${lang==='ja'?'font-size:116px;right:40px':''}">${T.h2}</h1><div class="sub" style="top:510px">${T.sub2}</div>
+   <div class="cards">`+cams.map(c=>`<div class="card"><img src="${P(c)}"><div><h3>${T.names[c]}</h3><p>${T.tag[c]}</p>
+     <span class="tag ${freeCams.includes(c)?'free':'paid'}">${freeCams.includes(c)?T.free:T.paid}</span></div></div>`).join('')+`</div>`,
+ '3':`<h1 style="top:170px">${T.h3}</h1><div class="sub" style="top:510px">${T.sub3}</div>
+   <div class="phone" style="left:90px;top:790px;width:720px;height:1564px;transform:rotate(-3deg)"><img src="${S('locked-notice')}"></div>
+   <div class="print" style="left:800px;top:880px;transform:rotate(5deg)"><img src="${P('nightneon')}"><span>${T.names.nightneon}</span></div>
+   <div class="print" style="left:840px;top:1500px;transform:rotate(-4deg)"><img src="${P('toyplastic')}"><span>${T.names.toyplastic}</span></div>
+   <div class="notes"><div>${T.n1[0]}<small>${T.n1[1]}</small></div><div>${T.n2[0]}<small>${T.n2[1]}</small></div></div>`
+}[shot];
+document.documentElement.lang=lang==='en'?'en':'ja';
+const r=document.getElementById('root'); r.className='shot '+lang; r.style.display='block'; r.innerHTML=html;
+</script>
+</body></html>
