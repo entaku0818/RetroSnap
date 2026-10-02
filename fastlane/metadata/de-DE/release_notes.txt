@@ -1,3 +1,1 @@
-- Aufgenommene Fotos werden jetzt auch in Ihrer Fotomediathek gespeichert.
-- Eine nicht mehr benötigte Berechtigungsanfrage für die Fotomediathek wurde entfernt.
-- Aktualisiert für das neueste iOS, mit verbesserter Stabilität.
+- App-Store-Beschreibung und Screenshots aktualisiert.

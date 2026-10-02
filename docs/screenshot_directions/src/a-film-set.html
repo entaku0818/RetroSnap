@@ -81,7 +81,7 @@ const html={
    <div class="print" style="left:845px;top:1440px;transform:rotate(-5deg)">${I('cafe','toyplastic')}<span>${T.names.toyplastic}</span></div>
    <div class="print" style="left:800px;top:2000px;transform:rotate(4deg)">${I('beach','datestamp98')}<span>${T.names.datestamp98}</span></div>${strip}`,
  '2':`<h1 style="top:170px;${lang==='ja'?'font-size:116px;right:40px':''}">${T.h2}</h1><div class="sub" style="top:510px">${T.sub2}</div>
-   <div class="cards">`+cams.map(c=>`<div class="card">${I('beach',c)}<div><h3>${T.names[c]}</h3><p>${T.tag[c]}</p>
+   <div class="cards">`+cams.map(c=>`<div class="card">${I(c==='sunsetfade'?'cafe':'beach',c)}<div><h3>${T.names[c]}</h3><p>${T.tag[c]}</p>
      <span class="tag ${freeCams.includes(c)?'free':'paid'}">${freeCams.includes(c)?T.free:T.paid}</span></div></div>`).join('')+`</div>`,
  '3':`<h1 style="top:170px">${T.h3}</h1><div class="sub" style="top:510px">${T.sub3}</div>
    <div class="phone" style="left:90px;top:790px;width:720px;height:1564px;transform:rotate(-3deg)"><img src="${S('fountain-locked-notice')}"></div>

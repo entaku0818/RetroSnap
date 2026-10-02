@@ -1,12 +1,20 @@
-Relive the nostalgia with a single app.
+Shoot once, get a photo that looks like film.
+Pick one of 5 retro cameras and tap the shutter. No editing needed.
+Datestamp 98 burns an orange date into the corner, like a 90s point-and-shoot.
 
-RetroSnap is a camera app that combines modern technology with a retro design. With simple operations, you can recreate the ambiance of vintage photographs.
+5 CAMERAS
+- Plain 70 (free): gently faded everyday color
+- Sunset Fade (free): sun-bleached orange highlights
+- Night Neon (one-time purchase): cool shadows, glowing lights
+- Toy Plastic (one-time purchase): heavy vignette and light leaks
+- Datestamp 98 (one-time purchase): burns the date into the corner
 
-Key Features:
+TRY BEFORE YOU BUY
+Every camera works in the live preview, so you can see the look before buying. A purchase is only needed to save a photo taken with that camera. Each camera is a one-time purchase - no subscription.
 
-- Shoot with a single tap. Every shot gets a vintage tone automatically, with nothing to adjust.
-- Photos you take are saved to your photo library as well.
-- Look back at everything you have shot in the in-app gallery.
-- Share straight from the standard share menu.
+AFTER THE SHOT
+- Photos you take are also saved to your photo library
+- Look back at everything you have shot in the in-app gallery
+- Share straight from the standard share menu
 
-Rediscover the memories and vibes of yesteryears and capture special moments with RetroSnap.
+Bought cameras can be restored anytime with Restore Purchases in Settings.

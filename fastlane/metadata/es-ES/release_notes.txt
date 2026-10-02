@@ -1,3 +1,1 @@
-- Las fotos que tomas ahora se guardan en tu fototeca.
-- Se ha eliminado una solicitud de permiso de fototeca que ya no era necesaria.
-- Actualizada para la última versión de iOS y con mayor estabilidad.
+- Hemos renovado la descripción y las capturas de pantalla de la App Store.
