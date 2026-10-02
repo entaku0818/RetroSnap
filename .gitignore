@@ -15,3 +15,9 @@ build/
 
 # RevenueCat の API キー。雛形（Secrets.xcconfig.example）だけを版管理する
 Config/Secrets.xcconfig
+
+# スクショ用の元写真（PUBLIC リポジトリなので commit しない。加工済みは docs/screenshot_directions/src/assets/real）
+fastlane/screenshots/source/photos/*.jpg
+fastlane/screenshots/source/photos/*.jpeg
+fastlane/screenshots/source/photos/*.png
+fastlane/screenshots/source/photos/*.heic

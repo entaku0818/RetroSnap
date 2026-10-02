@@ -20,6 +20,7 @@
   .phone img{width:100%;height:100%;object-fit:cover;border-radius:96px;display:block}
   .print{position:absolute;background:#fbf7ef;padding:22px 22px 86px;box-shadow:0 22px 44px rgba(60,35,15,.3);width:370px}
   .print img{width:100%;height:420px;object-fit:cover;display:block}
+  .print.wide{width:540px}.print.wide img{height:330px}
   .print span{position:absolute;bottom:22px;left:0;right:0;text-align:center;font-family:"Klee One";font-size:40px;color:#4a3626}
   .en .print span{font-family:Caveat;font-size:52px;bottom:16px}
   .strip{position:absolute;left:0;right:0;bottom:0;height:300px;background:#2a1f19;display:flex;align-items:center;justify-content:center;gap:26px}
@@ -50,7 +51,11 @@
 <div id="root"></div>
 <script>
 const q=new URLSearchParams(location.search), shot=q.get('shot')||'1', lang=q.get('lang')||'ja';
-const S=n=>(lang==='en'?'assets/en/':'assets/')+'screen-'+n+'.jpg', P=n=>'assets/photo-'+n+'.jpg';
+// 実写（entaku 撮影）をアプリと同じ FilmRenderer で現像したもの。R('beach','plain70') → assets/real/beach-plain70.jpg
+const S=n=>'assets/real/'+(lang==='en'?'en':'ja')+'/screen-'+n+'.jpg', R=(photo,cam)=>'assets/real/'+photo+'-'+cam+'.jpg';
+// 日付スタンプは右下、夜景は街が下半分にあるので、切り抜きの基準をずらす
+const POS={'beach-datestamp98':'right bottom','shibuya-nightneon':'center bottom','shibuya-plain70':'center 85%'};
+const I=(photo,cam)=>`<img src="${R(photo,cam)}" style="object-position:${POS[photo+'-'+cam]||'center'}">`;
 const T={
  ja:{h1:'撮るだけで、<br>フィルム写真。',sub1:'5つのレトロカメラから選んで<br>シャッターを押すだけ。',
      h2:'5台のカメラを、<br>タップで切り替え。',sub2:'写りはライブプレビューで確かめられる。',
@@ -68,20 +73,20 @@ const T={
      tag:{plain70:'Gently faded everyday color',sunsetfade:'Sun-bleached orange highlights',nightneon:'Cool shadows, glowing lights',toyplastic:'Heavy vignette and light leaks',datestamp98:'Burns the date into the corner'}}
 }[lang];
 const cams=['plain70','sunsetfade','nightneon','toyplastic','datestamp98'], freeCams=['plain70','sunsetfade'];
-const strip='<div class="strip">'+cams.map(c=>`<div><img src="${P(c)}"><b>${T.short[c]}</b></div>`).join('')+'</div>';
+const strip='<div class="strip">'+cams.map(c=>`<div>${I('beach',c)}<b>${T.short[c]}</b></div>`).join('')+'</div>';
 const html={
- '1':`<div class="stamp">'26 10 01</div><h1>${T.h1}</h1><div class="sub">${T.sub1}</div>
-   <div class="phone" style="left:96px;top:820px;transform:rotate(-4deg)"><img src="${S('sunsetfade')}"></div>
-   <div class="print" style="left:790px;top:860px;transform:rotate(6deg)"><img src="${P('nightneon')}"><span>${T.names.nightneon}</span></div>
-   <div class="print" style="left:845px;top:1440px;transform:rotate(-5deg)"><img src="${P('toyplastic')}"><span>${T.names.toyplastic}</span></div>
-   <div class="print" style="left:800px;top:2000px;transform:rotate(4deg)"><img src="${P('plain70')}"><span>${T.names.plain70}</span></div>${strip}`,
+ '1':`<div class="stamp">'26 10 02</div><h1>${T.h1}</h1><div class="sub">${T.sub1}</div>
+   <div class="phone" style="left:96px;top:820px;transform:rotate(-4deg)"><img src="${S('cafe-sunsetfade')}"></div>
+   <div class="print" style="left:790px;top:860px;transform:rotate(6deg)">${I('fountain','nightneon')}<span>${T.names.nightneon}</span></div>
+   <div class="print" style="left:845px;top:1440px;transform:rotate(-5deg)">${I('cafe','toyplastic')}<span>${T.names.toyplastic}</span></div>
+   <div class="print" style="left:800px;top:2000px;transform:rotate(4deg)">${I('beach','datestamp98')}<span>${T.names.datestamp98}</span></div>${strip}`,
  '2':`<h1 style="top:170px;${lang==='ja'?'font-size:116px;right:40px':''}">${T.h2}</h1><div class="sub" style="top:510px">${T.sub2}</div>
-   <div class="cards">`+cams.map(c=>`<div class="card"><img src="${P(c)}"><div><h3>${T.names[c]}</h3><p>${T.tag[c]}</p>
+   <div class="cards">`+cams.map(c=>`<div class="card">${I('beach',c)}<div><h3>${T.names[c]}</h3><p>${T.tag[c]}</p>
      <span class="tag ${freeCams.includes(c)?'free':'paid'}">${freeCams.includes(c)?T.free:T.paid}</span></div></div>`).join('')+`</div>`,
  '3':`<h1 style="top:170px">${T.h3}</h1><div class="sub" style="top:510px">${T.sub3}</div>
-   <div class="phone" style="left:90px;top:790px;width:720px;height:1564px;transform:rotate(-3deg)"><img src="${S('locked-notice')}"></div>
-   <div class="print" style="left:800px;top:880px;transform:rotate(5deg)"><img src="${P('nightneon')}"><span>${T.names.nightneon}</span></div>
-   <div class="print" style="left:840px;top:1500px;transform:rotate(-4deg)"><img src="${P('toyplastic')}"><span>${T.names.toyplastic}</span></div>
+   <div class="phone" style="left:90px;top:790px;width:720px;height:1564px;transform:rotate(-3deg)"><img src="${S('fountain-locked-notice')}"></div>
+   <div class="print wide" style="left:700px;top:880px;transform:rotate(5deg)">${I('shibuya','nightneon')}<span>${T.names.nightneon}</span></div>
+   <div class="print" style="left:840px;top:1500px;transform:rotate(-4deg)">${I('cafe','plain70')}<span>${T.names.plain70}</span></div>
    <div class="notes"><div>${T.n1[0]}<small>${T.n1[1]}</small></div><div>${T.n2[0]}<small>${T.n2[1]}</small></div></div>`
 }[shot];
 document.documentElement.lang=lang==='en'?'en':'ja';
