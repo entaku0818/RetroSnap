@@ -1,1 +1,3 @@
-- Refreshed the App Store description and screenshots.
+- Added Y2K Digicam, free to shoot and save.
+- Added Monochrome Film and Pastel Film as one-time purchases.
+- Choose from 8 camera looks before you shoot.

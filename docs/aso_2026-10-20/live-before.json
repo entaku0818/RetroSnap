@@ -1,0 +1,26 @@
+[
+  {
+    "id": "61436f4e-3231-493b-8686-581a958d5348",
+    "attributes": {
+      "description": "Shoot once, get a photo that looks like film.\nPick one of 5 retro cameras and tap the shutter. No editing needed.\nDatestamp 98 burns an orange date into the corner, like a 90s point-and-shoot.\n\n5 CAMERAS\n- Plain 70 (free): gently faded everyday color\n- Sunset Fade (free): sun-bleached orange highlights\n- Night Neon (one-time purchase): cool shadows, glowing lights\n- Toy Plastic (one-time purchase): heavy vignette and light leaks\n- Datestamp 98 (one-time purchase): burns the date into the corner\n\nTRY BEFORE YOU BUY\nEvery camera works in the live preview, so you can see the look before buying. A purchase is only needed to save a photo taken with that camera. Each camera is a one-time purchase - no subscription.\n\nAFTER THE SHOT\n- Photos you take are also saved to your photo library\n- Look back at everything you have shot in the in-app gallery\n- Share straight from the standard share menu\n\nBought cameras can be restored anytime with Restore Purchases in Settings.",
+      "locale": "en-US",
+      "keywords": "vintage,90s,analog,old,toy,light,leak,neon,night,grain,nostalgia,aesthetic,sepia,faded,point,shoot",
+      "marketingUrl": null,
+      "promotionalText": "5 retro cameras, one tap. New: Night Neon for glowing lights, Toy Plastic with light leaks, and Datestamp 98 that burns the date into the corner. Saved to Photos.",
+      "supportUrl": "https://entaku0818.github.io/",
+      "whatsNew": "- Refreshed the App Store description and screenshots."
+    }
+  },
+  {
+    "id": "dd85d548-0a1d-4751-83fe-59b96dffdcc7",
+    "attributes": {
+      "description": "撮るだけで、あの頃のフィルム写真に。\n5台のレトロカメラから選んで、シャッターを押すだけ。あとから加工する手間はいりません。\n右下に日付が入る「デートスタンプ98」なら、平成の使い捨てカメラで撮ったような1枚に。\n\n■ 5台のカメラ\n・プレーン70（無料）… ほんのり褪せた日常の色\n・サンセットフェード（無料）… 陽に灼けたオレンジの飛び\n・ナイトネオン（買い切り）… 影は青く沈み、光が滲む\n・トイプラスチック（買い切り）… 強い周辺減光と光漏れ\n・デートスタンプ98（買い切り）… 右下に日付を焼き込む\n\n■ 買う前に試し撮り\n有料のカメラも、ライブプレビューで写りをそのまま確かめられます。購入が必要になるのは、そのカメラで撮った写真を保存するときだけ。購入は1台ずつの買い切りで、サブスクリプションはありません。\n\n■ 撮ったあとも簡単\n・撮った写真は「写真」アプリにも保存されます\n・アプリ内のギャラリーで、撮影した写真をまとめて見返せます\n・標準の共有メニューから、そのまますぐにシェアできます\n\n購入済みのカメラは、設定の「購入を復元」からいつでも元に戻せます。",
+      "locale": "ja",
+      "keywords": "トイカメラ,光漏れ,ネオン,夜景,ヴィンテージ,オールド,セピア,90年代,懐かしい,ノスタルジー,粒子,アナログ,無料,おしゃれ,レトロフォト,スナップ,ビネット,色褪せ,エモ",
+      "marketingUrl": "https://retrosnap-entaku.web.app",
+      "promotionalText": "5台のレトロカメラを切り替えて撮るだけ。夜の光がにじむ「ナイトネオン」、光漏れの「トイプラスチック」、右下に日付が入る「デートスタンプ98」が新登場。撮った写真はそのまま「写真」アプリに保存されます。",
+      "supportUrl": "https://entaku0818.github.io/",
+      "whatsNew": "・App Storeの説明文とスクリーンショットを新しくしました"
+    }
+  }
+]

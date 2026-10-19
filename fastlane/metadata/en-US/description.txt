@@ -1,20 +1,24 @@
-Shoot once, get a photo that looks like film.
-Pick one of 5 retro cameras and tap the shutter. No editing needed.
-Datestamp 98 burns an orange date into the corner, like a 90s point-and-shoot.
+Turn cafe moments and travel snapshots into photos with a nostalgic feel.
+Choose from 8 camera looks, from faded film colors to a 2000s digicam style. Start shooting and saving with 3 free cameras.
 
-5 CAMERAS
-- Plain 70 (free): gently faded everyday color
-- Sunset Fade (free): sun-bleached orange highlights
-- Night Neon (one-time purchase): cool shadows, glowing lights
-- Toy Plastic (one-time purchase): heavy vignette and light leaks
-- Datestamp 98 (one-time purchase): burns the date into the corner
+3 FREE CAMERAS
+- Plain 70: gently faded colors for everyday snapshots
+- Sunset Fade: warm orange tones for golden-hour moments
+- Y2K Digicam: bright highlights and a coarse, cool-toned 2000s digital look
 
-TRY BEFORE YOU BUY
-Every camera works in the live preview, so you can see the look before buying. A purchase is only needed to save a photo taken with that camera. Each camera is a one-time purchase - no subscription.
+5 MORE LOOKS, EACH A ONE-TIME PURCHASE
+- Monochrome Film: bold contrast and textured black-and-white grain
+- Pastel Film: bright, soft colors for portraits and cafe moments
+- Night Neon: cool shadows and glowing lights for night scenes
+- Toy Plastic: light leaks and a strong vignette
+- Datestamp 98: a date burned into the corner, like a 90s point-and-shoot
 
-AFTER THE SHOT
-- Photos you take are also saved to your photo library
-- Look back at everything you have shot in the in-app gallery
-- Share straight from the standard share menu
+PREVIEW BEFORE YOU BUY
+Compare all 8 looks in the live preview for free. Saving a photo taken with a paid camera requires purchasing that camera.
+Each paid camera is a separate one-time purchase. There is no subscription. Restore bought cameras with Restore Purchases in Settings.
 
-Bought cameras can be restored anytime with Restore Purchases in Settings.
+CHOOSE, SHOOT, KEEP
+Pick a camera and tap the shutter. The look is applied as you shoot, without adjusting sliders afterward.
+Your shots are also saved to your photo library. Revisit them in the in-app gallery and share through the standard share menu.
+
+RetroSnap is a camera for taking new photos. It does not import or edit existing photos.
