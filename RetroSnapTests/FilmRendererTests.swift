@@ -86,7 +86,9 @@ final class FilmRendererTests: XCTestCase {
 
     func testCatalogCoversLaunchCamerasAndHeiseiDigital() {
         let slugs = CameraCatalog.all.map(\.id.rawValue)
-        XCTAssertEqual(slugs, ["plain70", "sunsetfade", "heiseidigital", "nightneon", "toyplastic", "datestamp98"])
+        XCTAssertEqual(slugs, [
+            "plain70", "sunsetfade", "heiseidigital", "nightneon", "toyplastic", "datestamp98", "monofilm"
+        ])
     }
 
     func testHeiseiDigitalPreviewAndSavedPhotoUseSameDevelopment() throws {
@@ -98,6 +100,22 @@ final class FilmRendererTests: XCTestCase {
         let preview = UIImage(cgImage: try XCTUnwrap(renderer.rasterize(developed)))
         let saved = try XCTUnwrap(renderer.render(input, with: .heiseiDigital, capturedAt: fixedDate))
         XCTAssertEqual(try pixelData(preview), try pixelData(saved))
+    }
+
+    func testMonochromeFilmOutputHasNoColorCast() throws {
+        let output = try XCTUnwrap(renderer.render(makeTestImage(), with: .monoFilm))
+        let image = try XCTUnwrap(output.cgImage)
+        var pixels = [UInt8](repeating: 0, count: image.width * image.height * 4)
+        let context = try XCTUnwrap(CGContext(
+            data: &pixels, width: image.width, height: image.height, bitsPerComponent: 8,
+            bytesPerRow: image.width * 4, space: CGColorSpaceCreateDeviceRGB(),
+            bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue
+        ))
+        context.draw(image, in: CGRect(x: 0, y: 0, width: image.width, height: image.height))
+        for index in stride(from: 0, to: pixels.count, by: 4) {
+            XCTAssertLessThanOrEqual(abs(Int(pixels[index]) - Int(pixels[index + 1])), 1)
+            XCTAssertLessThanOrEqual(abs(Int(pixels[index]) - Int(pixels[index + 2])), 1)
+        }
     }
 
     // MARK: - 決定性

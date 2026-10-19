@@ -38,6 +38,22 @@ final class CameraStoreUITests: XCTestCase {
         record(XCUIScreen.main.screenshot(), as: "heisei-saved")
     }
 
+    func testMonochromeFilmPreviewsButRequiresPurchaseToSave() throws {
+        let app = launchApp()
+        selectCamera("monofilm", in: app)
+        record(XCUIScreen.main.screenshot(), as: "monofilm-preview")
+        app.buttons["camera.shutter"].tap()
+        XCTAssertTrue(app.buttons["store.close"].waitForExistence(timeout: 15))
+        let row = element("store.row.monofilm", in: app)
+        for _ in 0..<5 where !row.exists {
+            app.swipeUp()
+        }
+        XCTAssertTrue(row.exists)
+        app.buttons["store.close"].tap()
+        XCTAssertTrue(element("camera.lockedNotice", in: app).waitForExistence(timeout: 5))
+        XCTAssertFalse(app.alerts.firstMatch.exists)
+    }
+
     // MARK: - 未購入: プレビューは効く / 保存は止まる
 
     func testUnpurchasedCameraPreviewsButBlocksSaving() throws {
@@ -122,10 +138,14 @@ final class CameraStoreUITests: XCTestCase {
     }
 
     private func selectPaidCamera(in app: XCUIApplication) {
-        let chip = app.buttons["camera.chip.\(paidCameraSlug)"]
-        XCTAssertTrue(chip.waitForExistence(timeout: 10), "カルーセルに \(paidCameraSlug) が無い")
+        selectCamera(paidCameraSlug, in: app)
+    }
+
+    private func selectCamera(_ slug: String, in app: XCUIApplication) {
+        let chip = app.buttons["camera.chip.\(slug)"]
+        XCTAssertTrue(chip.waitForExistence(timeout: 10), "カルーセルに \(slug) が無い")
         let carousel = app.scrollViews.containing(.button, identifier: chip.identifier).firstMatch
-        for _ in 0..<3 where !chip.isHittable {
+        for _ in 0..<5 where !chip.isHittable {
             carousel.swipeLeft()
         }
         XCTAssertTrue(chip.isHittable, "スクロールしても有料カメラを選択できない")

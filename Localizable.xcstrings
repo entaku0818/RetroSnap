@@ -1,6 +1,40 @@
 {
   "sourceLanguage": "en",
   "strings": {
+  "camera.monofilm.name": {
+    "extractionState": "manual",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Monochrome Film"
+        }
+      },
+      "ja": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "白黒フィルム"
+        }
+      }
+    }
+  },
+  "camera.monofilm.tagline": {
+    "extractionState": "manual",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Bold contrast and textured black-and-white grain."
+        }
+      },
+      "ja": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "強い明暗と粒子で描く、白黒の世界。"
+        }
+      }
+    }
+  },
     "Photos": {
       "localizations": {
         "ja": {

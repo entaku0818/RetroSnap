@@ -61,6 +61,26 @@
       "productID": "com.entaku.retrosnap.camera.datestamp98",
       "referenceName": "Datestamp 98",
       "type": "NonConsumable"
+    },
+    {
+      "displayPrice": "300",
+      "familyShareable": false,
+      "internalID": "1000000004",
+      "localizations": [
+        {
+          "description": "Bold contrast and textured black-and-white grain.",
+          "displayName": "Monochrome Film",
+          "locale": "en_US"
+        },
+        {
+          "description": "強い明暗と粒子で描く、白黒の世界。",
+          "displayName": "白黒フィルム",
+          "locale": "ja_JP"
+        }
+      ],
+      "productID": "com.entaku.retrosnap.camera.monofilm",
+      "referenceName": "Monochrome Film",
+      "type": "NonConsumable"
     }
   ],
   "settings": {

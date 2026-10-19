@@ -27,6 +27,21 @@ final class StoreTests: XCTestCase {
         XCTAssertFalse(paidCameras.isEmpty)
     }
 
+    func testEachPaidCameraRequiresItsOwnPurchaseAndCanBeSavedAfterUnlock() throws {
+        for camera in paidCameras {
+            let locked = StaticCameraEntitlements()
+            XCTAssertEqual(CaptureGate.disposition(for: camera, entitlements: locked), .requirePurchase(camera.id))
+            let owned = StaticCameraEntitlements(owned: [camera])
+            XCTAssertEqual(CaptureGate.disposition(for: camera, entitlements: owned), .save)
+            for other in paidCameras where other.id != camera.id {
+                XCTAssertFalse(owned.isUnlocked(other))
+            }
+            let repository = PhotoRepository(inMemory: true)
+            repository.insert(name: "paid", path: URL(fileURLWithPath: "/tmp/paid.png"), cameraID: camera.id)
+            XCTAssertEqual(repository.fetchAllPhotos().first?.cameraID, camera.id)
+        }
+    }
+
     // MARK: - 所有判定
 
     func testFreeCamerasAreUsableWithoutAnyPurchase() {

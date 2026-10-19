@@ -9,9 +9,10 @@
 |---|---|---|---|
 | ナイトネオン | `com.entaku.retrosnap.camera.nightneon` | `camera_nightneon` | ¥300 |
 | トイプラスチック | `com.entaku.retrosnap.camera.toyplastic` | `camera_toyplastic` | ¥300 |
+| 白黒フィルム（新規・本番未登録） | `com.entaku.retrosnap.camera.monofilm` | `camera_monofilm` | ¥300 |
 | デートスタンプ98 | `com.entaku.retrosnap.camera.datestamp98` | `camera_datestamp98` | ¥500 |
 
-`plain70` と `sunsetfade` は無料。**登録しない。**
+`plain70`・`sunsetfade`・`heiseidigital` は無料。**登録しない。**
 
 ---
 
@@ -95,3 +96,10 @@ cp Config/Secrets.xcconfig.example Config/Secrets.xcconfig
   この手順5が唯一の確認手段になっている
 - スクリーンショットの写真12枚が未挿入（`fastlane/screenshots/source/photos/README.md`）
 - 説明文が全6ロケールとも v0.3.0 向けのまま。カメラ切替と課金に触れていない
+
+## 2026-10-19 追加カメラの登録状況
+
+白黒フィルムはアプリと `RetroSnap.storekit` に非消耗型として追加済み。
+本番のASC商品、日英の商品説明、¥300の価格設定、審査用画像、およびRevenueCatの商品・entitlement・Offering packageの登録は未実施。
+既存のRevenueCat APIキーでは商品一覧取得が403（権限不足）になったため、本番設定は完了していない。
+審査提出・公開前に、このページの手順1・3・5に沿って新しい商品を登録し、購入・復元を確認すること。

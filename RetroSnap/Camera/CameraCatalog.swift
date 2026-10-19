@@ -29,6 +29,7 @@ enum CameraCatalog {
         .nightNeon,
         .toyPlastic,
         .dateStamp98,
+        .monoFilm,
     ]
 
     /// 起動時など、選択中カメラが決まっていないときに使う既定のカメラ。
@@ -128,6 +129,17 @@ extension CameraSpec {
             color: RGB(red: 0.9, green: 0.95, blue: 1),
             opacity: 0.14
         )
+    )
+
+    /// 無彩色の硬い階調と粗い粒子で、白黒フィルムの写りを作る。
+    static let monoFilm = CameraSpec(
+        id: CameraID("monofilm"),
+        displayNameKey: "camera.monofilm.name",
+        taglineKey: "camera.monofilm.tagline",
+        tier: .standard,
+        tone: ToneParams(exposure: 0.18, saturation: 0, contrast: 1.18, brightness: 0.015),
+        grain: GrainParams(intensity: 0.45, size: 1.6),
+        vignette: VignetteParams(intensity: 0.45, radius: 1.0, falloff: 0.45)
     )
 
     /// 暗部が青紫に転ぶ、光源が滲む、赤が誇張される。夜の街で映える1台。

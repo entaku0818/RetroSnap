@@ -23,7 +23,8 @@ final class CameraSelectionTests: XCTestCase {
         let entitlements = StaticCameraEntitlements()
         XCTAssertEqual(CaptureGate.disposition(for: selection.selected, entitlements: entitlements), .save)
         XCTAssertEqual(Set(entitlements.lockedCameras().map(\.id)),
-                       Set([CameraSpec.nightNeon.id, .init("toyplastic"), .init("datestamp98")]))
+                       Set([CameraSpec.nightNeon.id, CameraSpec.toyPlastic.id,
+                            CameraSpec.dateStamp98.id, CameraSpec.monoFilm.id]))
         let repository = PhotoRepository(inMemory: true)
         repository.insert(name: "heisei", path: URL(fileURLWithPath: "/tmp/heisei.png"), cameraID: spec.id)
         XCTAssertEqual(repository.fetchAllPhotos().first?.cameraID, spec.id)
