@@ -108,8 +108,16 @@ ASCにも下書き商品・日英の商品表示名/説明・日本を基準と�
 | 白黒フィルム | `6824490662` |
 | 淡色フィルム | `6824490400` |
 
-本番の購入経路はまだ完成していない。残りは提供地域・審査用画像の確認/設定と、RevenueCatの商品・entitlement・Offering packageの登録。
-既存のRevenueCat APIキーでは商品一覧取得が403（権限不足）になり、ブラウザ操作端末もロック中だったため、RevenueCat設定は未実施。
+RevenueCatは2026-10-20（JST）にログイン済み管理画面から設定済み。両商品を非消耗型で登録し、対応するentitlementと既存のデフォルトOffering `cameras`（Camera Store）へ紐付けた。商品詳細画面で各紐付けを確認済み。
+
+| カメラ | RevenueCat Product ID | entitlement / package identifier | RevenueCat Entitlement ID |
+|---|---|---|---|
+| 白黒フィルム | `prodcd2e3903bc` | `camera_monofilm` | `entl328fd43685` |
+| 淡色フィルム | `prod0479e0ff0f` | `camera_pastelfilm` | `entlfce53bf6f9` |
+
+Offering IDは `ofrng3bc6253c43`。既存3商品を含む5パッケージの保存を確認済み。
+既存のRevenueCat APIキーの商品一覧取得は403（権限不足）のままだが、今回はブラウザから設定を完了した。
+本番の購入経路の確認は未完了。残りはASCの提供地域・審査用画像の確認/設定と、実機/Sandboxでの購入・復元検証。RevenueCat設定完了はApp Store審査承認・販売開始を意味しない。
 審査提出・公開前に、このページの手順1・3・5に沿って残りを設定し、実機/Sandboxで新商品の購入・復元を確認すること。
 価格の画面表示はStoreKitが返す地域別価格を利用し、アプリ内に¥300を固定表示しない。
 
