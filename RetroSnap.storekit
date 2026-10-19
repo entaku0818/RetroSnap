@@ -81,6 +81,26 @@
       "productID": "com.entaku.retrosnap.camera.monofilm",
       "referenceName": "Monochrome Film",
       "type": "NonConsumable"
+    },
+    {
+      "displayPrice": "300",
+      "familyShareable": false,
+      "internalID": "1000000005",
+      "localizations": [
+        {
+          "description": "Soft pastel colors for portraits and cafe moments.",
+          "displayName": "Pastel Film",
+          "locale": "en_US"
+        },
+        {
+          "description": "人物もカフェも、明るくやわらかな淡い色に。",
+          "displayName": "淡色フィルム",
+          "locale": "ja_JP"
+        }
+      ],
+      "productID": "com.entaku.retrosnap.camera.pastelfilm",
+      "referenceName": "Pastel Film",
+      "type": "NonConsumable"
     }
   ],
   "settings": {

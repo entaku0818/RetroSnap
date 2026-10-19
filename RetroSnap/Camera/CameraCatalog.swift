@@ -30,6 +30,7 @@ enum CameraCatalog {
         .toyPlastic,
         .dateStamp98,
         .monoFilm,
+        .pastelFilm,
     ]
 
     /// 起動時など、選択中カメラが決まっていないときに使う既定のカメラ。
@@ -129,6 +130,28 @@ extension CameraSpec {
             color: RGB(red: 0.9, green: 0.95, blue: 1),
             opacity: 0.14
         )
+    )
+
+    /// 明るい中間調と低彩度。暖かい退色ではなく淡いピンク寄りの柔らかな色。
+    static let pastelFilm = CameraSpec(
+        id: CameraID("pastelfilm"),
+        displayNameKey: "camera.pastelfilm.name",
+        taglineKey: "camera.pastelfilm.tagline",
+        tier: .standard,
+        tone: ToneParams(
+            exposure: 0.3,
+            saturation: 0.68,
+            contrast: 0.88,
+            brightness: 0.02,
+            redGain: 1.03,
+            greenGain: 1.0,
+            blueGain: 1.055,
+            redBias: 0.035,
+            greenBias: 0.025,
+            blueBias: 0.045
+        ),
+        grain: GrainParams(intensity: 0.08, size: 1.1),
+        vignette: VignetteParams(intensity: 0.1, radius: 1.2, falloff: 0.35)
     )
 
     /// 無彩色の硬い階調と粗い粒子で、白黒フィルムの写りを作る。

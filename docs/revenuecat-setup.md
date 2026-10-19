@@ -9,7 +9,8 @@
 |---|---|---|---|
 | ナイトネオン | `com.entaku.retrosnap.camera.nightneon` | `camera_nightneon` | ¥300 |
 | トイプラスチック | `com.entaku.retrosnap.camera.toyplastic` | `camera_toyplastic` | ¥300 |
-| 白黒フィルム（新規・本番未登録） | `com.entaku.retrosnap.camera.monofilm` | `camera_monofilm` | ¥300 |
+| 淡色フィルム（新規・審査前） | `com.entaku.retrosnap.camera.pastelfilm` | `camera_pastelfilm` | ¥300 |
+| 白黒フィルム（新規・審査前） | `com.entaku.retrosnap.camera.monofilm` | `camera_monofilm` | ¥300 |
 | デートスタンプ98 | `com.entaku.retrosnap.camera.datestamp98` | `camera_datestamp98` | ¥500 |
 
 `plain70`・`sunsetfade`・`heiseidigital` は無料。**登録しない。**
@@ -99,7 +100,18 @@ cp Config/Secrets.xcconfig.example Config/Secrets.xcconfig
 
 ## 2026-10-19 追加カメラの登録状況
 
-白黒フィルムはアプリと `RetroSnap.storekit` に非消耗型として追加済み。
-本番のASC商品、日英の商品説明、¥300の価格設定、審査用画像、およびRevenueCatの商品・entitlement・Offering packageの登録は未実施。
-既存のRevenueCat APIキーでは商品一覧取得が403（権限不足）になったため、本番設定は完了していない。
-審査提出・公開前に、このページの手順1・3・5に沿って新しい商品を登録し、購入・復元を確認すること。
+白黒フィルム・淡色フィルムはアプリと `RetroSnap.storekit` に非消耗型として追加済み。
+ASCにも下書き商品・日英の商品表示名/説明・日本を基準とした¥300の価格を設定済み。
+
+| カメラ | ASC IAP ID |
+|---|---|
+| 白黒フィルム | `6824490662` |
+| 淡色フィルム | `6824490400` |
+
+本番の購入経路はまだ完成していない。残りは提供地域・審査用画像の確認/設定と、RevenueCatの商品・entitlement・Offering packageの登録。
+既存のRevenueCat APIキーでは商品一覧取得が403（権限不足）になり、ブラウザ操作端末もロック中だったため、RevenueCat設定は未実施。
+審査提出・公開前に、このページの手順1・3・5に沿って残りを設定し、実機/Sandboxで新商品の購入・復元を確認すること。
+価格の画面表示はStoreKitが返す地域別価格を利用し、アプリ内に¥300を固定表示しない。
+
+検証済み: 無料3台の保存、有料5台の個別権限による保存判定、未購入の新カメラ2台のプレビュー・購入誘導、全8台の共通現像経路。
+実機の連続プレビュー性能、実カメラ入力、写真ライブラリの許可/拒否、人物の顔での肌色は別途確認する。

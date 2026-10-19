@@ -2,10 +2,8 @@
 //  FilmRendererTests.swift
 //  RetroSnapTests
 //
-//  現像エンジンとカタログの最低限の保証。
 //  - カタログの全カメラがレンダリングを完走すること
 //  - 同じ入力 + 同じ CameraSpec なら出力が決定的であること
-//  - slug / product ID の規約（診断レポート §8-1）が守られていること
 //
 
 import XCTest
@@ -28,7 +26,6 @@ final class FilmRendererTests: XCTestCase {
     }
 
     // MARK: - テスト用の入力画像
-
     /// 現像の各段が効いていることを確認できるだけの情報量を持つ入力を作る。
     /// - 白飛び気味の明部（ハレーション用）
     /// - 中間調のグラデーション（色被り・粒子用）
@@ -67,7 +64,6 @@ final class FilmRendererTests: XCTestCase {
     }
 
     // MARK: - 全カメラがレンダリングを完走する
-
     func testAllCamerasRenderSuccessfully() throws {
         let input = makeTestImage()
 
@@ -84,34 +80,38 @@ final class FilmRendererTests: XCTestCase {
         }
     }
 
-    func testCatalogCoversLaunchCamerasAndHeiseiDigital() {
+    func testCatalogCoversTheEightCameras() {
         let slugs = CameraCatalog.all.map(\.id.rawValue)
         XCTAssertEqual(slugs, [
-            "plain70", "sunsetfade", "heiseidigital", "nightneon", "toyplastic", "datestamp98", "monofilm"
+            "plain70", "sunsetfade", "heiseidigital", "nightneon", "toyplastic", "datestamp98", "monofilm", "pastelfilm"
         ])
     }
 
-    func testHeiseiDigitalPreviewAndSavedPhotoUseSameDevelopment() throws {
+    func testEveryCameraPreviewAndSavedPhotoUseSameDevelopment() throws {
         let input = makeTestImage()
         let source = try XCTUnwrap(input.cgImage)
-        let developed = try XCTUnwrap(renderer.develop(
-            CIImage(cgImage: source), with: .heiseiDigital, capturedAt: fixedDate
-        ))
-        let preview = UIImage(cgImage: try XCTUnwrap(renderer.rasterize(developed)))
-        let saved = try XCTUnwrap(renderer.render(input, with: .heiseiDigital, capturedAt: fixedDate))
-        XCTAssertEqual(try pixelData(preview), try pixelData(saved))
+        for camera in CameraCatalog.all {
+            let developed = try XCTUnwrap(renderer.develop(
+                CIImage(cgImage: source), with: camera, capturedAt: fixedDate
+            ))
+            let preview = UIImage(cgImage: try XCTUnwrap(renderer.rasterize(developed)))
+            let saved = try XCTUnwrap(renderer.render(input, with: camera, capturedAt: fixedDate))
+            XCTAssertEqual(try pixelData(preview), try pixelData(saved), camera.id.rawValue)
+        }
     }
 
     func testMonochromeFilmOutputHasNoColorCast() throws {
         let output = try XCTUnwrap(renderer.render(makeTestImage(), with: .monoFilm))
         let image = try XCTUnwrap(output.cgImage)
         var pixels = [UInt8](repeating: 0, count: image.width * image.height * 4)
-        let context = try XCTUnwrap(CGContext(
-            data: &pixels, width: image.width, height: image.height, bitsPerComponent: 8,
-            bytesPerRow: image.width * 4, space: CGColorSpaceCreateDeviceRGB(),
-            bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue
-        ))
-        context.draw(image, in: CGRect(x: 0, y: 0, width: image.width, height: image.height))
+        try pixels.withUnsafeMutableBytes { buffer in
+            let context = try XCTUnwrap(CGContext(
+                data: buffer.baseAddress, width: image.width, height: image.height, bitsPerComponent: 8,
+                bytesPerRow: image.width * 4, space: CGColorSpaceCreateDeviceRGB(),
+                bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue
+            ))
+            context.draw(image, in: CGRect(x: 0, y: 0, width: image.width, height: image.height))
+        }
         for index in stride(from: 0, to: pixels.count, by: 4) {
             XCTAssertLessThanOrEqual(abs(Int(pixels[index]) - Int(pixels[index + 1])), 1)
             XCTAssertLessThanOrEqual(abs(Int(pixels[index]) - Int(pixels[index + 2])), 1)
@@ -119,7 +119,6 @@ final class FilmRendererTests: XCTestCase {
     }
 
     // MARK: - 決定性
-
     func testRenderIsDeterministicForSameInputAndSpec() throws {
         let input = makeTestImage()
 

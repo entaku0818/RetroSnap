@@ -23,6 +23,7 @@ final class CameraStoreUITests: XCTestCase {
 
     override func setUpWithError() throws {
         continueAfterFailure = false
+        XCUIDevice.shared.orientation = .portrait
     }
 
     func testHeiseiDigitalSavesWithoutOpeningStore() throws {
@@ -39,16 +40,19 @@ final class CameraStoreUITests: XCTestCase {
     }
 
     func testMonochromeFilmPreviewsButRequiresPurchaseToSave() throws {
+        try assertPaidCameraPreviewsButRequiresPurchase("monofilm")
+    }
+
+    func testPastelFilmPreviewsButRequiresPurchaseToSave() throws {
+        try assertPaidCameraPreviewsButRequiresPurchase("pastelfilm")
+    }
+
+    private func assertPaidCameraPreviewsButRequiresPurchase(_ slug: String) throws {
         let app = launchApp()
-        selectCamera("monofilm", in: app)
-        record(XCUIScreen.main.screenshot(), as: "monofilm-preview")
+        selectCamera(slug, in: app)
+        record(XCUIScreen.main.screenshot(), as: "\(slug)-preview")
         app.buttons["camera.shutter"].tap()
-        XCTAssertTrue(app.buttons["store.close"].waitForExistence(timeout: 15))
-        let row = element("store.row.monofilm", in: app)
-        for _ in 0..<5 where !row.exists {
-            app.swipeUp()
-        }
-        XCTAssertTrue(row.exists)
+        revealStoreRow(slug, in: app)
         app.buttons["store.close"].tap()
         XCTAssertTrue(element("camera.lockedNotice", in: app).waitForExistence(timeout: 5))
         XCTAssertFalse(app.alerts.firstMatch.exists)
@@ -76,8 +80,7 @@ final class CameraStoreUITests: XCTestCase {
 
         // 型で引かないこと。価格が出ない環境では行の中の Button が消え、
         // 行の要素型が Button から変わるため `app.buttons[...]` では当たらない。
-        let storeRow = element("store.row.\(paidCameraSlug)", in: app)
-        XCTAssertTrue(storeRow.waitForExistence(timeout: 30), "保存しようとしても購入導線が出てこない")
+        revealStoreRow(paidCameraSlug, in: app)
         record(XCUIScreen.main.screenshot(), as: "locked-store")
 
         // 3. 買わずに閉じたら、保存できていないことが画面に残る
@@ -98,6 +101,7 @@ final class CameraStoreUITests: XCTestCase {
 
         app.buttons["camera.shutter"].tap()
 
+        revealStoreRow(paidCameraSlug, in: app)
         let buyButton = app.buttons["store.buy.\(paidCameraSlug)"]
         // RevenueCat の API キーが未設定、または商品が未登録だと価格が出ない。
         // 実装ではなく設定の問題なので、ここでは飛ばす。
@@ -137,6 +141,20 @@ final class CameraStoreUITests: XCTestCase {
         return app
     }
 
+    private func revealStoreRow(_ slug: String, in app: XCUIApplication) {
+        XCTAssertTrue(app.buttons["store.close"].waitForExistence(timeout: 15))
+        let row = element("store.row.\(slug)", in: app)
+        let buyButton = app.buttons["store.buy.\(slug)"]
+        // 商品取得で行のアクセシビリティ構造が変わる場合は購入ボタンでも確認する。
+        // 小さくスクロールして、目的の商品を一度に通り過ぎないようにする。
+        for _ in 0..<10 where !row.exists && !buyButton.exists {
+            let start = app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.75))
+            let end = app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5))
+            start.press(forDuration: 0.1, thenDragTo: end)
+        }
+        XCTAssertTrue(row.exists || buyButton.exists, "購入画面に \(slug) が無い")
+    }
+
     private func selectPaidCamera(in app: XCUIApplication) {
         selectCamera(paidCameraSlug, in: app)
     }
@@ -145,10 +163,15 @@ final class CameraStoreUITests: XCTestCase {
         let chip = app.buttons["camera.chip.\(slug)"]
         XCTAssertTrue(chip.waitForExistence(timeout: 10), "カルーセルに \(slug) が無い")
         let carousel = app.scrollViews.containing(.button, identifier: chip.identifier).firstMatch
-        for _ in 0..<5 where !chip.isHittable {
-            carousel.swipeLeft()
+        for _ in 0..<12 where !app.frame.contains(chip.frame) {
+            let targetIsToTheRight = chip.frame.midX > app.frame.midX
+            let startX: CGFloat = targetIsToTheRight ? 0.75 : 0.25
+            let endX: CGFloat = targetIsToTheRight ? 0.45 : 0.55
+            let start = carousel.coordinate(withNormalizedOffset: CGVector(dx: startX, dy: 0.5))
+            let end = carousel.coordinate(withNormalizedOffset: CGVector(dx: endX, dy: 0.5))
+            start.press(forDuration: 0.1, thenDragTo: end)
         }
-        XCTAssertTrue(chip.isHittable, "スクロールしても有料カメラを選択できない")
+        XCTAssertTrue(app.frame.contains(chip.frame), "スクロールしても有料カメラを選択できない")
         chip.tap()
     }
 

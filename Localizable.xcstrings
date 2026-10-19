@@ -1,6 +1,40 @@
 {
   "sourceLanguage": "en",
   "strings": {
+  "camera.pastelfilm.name": {
+    "extractionState": "manual",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Pastel Film"
+        }
+      },
+      "ja": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "淡色フィルム"
+        }
+      }
+    }
+  },
+  "camera.pastelfilm.tagline": {
+    "extractionState": "manual",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Soft pastel colors for portraits and cafe moments."
+        }
+      },
+      "ja": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "人物もカフェも、明るくやわらかな淡い色に。"
+        }
+      }
+    }
+  },
   "camera.monofilm.name": {
     "extractionState": "manual",
     "localizations": {
