@@ -14,6 +14,22 @@ import XCTest
 
 final class CameraSelectionTests: XCTestCase {
 
+    func testHeiseiDigitalCanBeSelectedAndSavedWithoutPurchase() throws {
+        let spec = try XCTUnwrap(CameraCatalog.camera(for: CameraID("heiseidigital")))
+        let selection = CameraSelection()
+        selection.selected = spec
+        XCTAssertEqual(selection.selected, .heiseiDigital)
+        XCTAssertFalse(spec.isPurchasable)
+        let entitlements = StaticCameraEntitlements()
+        XCTAssertEqual(CaptureGate.disposition(for: selection.selected, entitlements: entitlements), .save)
+        XCTAssertEqual(Set(entitlements.lockedCameras().map(\.id)),
+                       Set([CameraSpec.nightNeon.id, .init("toyplastic"), .init("datestamp98")]))
+        let repository = PhotoRepository(inMemory: true)
+        repository.insert(name: "heisei", path: URL(fileURLWithPath: "/tmp/heisei.png"), cameraID: spec.id)
+        XCTAssertEqual(repository.fetchAllPhotos().first?.cameraID, spec.id)
+        XCTAssertEqual(CameraCatalog.camera(forSlug: spec.id.rawValue), spec)
+    }
+
     func testDefaultLineupComesFromTheCatalog() {
         let selection = CameraSelection()
 

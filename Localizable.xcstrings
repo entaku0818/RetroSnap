@@ -64,6 +64,42 @@
         }
       }
     },
+    "camera.heiseidigital.name" : {
+      "comment": "平成デジカメのname",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Y2K Digicam"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "平成デジカメ"
+          }
+        }
+      }
+    },
+    "camera.heiseidigital.tagline" : {
+      "comment": "平成デジカメのtagline",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bright flash vibes and a little early-digital grit."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "白いフラッシュ感と、少し粗いあの頃の写り。"
+          }
+        }
+      }
+    },
     "camera.nightneon.name": {
       "comment": "カメラ名。CameraSpec.displayNameKey から引かれる",
       "extractionState": "manual",

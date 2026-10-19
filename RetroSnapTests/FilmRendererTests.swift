@@ -84,9 +84,20 @@ final class FilmRendererTests: XCTestCase {
         }
     }
 
-    func testCatalogCoversTheFiveLaunchCameras() {
+    func testCatalogCoversLaunchCamerasAndHeiseiDigital() {
         let slugs = CameraCatalog.all.map(\.id.rawValue)
-        XCTAssertEqual(slugs, ["plain70", "sunsetfade", "nightneon", "toyplastic", "datestamp98"])
+        XCTAssertEqual(slugs, ["plain70", "sunsetfade", "heiseidigital", "nightneon", "toyplastic", "datestamp98"])
+    }
+
+    func testHeiseiDigitalPreviewAndSavedPhotoUseSameDevelopment() throws {
+        let input = makeTestImage()
+        let source = try XCTUnwrap(input.cgImage)
+        let developed = try XCTUnwrap(renderer.develop(
+            CIImage(cgImage: source), with: .heiseiDigital, capturedAt: fixedDate
+        ))
+        let preview = UIImage(cgImage: try XCTUnwrap(renderer.rasterize(developed)))
+        let saved = try XCTUnwrap(renderer.render(input, with: .heiseiDigital, capturedAt: fixedDate))
+        XCTAssertEqual(try pixelData(preview), try pixelData(saved))
     }
 
     // MARK: - 決定性
@@ -242,7 +253,7 @@ final class FilmRendererTests: XCTestCase {
 
     // MARK: - 目視確認用
 
-    /// 5台それぞれの現像結果を xcresult の添付として書き出す。
+    /// 全カメラそれぞれの現像結果を xcresult の添付として書き出す。
     /// `xcrun xcresulttool export attachments` で取り出して並べれば、
     /// カタログをいじったときの絵の変化をそのまま目で確認できる。
     func testRendersSampleSheetForVisualReview() throws {

@@ -25,6 +25,7 @@ enum CameraCatalog {
     static let all: [CameraSpec] = [
         .plain70,
         .sunsetFade,
+        .heiseiDigital,
         .nightNeon,
         .toyPlastic,
         .dateStamp98,
@@ -100,6 +101,32 @@ extension CameraSpec {
             radius: 0.028,
             intensity: 0.5,
             color: RGB(red: 1, green: 0.66, blue: 0.36)
+        )
+    )
+
+    /// 2000年代のコンパクトデジカメ風。白く強いハイライトと冷たい色、粗い粒子。
+    /// 中央の淡い白色光と周辺減光で直射フラッシュ感を作る（実フラッシュは操作しない）。
+    static let heiseiDigital = CameraSpec(
+        id: CameraID("heiseidigital"),
+        displayNameKey: "camera.heiseidigital.name",
+        taglineKey: "camera.heiseidigital.tagline",
+        tier: .free,
+        tone: ToneParams(
+            exposure: 0.38,
+            saturation: 0.82,
+            contrast: 1.28,
+            redGain: 0.96,
+            greenGain: 1.01,
+            blueGain: 1.08
+        ),
+        grain: GrainParams(intensity: 0.38, size: 1.8),
+        vignette: VignetteParams(intensity: 0.7, radius: 0.85, falloff: 0.5),
+        lightLeak: LightLeakParams(
+            center: CGPoint(x: 0.5, y: 0.5),
+            innerRadius: 0.08,
+            outerRadius: 0.75,
+            color: RGB(red: 0.9, green: 0.95, blue: 1),
+            opacity: 0.14
         )
     )
 

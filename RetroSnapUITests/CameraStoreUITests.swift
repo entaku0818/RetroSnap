@@ -25,6 +25,19 @@ final class CameraStoreUITests: XCTestCase {
         continueAfterFailure = false
     }
 
+    func testHeiseiDigitalSavesWithoutOpeningStore() throws {
+        let app = launchApp(arguments: ["-AppleLanguages", "(en)", "-AppleLocale", "en_US"])
+        let chip = app.buttons["camera.chip.heiseidigital"]
+        XCTAssertTrue(chip.waitForExistence(timeout: 10))
+        chip.tap()
+        record(XCUIScreen.main.screenshot(), as: "heisei-preview")
+        app.buttons["camera.shutter"].tap()
+        XCTAssertTrue(app.alerts.staticTexts["Saved to your photo library"].waitForExistence(timeout: 15))
+        XCTAssertFalse(element("store.row.nightneon", in: app).exists)
+        XCTAssertFalse(element("camera.lockedNotice", in: app).exists)
+        record(XCUIScreen.main.screenshot(), as: "heisei-saved")
+    }
+
     // MARK: - 未購入: プレビューは効く / 保存は止まる
 
     func testUnpurchasedCameraPreviewsButBlocksSaving() throws {
@@ -100,8 +113,9 @@ final class CameraStoreUITests: XCTestCase {
 
     // MARK: - 補助
 
-    private func launchApp() -> XCUIApplication {
+    private func launchApp(arguments: [String] = []) -> XCUIApplication {
         let app = XCUIApplication()
+        app.launchArguments = arguments
         app.launch()
         dismissTrackingPromptIfPresent()
         return app
@@ -110,6 +124,11 @@ final class CameraStoreUITests: XCTestCase {
     private func selectPaidCamera(in app: XCUIApplication) {
         let chip = app.buttons["camera.chip.\(paidCameraSlug)"]
         XCTAssertTrue(chip.waitForExistence(timeout: 10), "カルーセルに \(paidCameraSlug) が無い")
+        let carousel = app.scrollViews.containing(.button, identifier: chip.identifier).firstMatch
+        for _ in 0..<3 where !chip.isHittable {
+            carousel.swipeLeft()
+        }
+        XCTAssertTrue(chip.isHittable, "スクロールしても有料カメラを選択できない")
         chip.tap()
     }
 
