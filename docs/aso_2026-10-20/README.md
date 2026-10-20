@@ -48,3 +48,7 @@ Appleの公式資料にはキーワードを100文字とするページと100 by
 - https://developer.apple.com/help/app-store-connect/reference/app-information/platform-version-information
 - https://itunes.apple.com/search?country=jp&term=平成%20デジカメ&entity=software&limit=8
 - https://itunes.apple.com/search?country=us&term=y2k%20camera&entity=software&limit=8
+
+## 0.3.2提出時の追記
+
+2026-10-20 09:25 JST、日英の次回版メタデータを0.3.2へ反映して審査提出済み。公開用画像は、既存の実写入りUI素材に8台・無料3台の説明を付けた日英各2枚へ更新。5枚構成の全新カメラ訴求は今後の改善案として残す。画像と提出結果は `docs/release-0.3.2/` を参照。承認後は手動公開。
