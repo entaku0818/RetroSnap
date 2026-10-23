@@ -1,0 +1,15 @@
+RetroSnap 0.3.3 / build 10
+
+変更: 夕焼け写真入りのフィルム枠アイコンに変更。
+Release archive / IPA export: 成功
+アーカイブ内のバージョン、ビルド番号、新アイコン、RevenueCat設定の存在: 確認済み
+App Store Connect upload: 成功
+Delivery UUID: 591e4218-5444-48a2-a53c-b14ed95e90f0
+App Store version ID: a97e5f8c-c184-4b09-bed5-e843d2f039c2
+公開設定: AFTER_APPROVAL（審査承認後に自動公開）
+6言語のリリースノートを更新。既存の日英ストア画像各2枚と審査連絡先を継承。
+検証: Releaseアーカイブ・IPA書き出し成功、組み込みアイコン目視確認。コード変更なしのためユニット/UIテストは再実行していない。
+ビルド警告: 未参照の旧アイコン、既存のSwift並行処理警告、AppIntentsメタデータ抽出スキップ。
+審査提出: 2026-10-23 20:58 JST
+Review submission ID: f478db1b-0ea9-4a35-a25b-ba43b28a3fb6
+審査状態: WAITING_FOR_REVIEW
