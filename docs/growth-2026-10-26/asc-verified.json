@@ -1,0 +1,117 @@
+{
+  "checkedAt": "2026-10-25T23:47:24.332Z",
+  "appID": "6468934085",
+  "versionID": "e1f15169-4cad-44be-89bc-aa465725e8f9",
+  "version": "0.3.5",
+  "state": "PREPARE_FOR_SUBMISSION",
+  "locales": [
+    {
+      "locale": "ja",
+      "name": "レトロカメラ - フィルムカメラ風エモい写真",
+      "subtitle": "平成デジカメ・日付入り・白黒・淡色で撮影",
+      "screenshots": [
+        {
+          "id": "fec00018-1941-89c5-8008-b6c2f2f89dde",
+          "state": "COMPLETE",
+          "checksum": "4e45c1b170a55c2b5a0ba6c48eda6df0"
+        },
+        {
+          "id": "7a000018-1941-89c5-8018-5eccc35ece14",
+          "state": "COMPLETE",
+          "checksum": "be5f0c5a304861acc7cc5ff73b47c1e6"
+        }
+      ],
+      "otherSlots": []
+    },
+    {
+      "locale": "en-US",
+      "name": "RetroSnap: Retro Film Camera",
+      "subtitle": "Y2K Digicam & Date Stamp",
+      "screenshots": [
+        {
+          "id": "30000018-1941-89c5-800c-2806670c56d6",
+          "state": "COMPLETE",
+          "checksum": "224d02441eaf712bb3c5e80c3dc0ee9e"
+        },
+        {
+          "id": "64c00018-1941-89c5-8038-8760cb416b92",
+          "state": "COMPLETE",
+          "checksum": "d4ed604e47dce451e926660e7b21bb38"
+        }
+      ],
+      "otherSlots": []
+    },
+    {
+      "locale": "ko",
+      "name": "RetroSnap: 레트로 필름 카메라",
+      "subtitle": "Y2K 디카 · 날짜 · 흑백 · 파스텔",
+      "screenshots": [
+        {
+          "id": "f0800018-1941-89c5-8018-fe04ef4706a0",
+          "state": "COMPLETE",
+          "checksum": "270da9b7207e2502bb19f15787552f2d"
+        },
+        {
+          "id": "5a400018-1941-89c5-8003-cf729a5fa871",
+          "state": "COMPLETE",
+          "checksum": "c7275b1570139f6030925912d5b1b37f"
+        }
+      ],
+      "otherSlots": []
+    },
+    {
+      "locale": "de-DE",
+      "name": "RetroSnap: Retro-Filmkamera",
+      "subtitle": "Y2K, Datum, Schwarzweiß",
+      "screenshots": [
+        {
+          "id": "c6000018-1941-89c5-8017-6feb5750f5c8",
+          "state": "COMPLETE",
+          "checksum": "f076c6809f689cda3835070601a290cf"
+        },
+        {
+          "id": "57000018-1941-89c5-800c-e9dd6fe3c2e2",
+          "state": "COMPLETE",
+          "checksum": "ac76c9f736c6b162d4cc3f4e97339439"
+        }
+      ],
+      "otherSlots": []
+    },
+    {
+      "locale": "fr-FR",
+      "name": "RetroSnap : caméra rétro",
+      "subtitle": "Y2K, date et tons argentiques",
+      "screenshots": [
+        {
+          "id": "68400018-1941-89c5-8010-53ca29d4eb64",
+          "state": "COMPLETE",
+          "checksum": "cb48f724ba245007ce470cdbef688dba"
+        },
+        {
+          "id": "11800018-1941-89c5-801d-83a14e05cf2c",
+          "state": "COMPLETE",
+          "checksum": "8fe0582b5633533e6937cbf01d78da1b"
+        }
+      ],
+      "otherSlots": []
+    },
+    {
+      "locale": "es-ES",
+      "name": "RetroSnap: cámara retro",
+      "subtitle": "Y2K, fecha y tonos de película",
+      "screenshots": [
+        {
+          "id": "10000018-1941-89c5-800a-54d6e98849dd",
+          "state": "COMPLETE",
+          "checksum": "23033cacae566f9c55c56c230b661e75"
+        },
+        {
+          "id": "fb400018-1941-89c5-800d-2a7e796b304e",
+          "state": "COMPLETE",
+          "checksum": "54014a9134e7702203ba1f38ad0e052c"
+        }
+      ],
+      "otherSlots": []
+    }
+  ]
+}

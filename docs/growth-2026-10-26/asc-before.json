@@ -1,0 +1,413 @@
+{
+  "app": "6468934085",
+  "version": "e1f15169-4cad-44be-89bc-aa465725e8f9",
+  "state": "PREPARE_FOR_SUBMISSION",
+  "infos": [
+    {
+      "id": "6212ea4f-dac9-42dc-8e3e-8e21d3e96c59",
+      "appStoreState": "READY_FOR_SALE",
+      "state": "READY_FOR_DISTRIBUTION",
+      "appStoreAgeRating": "FOUR_PLUS",
+      "australiaAgeRating": null,
+      "brazilAgeRating": "L",
+      "brazilAgeRatingV2": "SELF_RATED_L",
+      "franceAgeRating": null,
+      "koreaAgeRating": null
+    },
+    {
+      "id": "c05b60eb-3c5b-4528-9bbd-dfeb2c2b16d9",
+      "appStoreState": "PREPARE_FOR_SUBMISSION",
+      "state": "PREPARE_FOR_SUBMISSION",
+      "appStoreAgeRating": "FOUR_PLUS",
+      "australiaAgeRating": null,
+      "brazilAgeRating": "L",
+      "brazilAgeRatingV2": "SELF_RATED_L",
+      "franceAgeRating": null,
+      "koreaAgeRating": null
+    }
+  ],
+  "localizations": [
+    {
+      "type": "appStoreVersionLocalizations",
+      "id": "50f7236f-e12e-4d83-a3de-f9f9b12fde52",
+      "attributes": {
+        "description": "Turn cafe moments and travel snapshots into photos with a nostalgic feel.\nChoose from 8 camera looks, from faded film colors to a 2000s digicam style. Start shooting and saving with 3 free cameras.\n\n3 FREE CAMERAS\n- Plain 70: gently faded colors for everyday snapshots\n- Sunset Fade: warm orange tones for golden-hour moments\n- Y2K Digicam: bright highlights and a coarse, cool-toned 2000s digital look\n\n5 MORE LOOKS, EACH A ONE-TIME PURCHASE\n- Monochrome Film: bold contrast and textured black-and-white grain\n- Pastel Film: bright, soft colors for portraits and cafe moments\n- Night Neon: cool shadows and glowing lights for night scenes\n- Toy Plastic: light leaks and a strong vignette\n- Datestamp 98: a date burned into the corner, like a 90s point-and-shoot\n\nPREVIEW BEFORE YOU BUY\nCompare all 8 looks in the live preview for free. Saving a photo taken with a paid camera requires purchasing that camera.\nEach paid camera is a separate one-time purchase. There is no subscription. Restore bought cameras with Restore Purchases in Settings.\n\nCHOOSE, SHOOT, KEEP\nPick a camera and tap the shutter. The look is applied as you shoot, without adjusting sliders afterward.\nYour shots are also saved to your photo library. Revisit them in the in-app gallery and share through the standard share menu.\n\nRetroSnap is a camera for taking new photos. It does not import or edit existing photos.",
+        "locale": "en-US",
+        "keywords": "vintage,analog,disposable,monochrome,black,white,pastel,grain,neon,night,toy,light,leak,sepia,90s",
+        "marketingUrl": null,
+        "promotionalText": null,
+        "supportUrl": "https://entaku0818.github.io/",
+        "whatsNew": null
+      },
+      "relationships": {
+        "appScreenshotSets": {
+          "links": {
+            "self": "https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/50f7236f-e12e-4d83-a3de-f9f9b12fde52/relationships/appScreenshotSets",
+            "related": "https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/50f7236f-e12e-4d83-a3de-f9f9b12fde52/appScreenshotSets"
+          }
+        },
+        "appPreviewSets": {
+          "links": {
+            "self": "https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/50f7236f-e12e-4d83-a3de-f9f9b12fde52/relationships/appPreviewSets",
+            "related": "https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/50f7236f-e12e-4d83-a3de-f9f9b12fde52/appPreviewSets"
+          }
+        },
+        "searchKeywords": {
+          "links": {
+            "self": "https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/50f7236f-e12e-4d83-a3de-f9f9b12fde52/relationships/searchKeywords",
+            "related": "https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/50f7236f-e12e-4d83-a3de-f9f9b12fde52/searchKeywords"
+          }
+        },
+        "placements": {
+          "links": {
+            "self": "https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/50f7236f-e12e-4d83-a3de-f9f9b12fde52/relationships/placements",
+            "related": "https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/50f7236f-e12e-4d83-a3de-f9f9b12fde52/placements"
+          }
+        }
+      },
+      "links": {
+        "self": "https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/50f7236f-e12e-4d83-a3de-f9f9b12fde52"
+      }
+    },
+    {
+      "type": "appStoreVersionLocalizations",
+      "id": "4e5dad29-5877-4bd2-93d7-2fc2553cc0ec",
+      "attributes": {
+        "description": "Revivez la nostalgie avec une seule application.\n\nRetroSnap est une application de caméra qui combine la technologie moderne avec un design rétro. Avec des opérations simples, vous pouvez recréer l'ambiance des photographies vintage.\n\nFonctionnalités :\n\n- Photographiez d'une seule pression. Chaque prise reçoit automatiquement une teinte vintage, sans aucun réglage.\n- Vos photos sont également enregistrées dans votre photothèque.\n- Retrouvez toutes vos prises de vue dans la galerie intégrée.\n- Partagez directement depuis le menu de partage standard.\n\nRedécouvrez les souvenirs et l'atmosphère d'antan et capturez des moments spéciaux avec RetroSnap.",
+        "locale": "fr-FR",
+        "keywords": "photo, Sépia, Rétro, Photo, Film,Effet, Vintage, Nostalgique, Instantané, Polaroïd",
+        "marketingUrl": null,
+        "promotionalText": null,
+        "supportUrl": "https://entaku0818.github.io/",
+        "whatsNew": null
+      },
+      "relationships": {
+        "appScreenshotSets": {
+          "links": {
+            "self": "https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/4e5dad29-5877-4bd2-93d7-2fc2553cc0ec/relationships/appScreenshotSets",
+            "related": "https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/4e5dad29-5877-4bd2-93d7-2fc2553cc0ec/appScreenshotSets"
+          }
+        },
+        "appPreviewSets": {
+          "links": {
+            "self": "https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/4e5dad29-5877-4bd2-93d7-2fc2553cc0ec/relationships/appPreviewSets",
+            "related": "https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/4e5dad29-5877-4bd2-93d7-2fc2553cc0ec/appPreviewSets"
+          }
+        },
+        "searchKeywords": {
+          "links": {
+            "self": "https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/4e5dad29-5877-4bd2-93d7-2fc2553cc0ec/relationships/searchKeywords",
+            "related": "https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/4e5dad29-5877-4bd2-93d7-2fc2553cc0ec/searchKeywords"
+          }
+        },
+        "placements": {
+          "links": {
+            "self": "https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/4e5dad29-5877-4bd2-93d7-2fc2553cc0ec/relationships/placements",
+            "related": "https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/4e5dad29-5877-4bd2-93d7-2fc2553cc0ec/placements"
+          }
+        }
+      },
+      "links": {
+        "self": "https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/4e5dad29-5877-4bd2-93d7-2fc2553cc0ec"
+      }
+    },
+    {
+      "type": "appStoreVersionLocalizations",
+      "id": "f138ecbe-551d-4123-b56d-782cad170c6b",
+      "attributes": {
+        "description": "カフェのひとときも、旅先の景色も、撮るだけで懐かしい1枚に。\nフィルム風から平成デジカメ風まで、8台のレトロカメラを切り替えて撮影。まずは無料の3台で、好みの写りを見つけてください。\n\n■ 無料で撮影・保存できる3台\n・プレーン70：ほんのり色褪せた、やさしいフィルム風の色\n・サンセットフェード：夕暮れに似合う、暖かなオレンジ\n・平成デジカメ：白く明るいハイライトと、少し粗い2000年代のデジカメ風\n\n■ もっと選べる5台の買い切りカメラ\n・白黒フィルム：明暗のコントラストと粒子を楽しむモノクロ写真\n・淡色フィルム：人物やカフェを、明るくやわらかな色に\n・ナイトネオン：青い影とにじむ光で、夜の街を印象的に\n・トイプラスチック：光漏れと周辺減光で、トイカメラ風に\n・デートスタンプ98：写真の右下に日付を焼き込む、90年代のスナップ風\n\n■ 買う前に、写りを確認\n8台すべてのライブプレビューを無料で見比べられます。有料カメラで撮影した写真の保存には、そのカメラの購入が必要です。\n購入はカメラごとの買い切り。サブスクリプションはありません。購入済みのカメラは、設定の「購入を復元」から復元できます。\n\n■ 選んで、撮って、見返す\n好みのカメラを選んでシャッターを押すだけ。撮影時に色や質感が付き、あとから細かく調整する手間はありません。\n撮った写真は「写真」アプリにも保存。アプリ内ギャラリーで見返したり、標準の共有メニューからシェアしたりできます。\n\n既存の写真を読み込んで加工するアプリではなく、その場で撮影を楽しむカメラアプリです。",
+        "locale": "ja",
+        "keywords": "トイ,光漏れ,ネオン,ヴィンテージ,セピア,粒子,スナップ,Y2K",
+        "marketingUrl": "https://retrosnap-entaku.web.app",
+        "promotionalText": null,
+        "supportUrl": "https://entaku0818.github.io/",
+        "whatsNew": null
+      },
+      "relationships": {
+        "appScreenshotSets": {
+          "links": {
+            "self": "https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/f138ecbe-551d-4123-b56d-782cad170c6b/relationships/appScreenshotSets",
+            "related": "https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/f138ecbe-551d-4123-b56d-782cad170c6b/appScreenshotSets"
+          }
+        },
+        "appPreviewSets": {
+          "links": {
+            "self": "https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/f138ecbe-551d-4123-b56d-782cad170c6b/relationships/appPreviewSets",
+            "related": "https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/f138ecbe-551d-4123-b56d-782cad170c6b/appPreviewSets"
+          }
+        },
+        "searchKeywords": {
+          "links": {
+            "self": "https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/f138ecbe-551d-4123-b56d-782cad170c6b/relationships/searchKeywords",
+            "related": "https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/f138ecbe-551d-4123-b56d-782cad170c6b/searchKeywords"
+          }
+        },
+        "placements": {
+          "links": {
+            "self": "https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/f138ecbe-551d-4123-b56d-782cad170c6b/relationships/placements",
+            "related": "https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/f138ecbe-551d-4123-b56d-782cad170c6b/placements"
+          }
+        }
+      },
+      "links": {
+        "self": "https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/f138ecbe-551d-4123-b56d-782cad170c6b"
+      }
+    },
+    {
+      "type": "appStoreVersionLocalizations",
+      "id": "c9805f0d-16ab-4c4e-861f-3ecb98af994d",
+      "attributes": {
+        "description": "Revive la nostalgia con una sola aplicación.\n\nRetroSnap es una aplicación de cámara que combina la tecnología moderna con un diseño retro. Con operaciones sencillas, puedes recrear el ambiente de las fotografías vintage.\n\nFunciones:\n\n- Dispara con un solo toque. Cada foto recibe un tono vintage automáticamente, sin nada que ajustar.\n- Tus fotos también se guardan en tu fototeca.\n- Revisa todo lo que has fotografiado en la galería de la aplicación.\n- Comparte directamente desde el menú de compartir estándar.\n\nRedescubre los recuerdos y vibras de antaño y captura momentos especiales con RetroSnap.",
+        "locale": "es-ES",
+        "keywords": "Cámara, Sepia, Retro, Foto, Película, Monocromo, Viejo / Antiguo, Efecto, Vintage, Nostálgico",
+        "marketingUrl": null,
+        "promotionalText": null,
+        "supportUrl": "https://entaku0818.github.io/",
+        "whatsNew": null
+      },
+      "relationships": {
+        "appScreenshotSets": {
+          "links": {
+            "self": "https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/c9805f0d-16ab-4c4e-861f-3ecb98af994d/relationships/appScreenshotSets",
+            "related": "https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/c9805f0d-16ab-4c4e-861f-3ecb98af994d/appScreenshotSets"
+          }
+        },
+        "appPreviewSets": {
+          "links": {
+            "self": "https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/c9805f0d-16ab-4c4e-861f-3ecb98af994d/relationships/appPreviewSets",
+            "related": "https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/c9805f0d-16ab-4c4e-861f-3ecb98af994d/appPreviewSets"
+          }
+        },
+        "searchKeywords": {
+          "links": {
+            "self": "https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/c9805f0d-16ab-4c4e-861f-3ecb98af994d/relationships/searchKeywords",
+            "related": "https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/c9805f0d-16ab-4c4e-861f-3ecb98af994d/searchKeywords"
+          }
+        },
+        "placements": {
+          "links": {
+            "self": "https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/c9805f0d-16ab-4c4e-861f-3ecb98af994d/relationships/placements",
+            "related": "https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/c9805f0d-16ab-4c4e-861f-3ecb98af994d/placements"
+          }
+        }
+      },
+      "links": {
+        "self": "https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/c9805f0d-16ab-4c4e-861f-3ecb98af994d"
+      }
+    },
+    {
+      "type": "appStoreVersionLocalizations",
+      "id": "771e4156-bc3c-4ae5-9501-cede40988777",
+      "attributes": {
+        "description": "한 앱으로 추억을 되살리세요.\n\nRetroSnap은 현대 기술과 레트로 디자인을 결합한 카메라 앱입니다. 간단한 조작으로 빈티지 사진의 분위기를 재현할 수 있습니다.\n\n주요 기능:\n\n- 한 번의 탭으로 촬영. 셔터를 누르기만 하면 자동으로 빈티지 색감이 적용됩니다.\n- 촬영한 사진은 사진 보관함에도 저장됩니다.\n- 앱 내 갤러리에서 지금까지 찍은 사진을 모아 볼 수 있습니다.\n- 기본 공유 메뉴에서 바로 공유할 수 있습니다.\n\n그 시절의 추억과 분위기를 되살리고, RetroSnap으로 특별한 순간을 담아보세요.",
+        "locale": "ko",
+        "keywords": "카메라, 세피아, 레트로, 사진, 필름, 모노크롬, 오래된, 효과, 빈티지, 향수를 불러일으키는, 스냅샷, 폴라로이드, 클래식",
+        "marketingUrl": null,
+        "promotionalText": null,
+        "supportUrl": "https://entaku0818.github.io/",
+        "whatsNew": null
+      },
+      "relationships": {
+        "appScreenshotSets": {
+          "links": {
+            "self": "https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/771e4156-bc3c-4ae5-9501-cede40988777/relationships/appScreenshotSets",
+            "related": "https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/771e4156-bc3c-4ae5-9501-cede40988777/appScreenshotSets"
+          }
+        },
+        "appPreviewSets": {
+          "links": {
+            "self": "https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/771e4156-bc3c-4ae5-9501-cede40988777/relationships/appPreviewSets",
+            "related": "https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/771e4156-bc3c-4ae5-9501-cede40988777/appPreviewSets"
+          }
+        },
+        "searchKeywords": {
+          "links": {
+            "self": "https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/771e4156-bc3c-4ae5-9501-cede40988777/relationships/searchKeywords",
+            "related": "https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/771e4156-bc3c-4ae5-9501-cede40988777/searchKeywords"
+          }
+        },
+        "placements": {
+          "links": {
+            "self": "https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/771e4156-bc3c-4ae5-9501-cede40988777/relationships/placements",
+            "related": "https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/771e4156-bc3c-4ae5-9501-cede40988777/placements"
+          }
+        }
+      },
+      "links": {
+        "self": "https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/771e4156-bc3c-4ae5-9501-cede40988777"
+      }
+    },
+    {
+      "type": "appStoreVersionLocalizations",
+      "id": "03f1e440-124b-45c4-9a0d-9c35f362d14a",
+      "attributes": {
+        "description": "Erleben Sie die Nostalgie mit einer einzigen App neu.\n\nRetroSnap ist eine Kamera-App, die moderne Technologie mit einem Retro-Design verbindet. Mit einfachen Handgriffen lässt sich die Atmosphäre von Vintage-Fotografien nachbilden.\n\nFunktionen:\n\n- Fotografieren mit einem einzigen Tippen. Jede Aufnahme erhält automatisch einen Vintage-Farbton, ganz ohne Einstellungen.\n- Ihre Fotos werden auch in Ihrer Fotomediathek gespeichert.\n- Sehen Sie sich alle Aufnahmen in der integrierten Galerie an.\n- Teilen Sie direkt über das Standard-Teilen-Menü.\n\nEntdecken Sie Erinnerungen und das Lebensgefühl vergangener Zeiten neu und halten Sie besondere Momente mit RetroSnap fest.",
+        "locale": "de-DE",
+        "keywords": "Kamera, Sepia, Retro, Film, Monochrom, Alt, Effekt, Vintage, Nostalgisch, Schnappschuss, Polaroid,",
+        "marketingUrl": null,
+        "promotionalText": null,
+        "supportUrl": "https://entaku0818.github.io/",
+        "whatsNew": null
+      },
+      "relationships": {
+        "appScreenshotSets": {
+          "links": {
+            "self": "https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/03f1e440-124b-45c4-9a0d-9c35f362d14a/relationships/appScreenshotSets",
+            "related": "https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/03f1e440-124b-45c4-9a0d-9c35f362d14a/appScreenshotSets"
+          }
+        },
+        "appPreviewSets": {
+          "links": {
+            "self": "https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/03f1e440-124b-45c4-9a0d-9c35f362d14a/relationships/appPreviewSets",
+            "related": "https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/03f1e440-124b-45c4-9a0d-9c35f362d14a/appPreviewSets"
+          }
+        },
+        "searchKeywords": {
+          "links": {
+            "self": "https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/03f1e440-124b-45c4-9a0d-9c35f362d14a/relationships/searchKeywords",
+            "related": "https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/03f1e440-124b-45c4-9a0d-9c35f362d14a/searchKeywords"
+          }
+        },
+        "placements": {
+          "links": {
+            "self": "https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/03f1e440-124b-45c4-9a0d-9c35f362d14a/relationships/placements",
+            "related": "https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/03f1e440-124b-45c4-9a0d-9c35f362d14a/placements"
+          }
+        }
+      },
+      "links": {
+        "self": "https://api.appstoreconnect.apple.com/v1/appStoreVersionLocalizations/03f1e440-124b-45c4-9a0d-9c35f362d14a"
+      }
+    }
+  ],
+  "infoLocalizations": [
+    {
+      "type": "appInfoLocalizations",
+      "id": "206d1b29-b49d-4c30-a54b-ebf5214cd382",
+      "attributes": {
+        "locale": "de-DE",
+        "name": "RetroSnap - Vintage-Kamera",
+        "subtitle": "Erlebe die Vergangenheit Fotos",
+        "privacyPolicyUrl": "https://entaku0818.github.io",
+        "privacyChoicesUrl": null,
+        "privacyPolicyText": null
+      },
+      "links": {
+        "self": "https://api.appstoreconnect.apple.com/v1/appInfoLocalizations/206d1b29-b49d-4c30-a54b-ebf5214cd382"
+      }
+    },
+    {
+      "type": "appInfoLocalizations",
+      "id": "c07685c2-cf77-4be9-a4b9-052accd2d44c",
+      "attributes": {
+        "locale": "ko",
+        "name": "RetroSnap - 빈티지 카메라",
+        "subtitle": "과거를 사진으로 되살리세요!",
+        "privacyPolicyUrl": "https://entaku0818.github.io",
+        "privacyChoicesUrl": null,
+        "privacyPolicyText": null
+      },
+      "links": {
+        "self": "https://api.appstoreconnect.apple.com/v1/appInfoLocalizations/c07685c2-cf77-4be9-a4b9-052accd2d44c"
+      }
+    },
+    {
+      "type": "appInfoLocalizations",
+      "id": "cfdd7fc3-5352-4258-bde4-7ae8c08da07e",
+      "attributes": {
+        "locale": "es-ES",
+        "name": "RetroSnap - Cámara Vintage",
+        "subtitle": "¡Revive el pasado en una foto!",
+        "privacyPolicyUrl": "https://entaku0818.github.io",
+        "privacyChoicesUrl": null,
+        "privacyPolicyText": null
+      },
+      "links": {
+        "self": "https://api.appstoreconnect.apple.com/v1/appInfoLocalizations/cfdd7fc3-5352-4258-bde4-7ae8c08da07e"
+      }
+    },
+    {
+      "type": "appInfoLocalizations",
+      "id": "5a58c4cf-249f-47b3-a1ec-2ad848adfc32",
+      "attributes": {
+        "locale": "ja",
+        "name": "レトロカメラ - フィルムカメラ風エモい写真",
+        "subtitle": "平成デジカメ・日付入り・白黒・淡色で撮影",
+        "privacyPolicyUrl": "https://entaku0818.github.io",
+        "privacyChoicesUrl": null,
+        "privacyPolicyText": null
+      },
+      "links": {
+        "self": "https://api.appstoreconnect.apple.com/v1/appInfoLocalizations/5a58c4cf-249f-47b3-a1ec-2ad848adfc32"
+      }
+    },
+    {
+      "type": "appInfoLocalizations",
+      "id": "927bdcbd-39b8-4c0a-afe2-25fc0cba31ed",
+      "attributes": {
+        "locale": "en-US",
+        "name": "RetroSnap: Retro Film Camera",
+        "subtitle": "Y2K Digicam & Date Stamp",
+        "privacyPolicyUrl": "https://entaku0818.github.io",
+        "privacyChoicesUrl": null,
+        "privacyPolicyText": null
+      },
+      "links": {
+        "self": "https://api.appstoreconnect.apple.com/v1/appInfoLocalizations/927bdcbd-39b8-4c0a-afe2-25fc0cba31ed"
+      }
+    },
+    {
+      "type": "appInfoLocalizations",
+      "id": "501cceca-57a5-4d2a-b105-d312e590b659",
+      "attributes": {
+        "locale": "fr-FR",
+        "name": "RetroSnap - Caméra Vintage",
+        "subtitle": "Revivez le passé en photos !",
+        "privacyPolicyUrl": "https://entaku0818.github.io",
+        "privacyChoicesUrl": null,
+        "privacyPolicyText": null
+      },
+      "links": {
+        "self": "https://api.appstoreconnect.apple.com/v1/appInfoLocalizations/501cceca-57a5-4d2a-b105-d312e590b659"
+      }
+    }
+  ],
+  "slots": [
+    {
+      "locale": "en-US",
+      "sets": [
+        {
+          "id": "62d044b8-e8db-4133-b0e6-454fb3324a43",
+          "type": "APP_IPHONE_67",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "locale": "fr-FR",
+      "sets": []
+    },
+    {
+      "locale": "ja",
+      "sets": [
+        {
+          "id": "680b1ae3-a18f-49ce-a91a-bba438346fc7",
+          "type": "APP_IPHONE_67",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "locale": "es-ES",
+      "sets": []
+    },
+    {
+      "locale": "ko",
+      "sets": []
+    },
+    {
+      "locale": "de-DE",
+      "sets": []
+    }
+  ]
+}

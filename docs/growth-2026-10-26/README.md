@@ -36,5 +36,13 @@ Raw captures: `/tmp/retrosnap-growth-screens`. Output: `temp/screenshots/iphone`
 - Six-locale camera UI capture: `TEST SUCCEEDED`, 0 failures.
 - Locale coverage and interpolation placeholders checked for all entries; App Store title/subtitle length <=30 validated.
 - Before/after English and Japanese values from existing uncommitted work preserved.
-- ASC checked 2026-10-26: 0.3.4 is READY_FOR_SALE. This work has not been uploaded, submitted or published.
+- ASC checked 2026-10-26: 0.3.4 is READY_FOR_SALE. At preview creation this work had not been uploaded, submitted or published; see the approved-upload record below.
 - Preview approval precedes screenshot deployment. New images are iPhone only; verify iPad slots before upload. No independent native-speaker review yet.
+
+## Approved store upload — 2026-10-26
+
+User approved the preview images in this conversation. Upload target: RetroSnap 0.3.5, newly created PREPARE_FOR_SUBMISSION version.
+
+Only the six approved descriptions, names, subtitles and iPhone screenshot pairs are updated. Existing iPad sets are retained. Older local screenshots remain as source history; the approved files have the `growth_20261026` filename suffix. Do not bulk-upload every old image in this directory.
+
+Proof: `asc-before.json` (snapshot), `asc-upload.json` (uploaded asset IDs), `asc-verified.json` (server readback, metadata equality and ordered screenshot MD5 checksums). These changes save store drafts; no binary was uploaded and no review was submitted in this step. In-app translations require a new build.
