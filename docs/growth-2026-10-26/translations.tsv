@@ -1,0 +1,64 @@
+Photos	사진	Fotos	Photos	Fotos
+Save Photo	사진 보관함에 저장했습니다	In der Fotomediathek gespeichert	Enregistrée dans la photothèque	Guardada en la fototeca
+camera.pastelfilm.name	파스텔 필름	Pastellfilm	Film pastel	Película pastel
+camera.pastelfilm.tagline	인물과 카페에 어울리는 부드러운 파스텔 색감.	Sanfte Pastellfarben für Porträts und Café-Momente.	Des tons pastel doux pour les portraits et les instants au café.	Tonos pastel suaves para retratos y momentos en el café.
+camera.monofilm.name	흑백 필름	Schwarzweißfilm	Film noir et blanc	Película en blanco y negro
+camera.monofilm.tagline	강한 명암 대비와 흑백 필름의 입자감.	Kräftige Kontraste und strukturierte Schwarzweißkörnung.	Des contrastes marqués et un grain noir et blanc texturé.	Contrastes intensos y grano en blanco y negro.
+camera.datestamp98.name	데이트스탬프 98	Datestamp 98	Datestamp 98	Datestamp 98
+camera.datestamp98.tagline	사진 모서리에 날짜를 새겨요	Brennt das Datum in die Bildecke ein	La date imprimée dans un coin	La fecha impresa en una esquina
+camera.heiseidigital.name	Y2K 디카	Y2K-Digicam	Appareil numérique Y2K	Cámara digital Y2K
+camera.heiseidigital.tagline	밝은 플래시 느낌과 초기 디지털 특유의 질감.	Helle Blitzoptik mit dem rauen Charme früher Digitalkameras.	Un effet flash lumineux et le grain des premiers appareils numériques.	Destellos brillantes y la textura de las primeras cámaras digitales.
+camera.nightneon.name	나이트 네온	Night Neon	Néon nocturne	Neón nocturno
+camera.nightneon.tagline	차가운 그림자와 빛나는 조명	Kühle Schatten, leuchtende Lichter	Ombres froides, lumières éclatantes	Sombras frías, luces brillantes
+camera.plain70.name	플레인 70	Plain 70	Plain 70	Plain 70
+camera.plain70.tagline	은은하게 빛바랜 일상의 색감	Sanft verblasste Alltagsfarben	Des couleurs du quotidien doucement délavées	Colores cotidianos suavemente desvaídos
+camera.sunsetfade.name	선셋 페이드	Sunset Fade	Sunset Fade	Sunset Fade
+camera.sunsetfade.tagline	햇빛에 바랜 오렌지빛 하이라이트	Sonnengebleichte orangefarbene Lichter	Des hautes lumières orangées, délavées par le soleil	Luces anaranjadas desvaídas por el sol
+camera.toyplastic.name	토이 플라스틱	Toy Plastic	Toy Plastic	Toy Plastic
+camera.toyplastic.tagline	짙은 비네팅과 빛샘 효과	Starke Vignette und Lichteinfall	Vignettage prononcé et fuites de lumière	Viñeteado intenso y filtraciones de luz
+capture.locked.notice	구매하지 않은 카메라로 촬영하여 사진이 저장되지 않았습니다.	Dieses Foto wurde mit einer nicht gekauften Kamera aufgenommen und nicht gespeichert.	Cette photo n’a pas été enregistrée, car cette caméra n’a pas été achetée.	Esta foto no se guardó porque se tomó con una cámara que no has comprado.
+capture.locked.openStore	이 카메라 잠금 해제	Diese Kamera freischalten	Débloquer cette caméra	Desbloquear esta cámara
+settings.cameraStore	카메라 스토어	Kamera-Shop	Boutique de caméras	Tienda de cámaras
+settings.cameras	카메라	Kameras	Caméras	Cámaras
+settings.title	설정	Einstellungen	Réglages	Ajustes
+store.close	닫기	Schließen	Fermer	Cerrar
+store.error.entitlementMissing	구매했지만 카메라가 잠금 해제되지 않았습니다. 구매 복원을 시도하거나 지원팀에 문의하세요.	Der Kauf war erfolgreich, aber die Kamera ist noch gesperrt. Stelle Käufe wieder her oder kontaktiere den Support.	L’achat a réussi, mais la caméra reste verrouillée. Restaurez les achats ou contactez l’assistance.	La compra se completó, pero la cámara sigue bloqueada. Restaura las compras o contacta con soporte.
+store.error.notConfigured	현재 앱 내 구입을 이용할 수 없습니다. 무료 카메라는 사용할 수 있습니다.	In-App-Käufe sind derzeit nicht verfügbar. Kostenlose Kameras funktionieren weiterhin.	Les achats intégrés sont indisponibles. Les caméras gratuites restent utilisables.	Las compras integradas no están disponibles. Las cámaras gratuitas siguen funcionando.
+store.error.productsUnavailable	가격을 불러오지 못했습니다. 연결을 확인하고 다시 시도하세요.	Preise konnten nicht geladen werden. Prüfe deine Verbindung und versuche es erneut.	Impossible de charger les prix. Vérifiez votre connexion et réessayez.	No se pudieron cargar los precios. Comprueba tu conexión e inténtalo de nuevo.
+store.error.unknown	구매를 완료하지 못했습니다.	Der Kauf konnte nicht abgeschlossen werden.	L’achat n’a pas pu être effectué.	No se pudo completar la compra.
+store.footer.preview	구매 전에 모든 카메라의 실시간 미리보기를 이용할 수 있습니다. 해당 카메라로 촬영한 사진을 저장하려면 구매가 필요합니다.	Teste jede Kamera vor dem Kauf in der Live-Vorschau. Der Kauf ist erst nötig, um ein mit dieser Kamera aufgenommenes Foto zu speichern.	Essayez chaque caméra en aperçu avant l’achat. L’achat est nécessaire uniquement pour enregistrer une photo prise avec cette caméra.	Prueba cada cámara en la vista previa antes de comprar. Solo necesitas comprarla para guardar las fotos tomadas con ella.
+store.footer.restore	이 Apple 계정으로 구매한 카메라를 복원합니다.	Stellt Kameras wieder her, die du mit diesem Apple Account gekauft hast.	Restaure les caméras achetées avec ce compte Apple.	Restaura las cámaras compradas con esta cuenta de Apple.
+store.free	무료	Kostenlos	Gratuit	Gratis
+store.locked	미구매	Nicht gekauft	Non achetée	Sin comprar
+store.message.alreadyFree	이 카메라는 무료입니다.	Diese Kamera ist kostenlos.	Cette caméra est gratuite.	Esta cámara es gratuita.
+store.message.cancelled	구매가 취소되었습니다.	Kauf abgebrochen.	Achat annulé.	Compra cancelada.
+store.message.nothingToRestore	이 Apple 계정의 구매 내역이 없습니다.	Keine Käufe für diesen Apple Account gefunden.	Aucun achat trouvé pour ce compte Apple.	No se encontraron compras para esta cuenta de Apple.
+store.message.pending	승인을 기다리고 있습니다. 구매가 승인되면 카메라가 잠금 해제됩니다.	Warten auf Genehmigung. Danach wird die Kamera freigeschaltet.	En attente d’autorisation. La caméra sera débloquée après approbation de l’achat.	Esperando aprobación. La cámara se desbloqueará cuando se apruebe la compra.
+store.message.purchased	구매했습니다. 이제 이 카메라로 촬영한 사진을 저장할 수 있습니다.	Gekauft. Du kannst jetzt Fotos mit dieser Kamera speichern.	Achat effectué. Vous pouvez enregistrer les photos prises avec cette caméra.	Compra completada. Ya puedes guardar fotos tomadas con esta cámara.
+store.message.restored %lld	카메라 %lld개를 복원했습니다.	Wiederhergestellte Kameras: %lld.	Caméras restaurées : %lld.	Cámaras restauradas: %lld.
+store.owned	구매 완료	Gekauft	Achetée	Comprada
+store.restore	구매 복원	Käufe wiederherstellen	Restaurer les achats	Restaurar compras
+store.title	카메라 스토어	Kamera-Shop	Boutique de caméras	Tienda de cámaras
+store.unavailable	사용 불가	Nicht verfügbar	Indisponible	No disponible
+icon.title	사진 아이콘 만들기	Foto-Icon erstellen	Créer une icône photo	Crear un icono con foto
+icon.intro	좋아하는 사진에 레트로 필름 프레임을 씌워 저장하세요. 단축어로 RetroSnap을 여는 아이콘을 추가할 수 있습니다.	Setze dein Foto in einen Retro-Filmrahmen. Speichere es und erstelle mit Kurzbefehle ein Icon zum Öffnen von RetroSnap.	Placez votre photo dans un cadre rétro. Enregistrez-la, puis utilisez Raccourcis pour ajouter une icône ouvrant RetroSnap.	Pon tu foto en un marco retro. Guárdala y usa Atajos para añadir un icono que abra RetroSnap.
+icon.preview	홈 화면 아이콘 미리보기	Vorschau des Home-Bildschirm-Icons	Aperçu de l’icône d’accueil	Vista previa del icono de inicio
+icon.empty	내 사진으로 나만의 아이콘	Dein Foto, dein Icon	Votre photo, votre icône	Tu foto, tu icono
+icon.choose	사진 선택	Foto auswählen	Choisir une photo	Elegir foto
+icon.zoom	확대/축소	Zoom	Zoom	Zoom
+icon.horizontal	가로 위치	Horizontale Position	Position horizontale	Posición horizontal
+icon.vertical	세로 위치	Vertikale Position	Position verticale	Posición vertical
+icon.reset	자르기 초기화	Zuschnitt zurücksetzen	Réinitialiser le cadrage	Restablecer recorte
+icon.save	사진 앱에 아이콘 저장	Icon in Fotos speichern	Enregistrer l’icône dans Photos	Guardar icono en Fotos
+icon.guide.title	홈 화면에 추가	Zum Home-Bildschirm hinzufügen	Ajouter à l’écran d’accueil	Añadir a la pantalla de inicio
+icon.guide.step1	1. 편집기에서 아이콘을 저장하세요. Apple 단축어 앱을 열고 +를 눌러 단축어를 만드세요.	1. Speichere dein Icon im Editor. Öffne Apples App Kurzbefehle und tippe auf +.	1. Enregistrez l’icône. Ouvrez l’app Raccourcis d’Apple et touchez + pour créer un raccourci.	1. Guarda el icono. Abre Atajos de Apple y toca + para crear un atajo.
+icon.guide.step2	2. ‘앱 열기’ 동작을 추가한 뒤 RetroSnap을 선택하세요.	2. Füge die Aktion „App öffnen“ hinzu und wähle RetroSnap.	2. Ajoutez l’action « Ouvrir l’app », puis choisissez RetroSnap.	2. Añade la acción «Abrir app» y selecciona RetroSnap.
+icon.guide.step3	3. 단축어의 메뉴 또는 세부사항에서 ‘홈 화면에 추가’를 선택하세요.	3. Öffne das Menü oder die Details des Kurzbefehls und wähle „Zum Home-Bildschirm“.	3. Ouvrez le menu ou les détails du raccourci et choisissez « Sur l’écran d’accueil ».	3. Abre el menú o los detalles del atajo y elige «Añadir a pantalla de inicio».
+icon.guide.step4	4. 아이콘 미리보기를 누르고 사진에서 저장한 이미지를 선택하세요. 이름을 RetroSnap으로 지정하고 추가를 누르세요.	4. Tippe auf die Icon-Vorschau, wähle dein gespeichertes Foto, nenne es RetroSnap und tippe auf „Hinzufügen“.	4. Touchez l’aperçu, choisissez l’image enregistrée dans Photos, nommez-la RetroSnap et touchez Ajouter.	4. Toca la vista previa, elige la imagen guardada en Fotos, ponle RetroSnap y toca Añadir.
+icon.guide.note	별도의 단축어 아이콘이 추가됩니다. 원래 앱 아이콘은 그대로입니다. 원래 아이콘은 앱 보관함으로 옮길 수 있지만 앱을 삭제하지 마세요. 메뉴 이름은 iOS 버전에 따라 다를 수 있습니다.	Es entsteht ein separates Kurzbefehl-Icon. Das Original bleibt unverändert und kann in die App-Mediathek verschoben werden. Lösche die App nicht. Menünamen können je nach iOS-Version abweichen.	Une icône de raccourci distincte est ajoutée. L’originale reste inchangée et peut être déplacée dans la bibliothèque d’apps. Ne supprimez pas l’app. Les menus varient selon iOS.	Se añade un icono de atajo independiente. El original no cambia y puede moverse a la biblioteca de apps. No elimines la app. Los menús varían según la versión de iOS.
+icon.guide.apple	Apple 설정 가이드	Anleitung von Apple	Guide de configuration Apple	Guía de configuración de Apple
+icon.openSettings	설정 열기	Einstellungen öffnen	Ouvrir les réglages	Abrir ajustes
+icon.error.load	사진을 불러오지 못했습니다. 다른 사진을 선택하거나 먼저 iCloud에서 다운로드하세요.	Foto konnte nicht geladen werden. Wähle ein anderes oder lade es zuerst aus iCloud.	Impossible de charger cette photo. Essayez-en une autre ou téléchargez-la d’abord depuis iCloud.	No se pudo cargar la foto. Prueba otra o descárgala primero de iCloud.
+icon.error.permission	설정에서 RetroSnap의 사진 추가를 허용한 뒤 다시 저장하세요.	Erlaube RetroSnap in den Einstellungen das Hinzufügen von Fotos und versuche es erneut.	Autorisez RetroSnap à ajouter des photos dans Réglages, puis réessayez.	Permite a RetroSnap añadir fotos en Ajustes y vuelve a guardar.
+icon.error.save	아이콘을 저장하지 못했습니다. 저장 공간을 확인하고 다시 시도하세요.	Icon konnte nicht gespeichert werden. Prüfe den freien Speicher und versuche es erneut.	Impossible d’enregistrer l’icône. Vérifiez l’espace disponible et réessayez.	No se pudo guardar el icono. Comprueba el espacio disponible e inténtalo de nuevo.
+icon.saved.message	아이콘을 사진 앱에 저장했습니다. 홈 화면 가이드를 열어 단축어로 사용하세요.	Dein Icon wurde in Fotos gespeichert. Öffne die Home-Bildschirm-Anleitung, um es mit Kurzbefehle zu nutzen.	L’icône est enregistrée dans Photos. Ouvrez le guide de l’écran d’accueil pour l’utiliser avec Raccourcis.	El icono está guardado en Fotos. Abre la guía de inicio para usarlo con Atajos.

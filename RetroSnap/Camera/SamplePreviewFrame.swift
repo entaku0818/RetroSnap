@@ -30,6 +30,11 @@ enum SamplePreviewFrame {
 
     /// シャッターを切ったときの「撮れた1枚」の代わり。プレビューと同じ絵を使う。
     static func makeImage(size: CGSize = CGSize(width: 900, height: 1600)) -> UIImage? {
+        #if DEBUG
+        // Explicit simulator-only source for reproducible App Store captures.
+        if let path = UserDefaults.standard.string(forKey: "RetroSnapScreenshotPhoto"),
+           let photo = UIImage(contentsOfFile: path) { return photo }
+        #endif
         let format = UIGraphicsImageRendererFormat.default()
         format.scale = 1
         format.opaque = true

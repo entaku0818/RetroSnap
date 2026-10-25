@@ -1,80 +1,200 @@
 {
   "sourceLanguage": "en",
   "strings": {
-  "camera.pastelfilm.name": {
-    "extractionState": "manual",
-    "localizations": {
-      "en": {
-        "stringUnit": {
-          "state": "translated",
-          "value": "Pastel Film"
-        }
-      },
-      "ja": {
-        "stringUnit": {
-          "state": "translated",
-          "value": "淡色フィルム"
-        }
-      }
-    }
-  },
-  "camera.pastelfilm.tagline": {
-    "extractionState": "manual",
-    "localizations": {
-      "en": {
-        "stringUnit": {
-          "state": "translated",
-          "value": "Soft pastel colors for portraits and cafe moments."
-        }
-      },
-      "ja": {
-        "stringUnit": {
-          "state": "translated",
-          "value": "人物もカフェも、明るくやわらかな淡い色に。"
-        }
-      }
-    }
-  },
-  "camera.monofilm.name": {
-    "extractionState": "manual",
-    "localizations": {
-      "en": {
-        "stringUnit": {
-          "state": "translated",
-          "value": "Monochrome Film"
-        }
-      },
-      "ja": {
-        "stringUnit": {
-          "state": "translated",
-          "value": "白黒フィルム"
+    "camera.pastelfilm.name": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pastel Film"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "淡色フィルム"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "파스텔 필름"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pastellfilm"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Film pastel"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Película pastel"
+          }
         }
       }
-    }
-  },
-  "camera.monofilm.tagline": {
-    "extractionState": "manual",
-    "localizations": {
-      "en": {
-        "stringUnit": {
-          "state": "translated",
-          "value": "Bold contrast and textured black-and-white grain."
-        }
-      },
-      "ja": {
-        "stringUnit": {
-          "state": "translated",
-          "value": "強い明暗と粒子で描く、白黒の世界。"
+    },
+    "camera.pastelfilm.tagline": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Soft pastel colors for portraits and cafe moments."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "人物もカフェも、明るくやわらかな淡い色に。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "인물과 카페에 어울리는 부드러운 파스텔 색감."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sanfte Pastellfarben für Porträts und Café-Momente."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Des tons pastel doux pour les portraits et les instants au café."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tonos pastel suaves para retratos y momentos en el café."
+          }
         }
       }
-    }
-  },
+    },
+    "camera.monofilm.name": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Monochrome Film"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "白黒フィルム"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "흑백 필름"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Schwarzweißfilm"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Film noir et blanc"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Película en blanco y negro"
+          }
+        }
+      }
+    },
+    "camera.monofilm.tagline": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bold contrast and textured black-and-white grain."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "強い明暗と粒子で描く、白黒の世界。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "강한 명암 대비와 흑백 필름의 입자감."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kräftige Kontraste und strukturierte Schwarzweißkörnung."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Des contrastes marqués et un grain noir et blanc texturé."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Contrastes intensos y grano en blanco y negro."
+          }
+        }
+      }
+    },
     "Photos": {
       "localizations": {
         "ja": {
           "stringUnit": {
             "state": "translated",
             "value": "写真一覧"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "사진"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fotos"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Photos"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fotos"
           }
         }
       }
@@ -92,6 +212,30 @@
           "stringUnit": {
             "state": "translated",
             "value": "写真が保存されました"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "사진 보관함에 저장했습니다"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "In der Fotomediathek gespeichert"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enregistrée dans la photothèque"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Guardada en la fototeca"
           }
         }
       }
@@ -111,6 +255,30 @@
             "state": "translated",
             "value": "デートスタンプ98"
           }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "데이트스탬프 98"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Datestamp 98"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Datestamp 98"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Datestamp 98"
+          }
         }
       }
     },
@@ -129,10 +297,34 @@
             "state": "translated",
             "value": "右下に日付を焼き込む"
           }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "사진 모서리에 날짜를 새겨요"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Brennt das Datum in die Bildecke ein"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La date imprimée dans un coin"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La fecha impresa en una esquina"
+          }
         }
       }
     },
-    "camera.heiseidigital.name" : {
+    "camera.heiseidigital.name": {
       "comment": "平成デジカメのname",
       "extractionState": "manual",
       "localizations": {
@@ -147,10 +339,34 @@
             "state": "translated",
             "value": "平成デジカメ"
           }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Y2K 디카"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Y2K-Digicam"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Appareil numérique Y2K"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cámara digital Y2K"
+          }
         }
       }
     },
-    "camera.heiseidigital.tagline" : {
+    "camera.heiseidigital.tagline": {
       "comment": "平成デジカメのtagline",
       "extractionState": "manual",
       "localizations": {
@@ -164,6 +380,30 @@
           "stringUnit": {
             "state": "translated",
             "value": "白いフラッシュ感と、少し粗いあの頃の写り。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "밝은 플래시 느낌과 초기 디지털 특유의 질감."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Helle Blitzoptik mit dem rauen Charme früher Digitalkameras."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Un effet flash lumineux et le grain des premiers appareils numériques."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Destellos brillantes y la textura de las primeras cámaras digitales."
           }
         }
       }
@@ -183,6 +423,30 @@
             "state": "translated",
             "value": "ナイトネオン"
           }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "나이트 네온"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Night Neon"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Néon nocturne"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Neón nocturno"
+          }
         }
       }
     },
@@ -200,6 +464,30 @@
           "stringUnit": {
             "state": "translated",
             "value": "影は青く沈み、光が滲む"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "차가운 그림자와 빛나는 조명"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kühle Schatten, leuchtende Lichter"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ombres froides, lumières éclatantes"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sombras frías, luces brillantes"
           }
         }
       }
@@ -219,6 +507,30 @@
             "state": "translated",
             "value": "プレーン70"
           }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "플레인 70"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Plain 70"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Plain 70"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Plain 70"
+          }
         }
       }
     },
@@ -236,6 +548,30 @@
           "stringUnit": {
             "state": "translated",
             "value": "ほんのり褪せた日常の色"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "은은하게 빛바랜 일상의 색감"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sanft verblasste Alltagsfarben"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Des couleurs du quotidien doucement délavées"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Colores cotidianos suavemente desvaídos"
           }
         }
       }
@@ -255,6 +591,30 @@
             "state": "translated",
             "value": "サンセットフェード"
           }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "선셋 페이드"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sunset Fade"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sunset Fade"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sunset Fade"
+          }
         }
       }
     },
@@ -272,6 +632,30 @@
           "stringUnit": {
             "state": "translated",
             "value": "陽に灼けたオレンジの飛び"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "햇빛에 바랜 오렌지빛 하이라이트"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sonnengebleichte orangefarbene Lichter"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Des hautes lumières orangées, délavées par le soleil"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Luces anaranjadas desvaídas por el sol"
           }
         }
       }
@@ -291,6 +675,30 @@
             "state": "translated",
             "value": "トイプラスチック"
           }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "토이 플라스틱"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toy Plastic"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toy Plastic"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toy Plastic"
+          }
         }
       }
     },
@@ -309,6 +717,30 @@
             "state": "translated",
             "value": "強い周辺減光と光漏れ"
           }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "짙은 비네팅과 빛샘 효과"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Starke Vignette und Lichteinfall"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vignettage prononcé et fuites de lumière"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Viñeteado intenso y filtraciones de luz"
+          }
         }
       }
     },
@@ -325,6 +757,30 @@
           "stringUnit": {
             "state": "translated",
             "value": "未購入のカメラで撮影したため、この写真は保存されていません。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "구매하지 않은 카메라로 촬영하여 사진이 저장되지 않았습니다."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dieses Foto wurde mit einer nicht gekauften Kamera aufgenommen und nicht gespeichert."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cette photo n’a pas été enregistrée, car cette caméra n’a pas été achetée."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esta foto no se guardó porque se tomó con una cámara que no has comprado."
           }
         }
       }
@@ -343,6 +799,30 @@
             "state": "translated",
             "value": "このカメラを購入する"
           }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "이 카메라 잠금 해제"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Diese Kamera freischalten"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Débloquer cette caméra"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Desbloquear esta cámara"
+          }
         }
       }
     },
@@ -359,6 +839,30 @@
           "stringUnit": {
             "state": "translated",
             "value": "カメラストア"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "카메라 스토어"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kamera-Shop"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Boutique de caméras"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tienda de cámaras"
           }
         }
       }
@@ -377,6 +881,30 @@
             "state": "translated",
             "value": "カメラ"
           }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "카메라"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kameras"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Caméras"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cámaras"
+          }
         }
       }
     },
@@ -393,6 +921,30 @@
           "stringUnit": {
             "state": "translated",
             "value": "設定"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "설정"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Einstellungen"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Réglages"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ajustes"
           }
         }
       }
@@ -411,6 +963,30 @@
             "state": "translated",
             "value": "閉じる"
           }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "닫기"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Schließen"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fermer"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cerrar"
+          }
         }
       }
     },
@@ -427,6 +1003,30 @@
           "stringUnit": {
             "state": "translated",
             "value": "購入は完了しましたが、カメラが開きませんでした。「購入を復元」をお試しいただくか、お問い合わせください。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "구매했지만 카메라가 잠금 해제되지 않았습니다. 구매 복원을 시도하거나 지원팀에 문의하세요."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Der Kauf war erfolgreich, aber die Kamera ist noch gesperrt. Stelle Käufe wieder her oder kontaktiere den Support."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "L’achat a réussi, mais la caméra reste verrouillée. Restaurez les achats ou contactez l’assistance."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La compra se completó, pero la cámara sigue bloqueada. Restaura las compras o contacta con soporte."
           }
         }
       }
@@ -445,6 +1045,30 @@
             "state": "translated",
             "value": "いまアプリ内課金を利用できません。無料のカメラはそのまま使えます。"
           }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "현재 앱 내 구입을 이용할 수 없습니다. 무료 카메라는 사용할 수 있습니다."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "In-App-Käufe sind derzeit nicht verfügbar. Kostenlose Kameras funktionieren weiterhin."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Les achats intégrés sont indisponibles. Les caméras gratuites restent utilisables."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Las compras integradas no están disponibles. Las cámaras gratuitas siguen funcionando."
+          }
         }
       }
     },
@@ -461,6 +1085,30 @@
           "stringUnit": {
             "state": "translated",
             "value": "価格を取得できませんでした。通信状況を確認してもう一度お試しください。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "가격을 불러오지 못했습니다. 연결을 확인하고 다시 시도하세요."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Preise konnten nicht geladen werden. Prüfe deine Verbindung und versuche es erneut."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Impossible de charger les prix. Vérifiez votre connexion et réessayez."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No se pudieron cargar los precios. Comprueba tu conexión e inténtalo de nuevo."
           }
         }
       }
@@ -479,6 +1127,30 @@
             "state": "translated",
             "value": "購入を完了できませんでした。"
           }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "구매를 완료하지 못했습니다."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Der Kauf konnte nicht abgeschlossen werden."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "L’achat n’a pas pu être effectué."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No se pudo completar la compra."
+          }
         }
       }
     },
@@ -495,6 +1167,30 @@
           "stringUnit": {
             "state": "translated",
             "value": "どのカメラもライブプレビューで試せます。購入が必要になるのは、そのカメラで撮った写真を保存するときだけです。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "구매 전에 모든 카메라의 실시간 미리보기를 이용할 수 있습니다. 해당 카메라로 촬영한 사진을 저장하려면 구매가 필요합니다."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Teste jede Kamera vor dem Kauf in der Live-Vorschau. Der Kauf ist erst nötig, um ein mit dieser Kamera aufgenommenes Foto zu speichern."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Essayez chaque caméra en aperçu avant l’achat. L’achat est nécessaire uniquement pour enregistrer une photo prise avec cette caméra."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prueba cada cámara en la vista previa antes de comprar. Solo necesitas comprarla para guardar las fotos tomadas con ella."
           }
         }
       }
@@ -513,6 +1209,30 @@
             "state": "translated",
             "value": "この Apple アカウントで購入済みのカメラを元に戻します。"
           }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "이 Apple 계정으로 구매한 카메라를 복원합니다."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stellt Kameras wieder her, die du mit diesem Apple Account gekauft hast."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restaure les caméras achetées avec ce compte Apple."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restaura las cámaras compradas con esta cuenta de Apple."
+          }
         }
       }
     },
@@ -529,6 +1249,30 @@
           "stringUnit": {
             "state": "translated",
             "value": "無料"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "무료"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kostenlos"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gratuit"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gratis"
           }
         }
       }
@@ -547,6 +1291,30 @@
             "state": "translated",
             "value": "未購入"
           }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "미구매"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nicht gekauft"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Non achetée"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sin comprar"
+          }
         }
       }
     },
@@ -563,6 +1331,30 @@
           "stringUnit": {
             "state": "translated",
             "value": "このカメラは無料です。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "이 카메라는 무료입니다."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Diese Kamera ist kostenlos."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cette caméra est gratuite."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esta cámara es gratuita."
           }
         }
       }
@@ -581,6 +1373,30 @@
             "state": "translated",
             "value": "購入をキャンセルしました。"
           }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "구매가 취소되었습니다."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kauf abgebrochen."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Achat annulé."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Compra cancelada."
+          }
         }
       }
     },
@@ -597,6 +1413,30 @@
           "stringUnit": {
             "state": "translated",
             "value": "この Apple アカウントに購入履歴はありませんでした。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "이 Apple 계정의 구매 내역이 없습니다."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Keine Käufe für diesen Apple Account gefunden."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aucun achat trouvé pour ce compte Apple."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No se encontraron compras para esta cuenta de Apple."
           }
         }
       }
@@ -615,6 +1455,30 @@
             "state": "translated",
             "value": "承認待ちです。承認されるとカメラが使えるようになります。"
           }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "승인을 기다리고 있습니다. 구매가 승인되면 카메라가 잠금 해제됩니다."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Warten auf Genehmigung. Danach wird die Kamera freigeschaltet."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "En attente d’autorisation. La caméra sera débloquée après approbation de l’achat."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esperando aprobación. La cámara se desbloqueará cuando se apruebe la compra."
+          }
         }
       }
     },
@@ -631,6 +1495,30 @@
           "stringUnit": {
             "state": "translated",
             "value": "購入しました。このカメラで保存できます。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "구매했습니다. 이제 이 카메라로 촬영한 사진을 저장할 수 있습니다."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gekauft. Du kannst jetzt Fotos mit dieser Kamera speichern."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Achat effectué. Vous pouvez enregistrer les photos prises avec cette caméra."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Compra completada. Ya puedes guardar fotos tomadas con esta cámara."
           }
         }
       }
@@ -661,6 +1549,30 @@
             "state": "translated",
             "value": "%lld 台のカメラを復元しました。"
           }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "카메라 %lld개를 복원했습니다."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wiederhergestellte Kameras: %lld."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Caméras restaurées : %lld."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cámaras restauradas: %lld."
+          }
         }
       }
     },
@@ -677,6 +1589,30 @@
           "stringUnit": {
             "state": "translated",
             "value": "購入済み"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "구매 완료"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gekauft"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Achetée"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Comprada"
           }
         }
       }
@@ -695,6 +1631,30 @@
             "state": "translated",
             "value": "購入を復元"
           }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "구매 복원"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Käufe wiederherstellen"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restaurer les achats"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restaurar compras"
+          }
         }
       }
     },
@@ -712,6 +1672,30 @@
             "state": "translated",
             "value": "カメラストア"
           }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "카메라 스토어"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kamera-Shop"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Boutique de caméras"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tienda de cámaras"
+          }
         }
       }
     },
@@ -728,6 +1712,30 @@
           "stringUnit": {
             "state": "translated",
             "value": "取得できません"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "사용 불가"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nicht verfügbar"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Indisponible"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No disponible"
           }
         }
       }

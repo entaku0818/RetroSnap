@@ -43,6 +43,7 @@
 		61BA083F2AC7D98C0086E3C8 /* RetroSnapUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BA083E2AC7D98C0086E3C8 /* RetroSnapUITestsLaunchTests.swift */; };
 		61CA7B0E2BF0000200C3994D /* CameraCarouselUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA7B0D2BF0000200C3994D /* CameraCarouselUITests.swift */; };
 		61CA7C112BF0000300C3994D /* CameraStoreUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CA7C102BF0000300C3994D /* CameraStoreUITests.swift */; };
+		A10B20261026000000000002 /* StoreLocalizationScreenshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10B20261026000000000001 /* StoreLocalizationScreenshotTests.swift */; };
 		61CA7C122BF0000300C3994D /* RetroSnap.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 61CA7C0D2BF0000300C3994D /* RetroSnap.storekit */; };
 		61BA084C2AC7E1130086E3C8 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BA084B2AC7E1130086E3C8 /* CameraView.swift */; };
 		61BA084E2AC7EA5D0086E3C8 /* Image+extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BA084D2AC7EA5D0086E3C8 /* Image+extention.swift */; };
@@ -86,6 +87,7 @@
 		61BA083E2AC7D98C0086E3C8 /* RetroSnapUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetroSnapUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		61CA7B0D2BF0000200C3994D /* CameraCarouselUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCarouselUITests.swift; sourceTree = "<group>"; };
 		61CA7C102BF0000300C3994D /* CameraStoreUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraStoreUITests.swift; sourceTree = "<group>"; };
+		A10B20261026000000000001 /* StoreLocalizationScreenshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreLocalizationScreenshotTests.swift; sourceTree = "<group>"; };
 		61BA084B2AC7E1130086E3C8 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		61BA084D2AC7EA5D0086E3C8 /* Image+extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+extention.swift"; sourceTree = "<group>"; };
 		61CA7A012BF0000100C3994D /* CameraSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraSpec.swift; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 				61BA083E2AC7D98C0086E3C8 /* RetroSnapUITestsLaunchTests.swift */,
 				61CA7B0D2BF0000200C3994D /* CameraCarouselUITests.swift */,
 				61CA7C102BF0000300C3994D /* CameraStoreUITests.swift */,
+				A10B20261026000000000001 /* StoreLocalizationScreenshotTests.swift */,
 			);
 			path = RetroSnapUITests;
 			sourceTree = "<group>";
@@ -440,6 +443,7 @@
 				61BA083F2AC7D98C0086E3C8 /* RetroSnapUITestsLaunchTests.swift in Sources */,
 				61CA7B0E2BF0000200C3994D /* CameraCarouselUITests.swift in Sources */,
 				61CA7C112BF0000300C3994D /* CameraStoreUITests.swift in Sources */,
+				A10B20261026000000000002 /* StoreLocalizationScreenshotTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
