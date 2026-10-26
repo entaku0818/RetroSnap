@@ -1,9 +1,9 @@
 {
-  "checkedAt": "2026-10-25T23:47:24.332Z",
+  "checkedAt": "2026-10-26T01:33:03.506Z",
   "appID": "6468934085",
   "versionID": "e1f15169-4cad-44be-89bc-aa465725e8f9",
   "version": "0.3.5",
-  "state": "PREPARE_FOR_SUBMISSION",
+  "state": "WAITING_FOR_REVIEW",
   "locales": [
     {
       "locale": "ja",
