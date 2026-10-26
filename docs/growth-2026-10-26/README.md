@@ -46,3 +46,11 @@ User approved the preview images in this conversation. Upload target: RetroSnap 
 Only the six approved descriptions, names, subtitles and iPhone screenshot pairs are updated. Existing iPad sets are retained. Older local screenshots remain as source history; the approved files have the `growth_20261026` filename suffix. Do not bulk-upload every old image in this directory.
 
 Proof: `asc-before.json` (snapshot), `asc-upload.json` (uploaded asset IDs), `asc-verified.json` (server readback, metadata equality and ordered screenshot MD5 checksums). These changes save store drafts; no binary was uploaded and no review was submitted in this step. In-app translations require a new build.
+
+## Review submission — 2026-10-26
+
+Version 0.3.5, build 12: WAITING_FOR_REVIEW confirmed by fresh ASC readback. See `asc-submitted.json` for IDs and timestamps. Release mode: AFTER_APPROVAL.
+
+Release archive and IPA export succeeded under Xcode 27.1. Both binaries contain ja/en/ko/de/fr/es resources. Six-locale UI capture tests passed before release; Smart Player unit tests passed (36 tests). Only the version/build changed in the shipping source after these tests.
+
+Built from committed growth changes in an isolated directory; the pre-existing uncommitted icon-creator work was not included and remains untouched. The previous 0.3.4 release changed version/build and notes only.

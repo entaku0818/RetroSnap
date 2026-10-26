@@ -1,0 +1,105 @@
+{
+  "checkedAt": "2026-10-26T01:32:11.971Z",
+  "appId": "6468934085",
+  "versionId": "e1f15169-4cad-44be-89bc-aa465725e8f9",
+  "platform": "IOS",
+  "versionString": "0.3.5",
+  "appStoreState": "WAITING_FOR_REVIEW",
+  "appVersionState": "WAITING_FOR_REVIEW",
+  "copyright": "Takuya Endo",
+  "reviewType": "APP_STORE",
+  "releaseType": "AFTER_APPROVAL",
+  "earliestReleaseDate": null,
+  "usesIdfa": null,
+  "downloadable": true,
+  "createdDate": "2026-10-25T16:42:53-07:00",
+  "build": {
+    "id": "3d6b420d-128d-4633-9e57-e1b6523c36ee",
+    "version": "12",
+    "uploadedDate": "2026-10-25T18:29:06-07:00",
+    "expirationDate": "2027-01-23T17:29:06-08:00",
+    "expired": false,
+    "minOsVersion": "16.0",
+    "lsMinimumSystemVersion": null,
+    "computedMinMacOsVersion": "13.0",
+    "computedMinVisionOsVersion": "1.0",
+    "iconAssetToken": {
+      "templateUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/26/7f/f2/267ff290-cfb0-dfc2-f5da-892f45957286/AppIcon60x60@2x.png/{w}x{h}bb.{f}",
+      "width": 120,
+      "height": 120
+    },
+    "processingState": "VALID",
+    "buildAudienceType": "APP_STORE_ELIGIBLE",
+    "usesNonExemptEncryption": false
+  },
+  "submissions": [
+    {
+      "id": "109ec43e-1956-4cbf-a2ea-304505389bb3",
+      "platform": "IOS",
+      "submittedDate": "2026-10-26T01:31:52.934Z",
+      "state": "WAITING_FOR_REVIEW"
+    },
+    {
+      "id": "009c7ee3-b597-4980-9ed2-543d8ca7f9cf",
+      "platform": "IOS",
+      "submittedDate": "2026-10-23T23:46:47.608Z",
+      "state": "COMPLETE"
+    },
+    {
+      "id": "f478db1b-0ea9-4a35-a25b-ba43b28a3fb6",
+      "platform": "IOS",
+      "submittedDate": "2026-10-23T11:58:43.364Z",
+      "state": "COMPLETE"
+    },
+    {
+      "id": "52b3ca77-bcdd-4225-a05c-85bd4b2654a2",
+      "platform": "IOS",
+      "submittedDate": "2026-10-20T15:57:24.319Z",
+      "state": "COMPLETE"
+    },
+    {
+      "id": "6c577b8d-b6fe-4200-8f57-99cd08401ee0",
+      "platform": "IOS",
+      "submittedDate": "2026-10-02T13:23:12.244Z",
+      "state": "COMPLETE"
+    },
+    {
+      "id": "45c58708-2a88-4a5e-b053-b53cb53d9052",
+      "platform": "IOS",
+      "submittedDate": "2026-09-29T11:19:50.819Z",
+      "state": "COMPLETE"
+    }
+  ],
+  "locales": [
+    {
+      "locale": "en-US",
+      "keywords": "vintage,analog,disposable,monochrome,black,white,pastel,grain,neon,night,toy,light,leak,sepia,90s",
+      "whatsNew": "Added Korean, German, French, and Spanish. The app now supports six languages, including Japanese and English."
+    },
+    {
+      "locale": "fr-FR",
+      "keywords": "photo, Sépia, Rétro, Photo, Film,Effet, Vintage, Nostalgique, Instantané, Polaroïd",
+      "whatsNew": "Ajout du coréen, de l’allemand, du français et de l’espagnol. L’app prend désormais en charge six langues, dont le japonais et l’anglais."
+    },
+    {
+      "locale": "ja",
+      "keywords": "トイ,光漏れ,ネオン,ヴィンテージ,セピア,粒子,スナップ,Y2K",
+      "whatsNew": "韓国語・ドイツ語・フランス語・スペイン語に対応し、日本語・英語を含む6言語で使えるようになりました。"
+    },
+    {
+      "locale": "es-ES",
+      "keywords": "Cámara, Sepia, Retro, Foto, Película, Monocromo, Viejo / Antiguo, Efecto, Vintage, Nostálgico",
+      "whatsNew": "Añadimos coreano, alemán, francés y español. La app ahora está disponible en seis idiomas, incluidos japonés e inglés."
+    },
+    {
+      "locale": "ko",
+      "keywords": "카메라, 세피아, 레트로, 사진, 필름, 모노크롬, 오래된, 효과, 빈티지, 향수를 불러일으키는, 스냅샷, 폴라로이드, 클래식",
+      "whatsNew": "한국어, 독일어, 프랑스어, 스페인어를 추가했습니다. 이제 일본어와 영어를 포함한 6개 언어를 지원합니다."
+    },
+    {
+      "locale": "de-DE",
+      "keywords": "Kamera, Sepia, Retro, Film, Monochrom, Alt, Effekt, Vintage, Nostalgisch, Schnappschuss, Polaroid,",
+      "whatsNew": "Koreanisch, Deutsch, Französisch und Spanisch hinzugefügt. Die App unterstützt jetzt sechs Sprachen, einschließlich Japanisch und Englisch."
+    }
+  ]
+}

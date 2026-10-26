@@ -1,1 +1,1 @@
-Meet our new app icon: a retro film frame with a warm sunset.
+Added Korean, German, French, and Spanish. The app now supports six languages, including Japanese and English.
