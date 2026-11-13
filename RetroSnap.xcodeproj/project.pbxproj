@@ -48,6 +48,10 @@
 		61BA084C2AC7E1130086E3C8 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BA084B2AC7E1130086E3C8 /* CameraView.swift */; };
 		61BA084E2AC7EA5D0086E3C8 /* Image+extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BA084D2AC7EA5D0086E3C8 /* Image+extention.swift */; };
 		61F9C6612AD59BFC00F326A7 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 61F9C6602AD59BFC00F326A7 /* Localizable.xcstrings */; };
+		084A6266D186CAA0AB58307D /* PhotoIconCreatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A12649CAAA173D4893EE41 /* PhotoIconCreatorView.swift */; };
+		B175EA538145AFC70DE59D36 /* PhotoIconTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1384B841D8FF87C4184A0A72 /* PhotoIconTests.swift */; };
+		B28A31EA9B02A9B6F8F3DEB5 /* PhotoIconRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A047A903D7C701F6F576B97 /* PhotoIconRenderer.swift */; };
+		D41EAA5384BC433A1338D134 /* PhotoIconModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB5376B22AE9A8DF17C1122 /* PhotoIconModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +112,10 @@
 		61CA7B0B2BF0000200C3994D /* CameraSelectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraSelectionTests.swift; sourceTree = "<group>"; };
 		61CA7B072BF0000200C3994D /* Photo 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Photo 2.xcdatamodel"; sourceTree = "<group>"; };
 		61F9C6602AD59BFC00F326A7 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		1384B841D8FF87C4184A0A72 /* PhotoIconTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PhotoIconTests.swift; sourceTree = "<group>"; };
+		6EB5376B22AE9A8DF17C1122 /* PhotoIconModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PhotoIconModel.swift; sourceTree = "<group>"; };
+		7A047A903D7C701F6F576B97 /* PhotoIconRenderer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PhotoIconRenderer.swift; sourceTree = "<group>"; };
+		83A12649CAAA173D4893EE41 /* PhotoIconCreatorView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PhotoIconCreatorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +221,7 @@
 				61BA08272AC7D98C0086E3C8 /* Preview Content */,
 				61BA084D2AC7EA5D0086E3C8 /* Image+extention.swift */,
 				61965ABB2AD2703200A91BA7 /* AdmobBannerView.swift */,
+				E73496909605233497EC2244 /* IconCreator */,
 			);
 			path = RetroSnap;
 			sourceTree = "<group>";
@@ -233,6 +242,7 @@
 				61CA7B092BF0000200C3994D /* PhotoRepositoryTests.swift */,
 				61CA7C092BF0000300C3994D /* StoreTests.swift */,
 				61CA7B0B2BF0000200C3994D /* CameraSelectionTests.swift */,
+				1384B841D8FF87C4184A0A72 /* PhotoIconTests.swift */,
 			);
 			path = RetroSnapTests;
 			sourceTree = "<group>";
@@ -247,6 +257,17 @@
 				A10B20261026000000000001 /* StoreLocalizationScreenshotTests.swift */,
 			);
 			path = RetroSnapUITests;
+			sourceTree = "<group>";
+		};
+		E73496909605233497EC2244 /* IconCreator */ = {
+			isa = PBXGroup;
+			children = (
+				7A047A903D7C701F6F576B97 /* PhotoIconRenderer.swift */,
+				6EB5376B22AE9A8DF17C1122 /* PhotoIconModel.swift */,
+				83A12649CAAA173D4893EE41 /* PhotoIconCreatorView.swift */,
+			);
+			name = IconCreator;
+			path = IconCreator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -420,6 +441,9 @@
 				61965AB32AD2516B00A91BA7 /* PhotoRepository.swift in Sources */,
 				61BA084C2AC7E1130086E3C8 /* CameraView.swift in Sources */,
 				61965AB82AD2614F00A91BA7 /* Photos.swift in Sources */,
+				B28A31EA9B02A9B6F8F3DEB5 /* PhotoIconRenderer.swift in Sources */,
+				D41EAA5384BC433A1338D134 /* PhotoIconModel.swift in Sources */,
+				084A6266D186CAA0AB58307D /* PhotoIconCreatorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,6 +456,7 @@
 				61CA7B0A2BF0000200C3994D /* PhotoRepositoryTests.swift in Sources */,
 				61CA7C0A2BF0000300C3994D /* StoreTests.swift in Sources */,
 				61CA7B0C2BF0000200C3994D /* CameraSelectionTests.swift in Sources */,
+				B175EA538145AFC70DE59D36 /* PhotoIconTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

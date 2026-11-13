@@ -23,6 +23,14 @@ struct SettingsView: View {
     var body: some View {
         NavigationStack {
             List {
+                Section {
+                    NavigationLink {
+                        PhotoIconCreatorView()
+                    } label: {
+                        Label("icon.title", systemImage: "film")
+                    }
+                    .accessibilityIdentifier("settings.photoIcon")
+                }
                 if let message {
                     Section {
                         Text(message)

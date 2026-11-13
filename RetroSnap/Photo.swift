@@ -30,6 +30,15 @@ struct PhotoDetailView: View {
             Spacer()
         }
         .navigationBarTitle(photo.name, displayMode: .inline)
+        .toolbar {
+            ToolbarItem(placement: .bottomBar) {
+                NavigationLink {
+                    PhotoIconCreatorView(initialPhotoURL: imagePathInDocuments(fileName: photo.imageURL.lastPathComponent).map { URL(fileURLWithPath: $0) })
+                } label: {
+                    Label("icon.title", systemImage: "film")
+                }
+            }
+        }
         .navigationBarItems(trailing:
             Button(action: {
                 showShareSheet = true

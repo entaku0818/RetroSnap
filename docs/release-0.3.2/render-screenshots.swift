@@ -14,19 +14,21 @@ for locale in ["ja", "en-US"] {
   NSGraphicsContext.saveGraphicsState(); NSGraphicsContext.current = NSGraphicsContext(bitmapImageRep: bitmap)
   NSColor(calibratedRed: 0.94, green: 0.90, blue: 0.83, alpha: 1).setFill(); NSRect(origin: .zero, size: size).fill()
   text("RETROSNAP", NSRect(x: 100, y: 2670, width: 1120, height: 70), 38, ink, bold: true)
-  let title = shot == 1 ? (ja ? "撮るだけで、\nフィルム写真。" : "Just shoot.\nGet film.") : (ja ? "買う前に、\n写りを見比べる。" : "Preview first.\nPick your look.")
+  let title = shot == 1 ? (ja ? "撮るだけで、\nフィルム写真。" : "Just shoot.\nGet film.") : (ja ? "撮る前に、\n写りを見比べる。" : "Preview first.\nPick your look.")
   text(title, NSRect(x: 100, y: 2290, width: 1120, height: 350), ja ? 104 : 114, ink, bold: true)
-  let sub = shot == 1 ? (ja ? "平成デジカメも。無料3台から。" : "Start with 3 free cameras. Y2K included.") : (ja ? "有料カメラは、保存するときに買い切り。" : "Paid cameras: buy once to save your shots.")
+  let sub = shot == 1 ? (ja ? "フィルム風も、平成デジカメ風も。" : "Film tones and a nostalgic Y2K look.") : (ja ? "カメラを切り替えて、好みの色に。" : "Switch cameras. Find your favorite tones.")
   text(sub, NSRect(x: 100, y: 2130, width: 1120, height: 130), ja ? 43 : 40, ink)
-  let asset = shot == 1 ? "screen-cafe-sunsetfade.jpg" : "screen-fountain-locked-notice.jpg"
-  let url = root.appendingPathComponent("docs/screenshot_directions/src/assets/real/\(ja ? "ja" : "en")/\(asset)")
+  let asset = shot == 1
+    ? "real/\(ja ? "ja" : "en")/screen-cafe-sunsetfade.jpg"
+    : "\(ja ? "" : "en/")screen-nightneon.jpg"
+  let url = root.appendingPathComponent("docs/screenshot_directions/src/assets/\(asset)")
   let source = NSImage(contentsOf: url)!
   let frame = NSRect(x: 235, y: 260, width: 850, height: 1847)
   NSColor.black.setFill(); NSBezierPath(roundedRect: frame.insetBy(dx: -16, dy: -16), xRadius: 60, yRadius: 60).fill()
   NSGraphicsContext.saveGraphicsState(); NSBezierPath(roundedRect: frame, xRadius: 45, yRadius: 45).addClip()
   source.draw(in: frame, from: .zero, operation: .sourceOver, fraction: 1)
   NSGraphicsContext.restoreGraphicsState()
-  text(ja ? "8つの写り  /  サブスクなし" : "8 camera looks  /  No subscription", NSRect(x: 100, y: 80, width: 1120, height: 100), 42, ink, bold: true)
+  text(ja ? "8つの写り  /  撮る前にプレビュー" : "8 camera looks  /  Live preview", NSRect(x: 100, y: 80, width: 1120, height: 100), 42, ink, bold: true)
   NSGraphicsContext.restoreGraphicsState()
   let out = root.appendingPathComponent("docs/release-0.3.2/screenshots/\(locale)/\(shot-1)_APP_IPHONE_67_0.png")
   try bitmap.representation(using: .png, properties: [:])!.write(to: out)

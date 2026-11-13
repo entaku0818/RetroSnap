@@ -133,6 +133,46 @@ final class CameraStoreUITests: XCTestCase {
 
     // MARK: - 補助
 
+    func testPhotoIconCreatorShowsGuideAndDisablesSaveUntilPhotoSelected() {
+        let app = launchApp(arguments: ["-AppleLanguages", "(en)", "-AppleLocale", "en_US"])
+        XCTAssertTrue(app.buttons["camera.settings"].waitForExistence(timeout: 10))
+        app.buttons["camera.settings"].tap()
+        app.buttons["settings.photoIcon"].tap()
+        XCTAssertTrue(app.buttons["icon.choose"].waitForExistence(timeout: 5))
+        XCTAssertFalse(app.buttons["icon.save"].isEnabled)
+        app.swipeUp()
+        app.buttons["icon.guide"].tap()
+        XCTAssertTrue(app.staticTexts["2. Add the “Open App” action, then choose RetroSnap as the app."].waitForExistence(timeout: 5))
+        record(XCUIScreen.main.screenshot(), as: "photo-icon-guide")
+    }
+
+    /// Seed Photos with `xcrun simctl addmedia <device> <photo>` before running.
+    func testPhotoIconSelectAdjustAndSave() throws {
+        let app = launchApp(arguments: ["-AppleLanguages", "(en)", "-AppleLocale", "en_US"])
+        XCTAssertTrue(app.buttons["camera.settings"].waitForExistence(timeout: 10))
+        app.buttons["camera.settings"].tap()
+        app.buttons["settings.photoIcon"].tap()
+        app.buttons["icon.choose"].tap()
+        let photo = app.images.matching(NSPredicate(format: "label BEGINSWITH 'Photo,'")).firstMatch
+        guard photo.waitForExistence(timeout: 10) else {
+            throw XCTSkip("Seed the simulator photo library with simctl addmedia before running this integration test.")
+        }
+        photo.tap()
+        XCTAssertTrue(app.sliders["Zoom"].waitForExistence(timeout: 10))
+        app.sliders["Zoom"].adjust(toNormalizedSliderPosition: 0.4)
+        app.sliders["Horizontal Position"].adjust(toNormalizedSliderPosition: 0.7)
+        record(XCUIScreen.main.screenshot(), as: "photo-icon-editor")
+        app.swipeUp()
+        XCTAssertTrue(app.buttons["icon.save"].isEnabled)
+        app.buttons["icon.save"].tap()
+        let system = XCUIApplication(bundleIdentifier: "com.apple.springboard")
+        let allow = system.alerts.buttons["Allow Photos to Be Added"]
+        if allow.waitForExistence(timeout: 2) { allow.tap() }
+        XCTAssertTrue(app.alerts.staticTexts["Your icon is saved to Photos. Open the Home Screen guide to use it with Shortcuts."].waitForExistence(timeout: 10))
+        app.alerts.buttons["OK"].tap()
+        record(XCUIScreen.main.screenshot(), as: "photo-icon-saved")
+    }
+
     private func launchApp(arguments: [String] = []) -> XCUIApplication {
         let app = XCUIApplication()
         app.launchArguments = arguments
